@@ -108,7 +108,7 @@ alert('User already registered. Please try again');
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.php"><img alt="Brand" src="assets/img/logo.png" height="40px"></a>
+                   <!--- <a class="navbar-brand" href="index.php"><img alt="Brand" src="assets/img/logo.png" height="40px"></a> --->
                 </div>
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -133,7 +133,7 @@ alert('User already registered. Please try again');
                                             <form class="form" role="form" method="POST" accept-charset="UTF-8" >
                                                 <div class="form-group">
                                                     <label class="sr-only" for="icPatient">Email</label>
-                                                    <input type="text" class="form-control" name="icPatient" placeholder="IC Number" required>
+                                                    <input type="text" class="form-control" name="icPatient" placeholder="Username" required>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="sr-only" for="password">Password</label>
@@ -313,8 +313,8 @@ alert('User already registered. Please try again');
             <div class="container">
                 <div class="row">
                     <div class="col-md-5">
-                        <h2>Make appointment today!</h2>
-                        <p>This is Doctor's Schedule. Please <span class="label label-danger">login</span> to make an appointment. </p>
+                        <h2>Book an appointment today!</h2>
+                        <p>Please <span class="label label-danger">login</span> to Book an appointment. </p>
                             
                         <!-- date textbox -->
                        
@@ -389,7 +389,7 @@ alert('User already registered. Please try again');
                 <div class="underlined-title">
                     <h1>Get in Touch</h1>
                     <hr>
-                    <h2>Feel free to drop us a line to contact us</h2>
+                    <h2>Feel free to drop us a line to <a href= "http://localhost/MT-cleaning/contactus.php"> contact us</h2>
                 </div>
                 <div class="row">
                     <div class="col-md-4 col-sm-12 col-xs-12 pad25">
@@ -397,65 +397,23 @@ alert('User already registered. Please try again');
                             <span class="fa fa-pencil"></span>
                         </div>
                         <div class="col-xs-10">
-                            <h4>Branding</h4>
-                            <p>Retro chillwave YOLO four loko photo booth. Brooklyn kale chips, seitan hella 3 wolf moon slow-carb paleo.</p>
+                            <h4>Services</h4>
+                            <p>Check out our awesome prices and services.</p>
                         </div>
                     </div>
-                    <div class="col-md-4 col-sm-12 col-xs-12 pad25">
-                        <div class="col-xs-2">
-                            <span class="fa fa-code"></span>
-                        </div>
-                        <div class="col-xs-10">
-                            <h4>Web Design</h4>
-                            <p>Retro chillwave YOLO four loko photo booth. Brooklyn kale chips, seitan hella 3 wolf moon slow-carb paleo.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-12 col-xs-12 pad25">
-                        <div class="col-xs-2">
-                            <span class="fa fa-comments-o"></span>
-                        </div>
-                        <div class="col-xs-10">
-                            <h4>Social Marketing</h4>
-                            <p>Retro chillwave YOLO four loko photo booth. Brooklyn kale chips, seitan hella 3 wolf moon slow-carb paleo.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-12 col-xs-12 pad25">
-                        <div class="col-xs-2">
-                            <span class="fa fa-search"></span>
-                        </div>
-                        <div class="col-xs-10">
-                            <h4>SEO</h4>
-                            <p>Retro chillwave YOLO four loko photo booth. Brooklyn kale chips, seitan hella 3 wolf moon slow-carb paleo.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-12 col-xs-12 pad25">
-                        <div class="col-xs-2">
-                            <span class="fa fa-mobile"></span>
-                        </div>
-                        <div class="col-xs-10">
-                            <h4>Mobile Apps</h4>
-                            <p>Retro chillwave YOLO four loko photo booth. Brooklyn kale chips, seitan hella 3 wolf moon slow-carb paleo.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-12 col-xs-12 pad25">
-                        <div class="col-xs-2">
-                            <span class="fa fa-bookmark"></span>
-                        </div>
-                        <div class="col-xs-10">
-                            <h4>Corporate Literture</h4>
-                            <p>Retro chillwave YOLO four loko photo booth. Brooklyn kale chips, seitan hella 3 wolf moon slow-carb paleo.</p>
-                        </div>
-                    </div>
+                   
                 </div>
                 <!-- /.row -->
             </div>
             <!-- /.container -->
         </section>
+		
+
         <!-- forth section end -->
         <!-- footer start -->
         <div class="copyright-bar bg-black">
             <div class="container">
-                <p class="pull-left small">© Projectworlds <a href ="https://projectworlds.in/">Get More Projects </a></p>
+                <p class="pull-left small">© Copyright 2020. All rights reserved. </p>
                 <p class="pull-right small"><a href="adminlogin.php">admin</a></p>
             </div>
         </div>

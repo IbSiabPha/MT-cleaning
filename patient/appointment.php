@@ -158,8 +158,8 @@ header("Location: patient/patient.php");
 													
 													Patient Name: <?php echo $userRow['userFirstName'] ?> <?php echo $userRow['userLastName'] ?><br>
 													Patient IC: <?php echo $userRow['idUser'] ?><br>
-													Contact Number: <?php echo $userRow['patientPhone'] ?><br>
-													Address: <?php echo $userRow['patientAddress'] ?>
+													Contact Number: <?php echo $userRow['userPhone'] ?><br>
+													Address: <?php echo $userRow['userAddress'] ?>
 												</div>
 											</div>
 											<div class="panel panel-default">

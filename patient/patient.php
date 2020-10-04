@@ -154,63 +154,63 @@ $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
 		<section id="content-1-9" class="content-1-9 content-block">
 			<div class="container">
 				<div class="underlined-title">
-					<h1>Get in Touch</h1>
+					<h1>Services</h1>
 					<hr>
-					<h2>Feel free to drop us a line to contact us</h2>
+                    <h2>Contact Us: 123-456-7890</h2>
 				</div>
 				<div class="row">
 					<div class="col-md-4 col-sm-12 col-xs-12 pad25">
 						<div class="col-xs-2">
-							<span class="fa fa-pencil"></span>
+							<span class="fa fa-check-circle"></span>
 						</div>
 						<div class="col-xs-10">
-							<h4>Branding</h4>
-							<p>Retro chillwave YOLO four loko photo booth. Brooklyn kale chips, seitan hella 3 wolf moon slow-carb paleo.</p>
+							<h4>Furniture Cleaning</h4>
+							<p>Bring your funiture back to life and looking brand new again!</p>
 						</div>
 					</div>
 					<div class="col-md-4 col-sm-12 col-xs-12 pad25">
 						<div class="col-xs-2">
-							<span class="fa fa-code"></span>
+							<span class="fa fa-check-circle"></span>
 						</div>
 						<div class="col-xs-10">
-							<h4>Web Design</h4>
-							<p>Retro chillwave YOLO four loko photo booth. Brooklyn kale chips, seitan hella 3 wolf moon slow-carb paleo.</p>
+							<h4>Window Cleaning</h4>
+							<p>Get a nice clear view outdoors & streak-free windows!</p>
 						</div>
 					</div>
 					<div class="col-md-4 col-sm-12 col-xs-12 pad25">
 						<div class="col-xs-2">
-							<span class="fa fa-comments-o"></span>
+							<span class="fa fa-check-circle"></span>
 						</div>
 						<div class="col-xs-10">
-							<h4>Social Marketing</h4>
-							<p>Retro chillwave YOLO four loko photo booth. Brooklyn kale chips, seitan hella 3 wolf moon slow-carb paleo.</p>
+							<h4>Carpet Cleaning</h4>
+							<p>We can clean your carpets and get rid of the toughest stains!</p>
 						</div>
 					</div>
 					<div class="col-md-4 col-sm-12 col-xs-12 pad25">
 						<div class="col-xs-2">
-							<span class="fa fa-search"></span>
+							<span class="fa fa-check-circle"></span>
 						</div>
 						<div class="col-xs-10">
-							<h4>SEO</h4>
-							<p>Retro chillwave YOLO four loko photo booth. Brooklyn kale chips, seitan hella 3 wolf moon slow-carb paleo.</p>
+							<h4>Garage Cleaning</h4>
+							<p>Do you have a garage that you just haven't gotten around to cleaning yet?  We'll take care of that for you!</p>
 						</div>
 					</div>
 					<div class="col-md-4 col-sm-12 col-xs-12 pad25">
 						<div class="col-xs-2">
-							<span class="fa fa-mobile"></span>
+							<span class="fa fa-check-circle"></span>
 						</div>
 						<div class="col-xs-10">
-							<h4>Mobile Apps</h4>
-							<p>Retro chillwave YOLO four loko photo booth. Brooklyn kale chips, seitan hella 3 wolf moon slow-carb paleo.</p>
+							<h4>Bathroom Cleaning</h4>
+							<p>We'll take care of cleaning and disinfecting your bathroom for you, so you can maintain a healhty hygiene!</p>
 						</div>
 					</div>
 					<div class="col-md-4 col-sm-12 col-xs-12 pad25">
 						<div class="col-xs-2">
-							<span class="fa fa-bookmark"></span>
+							<span class="fa fa-check-circle"></span>
 						</div>
 						<div class="col-xs-10">
-							<h4>Corporate Literture</h4>
-							<p>Retro chillwave YOLO four loko photo booth. Brooklyn kale chips, seitan hella 3 wolf moon slow-carb paleo.</p>
+							<h4>Yard/Driveway Cleaning</h4>
+							<p>Whether it's snow, leaves, or trash outdoors, we'll let you sit back and do the work for you!</p>
 						</div>
 					</div>
 				</div>
@@ -222,8 +222,7 @@ $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
 		<!-- footer start -->
 		<div class="copyright-bar bg-black">
 			<div class="container">
-				<p class="pull-left small">© pgblocks - Pinegrow Blocks</p>
-				<p class="pull-right small">Made with <i class="fa fa-heart pomegranate"></i> on Planet Earth</p>
+				<p class="pull-left small">© Copyright 2020.</p>
 			</div>
 		</div>
 		<!-- footer end -->

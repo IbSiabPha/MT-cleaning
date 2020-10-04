@@ -104,7 +104,7 @@ echo mysql_error();
                             <a href="patientdashboard.php"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
                         </li>
                         <li>
-                            <a href="patientprofile.php?patientEmail=<?php echo $userRow['patientEmail']; ?>"><i class="fa fa-fw fa-bar-chart-o"></i> Profile</a>
+                            <a href="patientprofile.php?userEmail=<?php echo $userRow['userEmail']; ?>"><i class="fa fa-fw fa-bar-chart-o"></i> Profile</a>
                         </li>
                         <li>
                             <a href="tables.html"><i class="fa fa-fw fa-table"></i> Tables</a>
@@ -375,7 +375,7 @@ echo mysql_error();
                         </div>
                         <div class="panel panel-default">
                             <div class="panel-body">
-                                <h1><?php echo $userRow['patientEmail']; ?><?php echo $userRow['password']; ?></h1>
+                                <h1><?php echo $userRow['userEmail']; ?><?php echo $userRow['password']; ?></h1>
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                                 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
                                 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo

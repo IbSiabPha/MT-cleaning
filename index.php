@@ -42,17 +42,17 @@ alert('wrong input ');
 if (isset($_POST['signup'])) {
 $userFirstName = mysqli_real_escape_string($con,$_POST['userFirstName']);
 $userLastName  = mysqli_real_escape_string($con,$_POST['userLastName']);
-$patientEmail     = mysqli_real_escape_string($con,$_POST['patientEmail']);
+$userEmail     = mysqli_real_escape_string($con,$_POST['userEmail']);
 $idUser     = mysqli_real_escape_string($con,$_POST['idUser']);
 $password         = mysqli_real_escape_string($con,$_POST['password']);
 $month            = mysqli_real_escape_string($con,$_POST['month']);
 $day              = mysqli_real_escape_string($con,$_POST['day']);
 $year             = mysqli_real_escape_string($con,$_POST['year']);
-$patientDOB       = $year . "-" . $month . "-" . $day;
-$patientGender = mysqli_real_escape_string($con,$_POST['patientGender']);
+$userDOB       = $year . "-" . $month . "-" . $day;
+$userGender = mysqli_real_escape_string($con,$_POST['userGender']);
 //INSERT
-$query = " INSERT INTO patient (  idUser, password, userFirstName, userLastName,  patientDOB, patientGender,   patientEmail )
-VALUES ( '$idUser', '$password', '$userFirstName', '$userLastName', '$patientDOB', '$patientGender', '$patientEmail' ) ";
+$query = " INSERT INTO patient (  idUser, password, userFirstName, userLastName,  userDOB, userGender,   userEmail )
+VALUES ( '$idUser', '$password', '$userFirstName', '$userLastName', '$userDOB', '$userGender', '$userEmail' ) ";
 $result = mysqli_query($con, $query);
 // echo $result;
 if( $result )
@@ -178,7 +178,7 @@ alert('User already registered. Please try again');
                                             </div>
                                         </div>
                                         
-                                        <input type="text" name="patientEmail" value="" class="form-control input-lg" placeholder="Your Email"  required/>
+                                        <input type="text" name="userEmail" value="" class="form-control input-lg" placeholder="Your Email"  required/>
                                         <input type="number" name="idUser" value="" class="form-control input-lg" placeholder="Your ID Number"  required/>
                                         
                                         
@@ -283,10 +283,10 @@ alert('User already registered. Please try again');
                                         </div>
                                         <label>Gender : </label>
                                         <label class="radio-inline">
-                                            <input type="radio" name="patientGender" value="male" required/>Male
+                                            <input type="radio" name="userGender" value="male" required/>Male
                                         </label>
                                         <label class="radio-inline" >
-                                            <input type="radio" name="patientGender" value="female" required/>Female
+                                            <input type="radio" name="userGender" value="female" required/>Female
                                         </label>
                                         <br />
                                         <span class="help-block">By clicking Create my account, you agree to our Terms and that you have read our Data Use Policy, including our Cookie Use.</span>
@@ -371,40 +371,72 @@ alert('User already registered. Please try again');
             </div>
         </section>
         <!-- first section end -->
-
-        
-        <!-- second section start -->
-        
-        <!-- second section end -->
-        <!-- third section start -->
-        
-        <!-- third section end -->
         <!-- forth sections start -->
-        <section id="content-1-9" class="content-1-9 content-block">
-            <div class="container">
-                <div class="underlined-title">
-                    <h1>Get in Touch</h1>
+		<section id="content-1-9" class="content-1-9 content-block">
+			<div class="container">
+				<div class="underlined-title">
+					<h1>Services</h1>
                     <hr>
-                    <h2>Contact us: 123-456-7898</h2>
-                </div>
-                <div class="row">
-                    <div class="col-md-4 col-sm-12 col-xs-12 pad25">
-                        <div class="col-xs-2">
-                            <span class="fa fa-pencil"></span>
-                        </div>
-                        <div class="col-xs-10">
-                            <h4>Services</h4>
-                            <p>Check out our awesome prices and services.</p>
-                        </div>
-                    </div>
-                   
-                </div>
-                <!-- /.row -->
-            </div>
-            <!-- /.container -->
-        </section>
-		
-
+                    <h2>Contact Us: 123-456-7890</h2>
+				</div>
+				<div class="row">
+					<div class="col-md-4 col-sm-12 col-xs-12 pad25">
+						<div class="col-xs-2">
+							<span class="fa fa-check-circle"></span>
+						</div>
+						<div class="col-xs-10">
+							<h4>Furniture Cleaning</h4>
+							<p>Bring your funiture back to life and looking brand new again!</p>
+						</div>
+					</div>
+					<div class="col-md-4 col-sm-12 col-xs-12 pad25">
+						<div class="col-xs-2">
+							<span class="fa fa-check-circle"></span>
+						</div>
+						<div class="col-xs-10">
+							<h4>Window Cleaning</h4>
+							<p>Get a nice clear view outdoors & streak-free windows!</p>
+						</div>
+					</div>
+					<div class="col-md-4 col-sm-12 col-xs-12 pad25">
+						<div class="col-xs-2">
+							<span class="fa fa-check-circle"></span>
+						</div>
+						<div class="col-xs-10">
+							<h4>Carpet Cleaning</h4>
+							<p>We can clean your carpets and get rid of the toughest stains!</p>
+						</div>
+					</div>
+					<div class="col-md-4 col-sm-12 col-xs-12 pad25">
+						<div class="col-xs-2">
+							<span class="fa fa-check-circle"></span>
+						</div>
+						<div class="col-xs-10">
+							<h4>Garage Cleaning</h4>
+							<p>Do you have a garage that you just haven't gotten around to cleaning yet?  We'll take care of that for you!</p>
+						</div>
+					</div>
+					<div class="col-md-4 col-sm-12 col-xs-12 pad25">
+						<div class="col-xs-2">
+							<span class="fa fa-check-circle"></span>
+						</div>
+						<div class="col-xs-10">
+							<h4>Bathroom Cleaning</h4>
+							<p>We'll take care of cleaning and disinfecting your bathroom for you, so you can maintain a healhty hygiene!</p>
+						</div>
+					</div>
+					<div class="col-md-4 col-sm-12 col-xs-12 pad25">
+						<div class="col-xs-2">
+							<span class="fa fa-check-circle"></span>
+						</div>
+						<div class="col-xs-10">
+							<h4>Yard/Driveway Cleaning</h4>
+							<p>Whether it's snow, leaves, or trash outdoors, we'll let you sit back and do the work for you!</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
         <!-- forth section end -->
         <!-- footer start -->
         <div class="copyright-bar bg-black">

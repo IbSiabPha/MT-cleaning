@@ -15,13 +15,13 @@ $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
 if (isset($_POST['submit'])) {
 $date = mysqli_real_escape_string($con,$_POST['date']);
 $scheduleday  = mysqli_real_escape_string($con,$_POST['scheduleday']);
-$starttime     = mysqli_real_escape_string($con,$_POST['starttime']);
-$endtime     = mysqli_real_escape_string($con,$_POST['endtime']);
+// $starttime     = mysqli_real_escape_string($con,$_POST['starttime']);
+// $endtime     = mysqli_real_escape_string($con,$_POST['endtime']);
 $bookavail         = mysqli_real_escape_string($con,$_POST['bookavail']);
 
 //INSERT
-$query = " INSERT INTO doctorschedule (  scheduleDate, scheduleDay, startTime, endTime,  bookAvail)
-VALUES ( '$date', '$scheduleday', '$starttime', '$endtime', '$bookavail' ) ";
+$query = " INSERT INTO doctorschedule (  scheduleDate, scheduleDay, bookAvail)
+VALUES ( '$date', '$scheduleday', '$bookavail' ) ";
 
 $result = mysqli_query($con, $query);
 // echo $result;
@@ -56,7 +56,7 @@ alert('Added fail. Please try again.');
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="author" content="">
-        <title>Welcome Dr <?php echo $userRow['doctorFirstName'];?> <?php echo $userRow['doctorLastName'];?></title>
+        <title>Welcome <?php echo $userRow['doctorFirstName'];?> </title>
         <!-- Bootstrap Core CSS -->
         <!-- <link href="assets/css/bootstrap.css" rel="stylesheet"> -->
         <link href="assets/css/material.css" rel="stylesheet">
@@ -89,14 +89,14 @@ alert('Added fail. Please try again.');
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="doctordashboard.php">Welcome Dr <?php echo $userRow['doctorFirstName'];?> <?php echo $userRow['doctorLastName'];?></a>
+                    <a class="navbar-brand" href="doctordashboard.php">Welcome <?php echo $userRow['doctorFirstName'];?></a>
                 </div>
                 <!-- Top Menu Items -->
                 <ul class="nav navbar-right top-nav">
                     
                     
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $userRow['doctorFirstName']; ?> <?php echo $userRow['doctorLastName']; ?><b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $userRow['doctorFirstName']; ?><b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>
                                 <a href="doctorprofile.php"><i class="fa fa-fw fa-user"></i> Profile</a>
@@ -116,10 +116,10 @@ alert('Added fail. Please try again.');
                             <a href="doctordashboard.php"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
                         </li>
                         <li class="active">
-                            <a href="addschedule.php"><i class="fa fa-fw fa-table"></i> Doctor Schedule</a>
+                            <a href="addschedule.php"><i class="fa fa-fw fa-table"></i> Schedule</a>
                         </li>
                         <li>
-                            <a href="patientlist.php"><i class="fa fa-fw fa-edit"></i> Patient List</a>
+                            <a href="patientlist.php"><i class="fa fa-fw fa-edit"></i> Client List</a>
                         </li>
                     </ul>
                 </div>
@@ -134,7 +134,7 @@ alert('Added fail. Please try again.');
                     <div class="row">
                         <div class="col-lg-12">
                             <h2 class="page-header">
-                            Doctor Schedule
+                            Schedule
                             </h2>
                             <ol class="breadcrumb">
                                 <li class="active">
@@ -212,14 +212,14 @@ alert('Added fail. Please try again.');
                                   </div>
                                  </div>
                                  <div class="form-group form-group-lg">
-                                  <label class="control-label col-sm-2 requiredField" for="starttime">
+                                  <!-- <label class="control-label col-sm-2 requiredField" for="starttime">
                                    Start Time
                                    <span class="asteriskField">
                                     *
                                    </span>
-                                  </label>
+                                  </label> -->
 
-                                  <div class="col-sm-10">
+                                  <!-- <div class="col-sm-10">
                                    <div class="input-group clockpicker"  data-align="top" data-autoclose="true">
                                     <div class="input-group-addon">
                                      <i class="fa fa-clock-o">
@@ -227,23 +227,23 @@ alert('Added fail. Please try again.');
                                     </div>
                                     <input class="form-control" id="starttime" name="starttime" type="text" required/>
                                    </div>
-                                  </div>
+                                  </div> -->
                                  </div>
                                  <div class="form-group form-group-lg">
-                                  <label class="control-label col-sm-2 requiredField" for="endtime">
+                                  <!-- <label class="control-label col-sm-2 requiredField" for="endtime">
                                    End Time
                                    <span class="asteriskField">
                                     *
                                    </span>
-                                  </label>
+                                  </label> -->
                                   <div class="col-sm-10">
-                                   <div class="input-group clockpicker"  data-align="top" data-autoclose="true">
+                                   <!-- <div class="input-group clockpicker"  data-align="top" data-autoclose="true">
                                     <div class="input-group-addon">
                                      <i class="fa fa-clock-o">
                                      </i>
                                     </div>
                                     <input class="form-control" id="endtime" name="endtime" type="text" required/>
-                                   </div>
+                                   </div> -->
                                   </div>
                                  </div>
                                  <div class="form-group form-group-lg">
@@ -287,7 +287,7 @@ alert('Added fail. Please try again.');
 
                         <!-- panel heading starat -->
                         <div class="panel-heading">
-                            <h3 class="panel-title">List of Patients</h3>
+                            <h3 class="panel-title">List of Clients</h3>
                             <div class="pull-right">
                             <button class="btn btn-default btn-xs btn-filter"><span class="fa fa-filter"></span> Filter</button>
                         </div>
@@ -303,9 +303,10 @@ alert('Added fail. Please try again.');
                                     <th><input type="text" class="form-control" placeholder="scheduleId" disabled></th>
                                     <th><input type="text" class="form-control" placeholder="scheduleDate" disabled></th>
                                     <th><input type="text" class="form-control" placeholder="scheduleDay" disabled></th>
-                                    <th><input type="text" class="form-control" placeholder="startTime." disabled></th>
-                                    <th><input type="text" class="form-control" placeholder="endTime" disabled></th>
+                                    <!-- <th><input type="text" class="form-control" placeholder="startTime." disabled></th>
+                                    <th><input type="text" class="form-control" placeholder="endTime" disabled></th> -->
                                     <th><input type="text" class="form-control" placeholder="bookAvail" disabled></th>
+                                    <th><input type="text" class="form-control" placeholder="Delete" disabled></th>
                                 </tr>
                             </thead>
                             
@@ -322,20 +323,23 @@ alert('Added fail. Please try again.');
                                     echo "<td>" . $doctorschedule['scheduleId'] . "</td>";
                                     echo "<td>" . $doctorschedule['scheduleDate'] . "</td>";
                                     echo "<td>" . $doctorschedule['scheduleDay'] . "</td>";
-                                    echo "<td>" . $doctorschedule['startTime'] . "</td>";
-                                    echo "<td>" . $doctorschedule['endTime'] . "</td>";
+                                    // echo "<td>" . $doctorschedule['startTime'] . "</td>";
+                                    // echo "<td>" . $doctorschedule['endTime'] . "</td>";
                                     echo "<td>" . $doctorschedule['bookAvail'] . "</td>";
                                     echo "<form method='POST'>";
-                                    echo "<td class='text-center'><a href='#' id='".$doctorschedule['scheduleId']."' class='delete'><span class='glyphicon glyphicon-trash' aria-hidden='true'></span></a>
+                                    echo "<td class='text-center'><a href='#' id='".$doctorschedule['scheduleId']."' class='delete'>
+                                    <input type='checkbox'></a>
+                                    
+                                    
                             </td>";
-                               
+                            // <span class='glyphicon glyphicon-trash' aria-hidden='true'></span>
                             } 
                                 echo "</tr>";
                            echo "</tbody>";
                        echo "</table>";
                        echo "<div class='panel panel-default'>";
                        echo "<div class='col-md-offset-3 pull-right'>";
-                       echo "<button class='btn btn-primary' type='submit' value='Submit' name='submit'>Update</button>";
+                       echo "<button class='btn btn-primary' type='submit' value='Submit' name='submit'>Updates</button>";
                         echo "</div>";
                         echo "</div>";
                         ?>

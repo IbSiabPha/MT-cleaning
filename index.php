@@ -1,6 +1,6 @@
 <?php
 include_once 'assets/conn/dbconnect.php';
-// include_once 'assets/conn/server.php';
+
 ?>
 
 
@@ -119,10 +119,6 @@ alert('User already registered. Please try again');
 
                         <!-- <li><a href="adminlogin.php">Admin</a></li> -->
                         <li><a href="#" data-toggle="modal" data-target="#myModal">Sign Up</a></li>
-                   
-                        <li>
-                            <p class="navbar-text">Already have an account?</p>
-                        </li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b> <span class="caret"></span></a>
                             <ul id="login-dp" class="dropdown-menu">
@@ -183,7 +179,7 @@ alert('User already registered. Please try again');
                                         </div>
                                         
                                         <input type="text" name="patientEmail" value="" class="form-control input-lg" placeholder="Your Email"  required/>
-                                        <input type="number" name="idUser" value="" class="form-control input-lg" placeholder="Your IC Number"  required/>
+                                        <input type="number" name="idUser" value="" class="form-control input-lg" placeholder="Your ID Number"  required/>
                                         
                                         
                                         <input type="password" name="password" value="" class="form-control input-lg" placeholder="Password"  required/>
@@ -313,8 +309,8 @@ alert('User already registered. Please try again');
             <div class="container">
                 <div class="row">
                     <div class="col-md-5">
-                        <h2>Book an appointment today!</h2>
-                        <p>Please <span class="label label-danger">login</span> to Book an appointment. </p>
+                        <h2 style="color:black">BOOK AN APPOINTMENT TODAY!</h2>
+                        <p style="color:black">Please <span class="label label-danger">login</span> to book an appointment. </p>
                             
                         <!-- date textbox -->
                        
@@ -389,7 +385,7 @@ alert('User already registered. Please try again');
                 <div class="underlined-title">
                     <h1>Get in Touch</h1>
                     <hr>
-                    <h2>Feel free to drop us a line to <a href= "http://localhost/MT-cleaning/contactus.php"> contact us</h2>
+                    <h2>Contact us: 123-456-7898</h2>
                 </div>
                 <div class="row">
                     <div class="col-md-4 col-sm-12 col-xs-12 pad25">
@@ -413,8 +409,8 @@ alert('User already registered. Please try again');
         <!-- footer start -->
         <div class="copyright-bar bg-black">
             <div class="container">
-                <p class="pull-left small">© Copyright 2020. All rights reserved. </p>
-                <p class="pull-right small"><a href="adminlogin.php">admin</a></p>
+                <p class="pull-left small">© Copyright 2020.</p>
+                <p class="pull-right small"><a href="adminlogin.php">ADMIN LOGIN</a></p>
             </div>
         </div>
         <!-- footer end -->

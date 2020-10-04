@@ -14,14 +14,14 @@ header("Location: patient/patient.php");
 }
 if (isset($_POST['login']))
 {
-$icPatient = mysqli_real_escape_string($con,$_POST['icPatient']);
+$idUser = mysqli_real_escape_string($con,$_POST['idUser']);
 $password  = mysqli_real_escape_string($con,$_POST['password']);
 
-$res = mysqli_query($con,"SELECT * FROM patient WHERE icPatient = '$icPatient'");
+$res = mysqli_query($con,"SELECT * FROM patient WHERE idUser = '$idUser'");
 $row=mysqli_fetch_array($res,MYSQLI_ASSOC);
 if ($row['password'] == $password)
 {
-$_SESSION['patientSession'] = $row['icPatient'];
+$_SESSION['patientSession'] = $row['idUser'];
 ?>
 <script type="text/javascript">
 alert('Login Success');
@@ -40,10 +40,10 @@ alert('wrong input ');
 <!-- register -->
 <?php
 if (isset($_POST['signup'])) {
-$patientFirstName = mysqli_real_escape_string($con,$_POST['patientFirstName']);
-$patientLastName  = mysqli_real_escape_string($con,$_POST['patientLastName']);
+$userFirstName = mysqli_real_escape_string($con,$_POST['userFirstName']);
+$userLastName  = mysqli_real_escape_string($con,$_POST['userLastName']);
 $patientEmail     = mysqli_real_escape_string($con,$_POST['patientEmail']);
-$icPatient     = mysqli_real_escape_string($con,$_POST['icPatient']);
+$idUser     = mysqli_real_escape_string($con,$_POST['idUser']);
 $password         = mysqli_real_escape_string($con,$_POST['password']);
 $month            = mysqli_real_escape_string($con,$_POST['month']);
 $day              = mysqli_real_escape_string($con,$_POST['day']);
@@ -51,8 +51,8 @@ $year             = mysqli_real_escape_string($con,$_POST['year']);
 $patientDOB       = $year . "-" . $month . "-" . $day;
 $patientGender = mysqli_real_escape_string($con,$_POST['patientGender']);
 //INSERT
-$query = " INSERT INTO patient (  icPatient, password, patientFirstName, patientLastName,  patientDOB, patientGender,   patientEmail )
-VALUES ( '$icPatient', '$password', '$patientFirstName', '$patientLastName', '$patientDOB', '$patientGender', '$patientEmail' ) ";
+$query = " INSERT INTO patient (  idUser, password, userFirstName, userLastName,  patientDOB, patientGender,   patientEmail )
+VALUES ( '$idUser', '$password', '$userFirstName', '$userLastName', '$patientDOB', '$patientGender', '$patientEmail' ) ";
 $result = mysqli_query($con, $query);
 // echo $result;
 if( $result )
@@ -132,8 +132,8 @@ alert('User already registered. Please try again');
                                             
                                             <form class="form" role="form" method="POST" accept-charset="UTF-8" >
                                                 <div class="form-group">
-                                                    <label class="sr-only" for="icPatient">Email</label>
-                                                    <input type="text" class="form-control" name="icPatient" placeholder="Username" required>
+                                                    <label class="sr-only" for="idUser">Email</label>
+                                                    <input type="text" class="form-control" name="idUser" placeholder="Username" required>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="sr-only" for="password">Password</label>
@@ -175,15 +175,15 @@ alert('User already registered. Please try again');
                                         <h4>It's free and always will be.</h4>
                                         <div class="row">
                                             <div class="col-xs-6 col-md-6">
-                                                <input type="text" name="patientFirstName" value="" class="form-control input-lg" placeholder="First Name" required />
+                                                <input type="text" name="userFirstName" value="" class="form-control input-lg" placeholder="First Name" required />
                                             </div>
                                             <div class="col-xs-6 col-md-6">
-                                                <input type="text" name="patientLastName" value="" class="form-control input-lg" placeholder="Last Name" required />
+                                                <input type="text" name="userLastName" value="" class="form-control input-lg" placeholder="Last Name" required />
                                             </div>
                                         </div>
                                         
                                         <input type="text" name="patientEmail" value="" class="form-control input-lg" placeholder="Your Email"  required/>
-                                        <input type="number" name="icPatient" value="" class="form-control input-lg" placeholder="Your IC Number"  required/>
+                                        <input type="number" name="idUser" value="" class="form-control input-lg" placeholder="Your IC Number"  required/>
                                         
                                         
                                         <input type="password" name="password" value="" class="form-control input-lg" placeholder="Password"  required/>

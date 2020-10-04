@@ -8,16 +8,16 @@ if (isset($_GET['scheduleDate']) && isset($_GET['appid'])) {
 	$appdate =$_GET['scheduleDate'];
 	$appid = $_GET['appid'];
 }
-// on b.icPatient = a.icPatient
+// on b.idUser = a.idUser
 $res = mysqli_query($con,"SELECT a.*, b.* FROM doctorschedule a INNER JOIN patient b
-WHERE a.scheduleDate='$appdate' AND scheduleId=$appid AND b.icPatient=$session");
+WHERE a.scheduleDate='$appdate' AND scheduleId=$appid AND b.idUser=$session");
 $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
 
 
 	
 //INSERT
 if (isset($_POST['appointment'])) {
-$patientIc = mysqli_real_escape_string($con,$userRow['icPatient']);
+$patientIc = mysqli_real_escape_string($con,$userRow['idUser']);
 $scheduleid = mysqli_real_escape_string($con,$appid);
 $symptom = mysqli_real_escape_string($con,$_POST['symptom']);
 $comment = mysqli_real_escape_string($con,$_POST['comment']);
@@ -95,20 +95,20 @@ header("Location: patient/patient.php");
 					<ul class="nav navbar-nav">
 						<ul class="nav navbar-nav">
 							<li><a href="patient.php">Home</a></li>
-							<!-- <li><a href="profile.php?patientId=<?php echo $userRow['icPatient']; ?>" >Profile</a></li> -->
-							<li><a href="patientapplist.php?patientId=<?php echo $userRow['icPatient']; ?>">Appointment</a></li>
+							<!-- <li><a href="profile.php?patientId=<?php echo $userRow['idUser']; ?>" >Profile</a></li> -->
+							<li><a href="patientapplist.php?patientId=<?php echo $userRow['idUser']; ?>">Appointment</a></li>
 						</ul>
 					</ul>
 					
 					<ul class="nav navbar-nav navbar-right">
 						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $userRow['patientFirstName']; ?> <?php echo $userRow['patientLastName']; ?><b class="caret"></b></a>
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $userRow['userFirstName']; ?> <?php echo $userRow['userLastName']; ?><b class="caret"></b></a>
 							<ul class="dropdown-menu">
 								<li>
-									<a href="profile.php?patientId=<?php echo $userRow['icPatient']; ?>"><i class="fa fa-fw fa-user"></i> Profile</a>
+									<a href="profile.php?patientId=<?php echo $userRow['idUser']; ?>"><i class="fa fa-fw fa-user"></i> Profile</a>
 								</li>
 								<li>
-									<a href="patientapplist.php?patientId=<?php echo $userRow['icPatient']; ?>"><i class="glyphicon glyphicon-file"></i> Appointment</a>
+									<a href="patientapplist.php?patientId=<?php echo $userRow['idUser']; ?>"><i class="glyphicon glyphicon-file"></i> Appointment</a>
 								</li>
 								<li class="divider"></li>
 								<li>
@@ -132,7 +132,7 @@ header("Location: patient/patient.php");
 							<div class="user-wrapper">
 								<img src="assets/img/1.jpg" class="img-responsive" />
 								<div class="description">
-									<h4><?php echo $userRow['patientFirstName']; ?> <?php echo $userRow['patientLastName']; ?></h4>
+									<h4><?php echo $userRow['userFirstName']; ?> <?php echo $userRow['userLastName']; ?></h4>
 									<h5> <strong> Website Designer </strong></h5>
 									<p>
 										Pellentesque elementum dapibus convallis.
@@ -156,8 +156,8 @@ header("Location: patient/patient.php");
 												<div class="panel-heading">Patient Information</div>
 												<div class="panel-body">
 													
-													Patient Name: <?php echo $userRow['patientFirstName'] ?> <?php echo $userRow['patientLastName'] ?><br>
-													Patient IC: <?php echo $userRow['icPatient'] ?><br>
+													Patient Name: <?php echo $userRow['userFirstName'] ?> <?php echo $userRow['userLastName'] ?><br>
+													Patient IC: <?php echo $userRow['idUser'] ?><br>
 													Contact Number: <?php echo $userRow['patientPhone'] ?><br>
 													Address: <?php echo $userRow['patientAddress'] ?>
 												</div>

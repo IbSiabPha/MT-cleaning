@@ -132,7 +132,7 @@ $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
                             $res=mysqli_query($con,"SELECT a.*, b.*,c.*
                                                     FROM patient a
                                                     JOIN appointment b
-                                                    On a.icPatient = b.patientIc
+                                                    On a.idUser = b.patientIc
                                                     JOIN doctorschedule c
                                                     On b.scheduleId=c.scheduleId
                                                     Order By appId desc");
@@ -164,7 +164,7 @@ $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
                                 echo "<tbody>";
                                 echo "<tr class='$status'>";
                                     echo "<td>" . $appointment['patientIc'] . "</td>";
-                                    echo "<td>" . $appointment['patientLastName'] . "</td>";
+                                    echo "<td>" . $appointment['userLastName'] . "</td>";
                                     echo "<td>" . $appointment['patientPhone'] . "</td>";
                                     echo "<td>" . $appointment['patientEmail'] . "</td>";
                                     echo "<td>" . $appointment['scheduleDay'] . "</td>";

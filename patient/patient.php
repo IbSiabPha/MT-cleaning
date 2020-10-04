@@ -9,7 +9,7 @@ header("Location: ../index.php");
 $usersession = $_SESSION['patientSession'];
 
 
-$res=mysqli_query($con,"SELECT * FROM patient WHERE icPatient=".$usersession);
+$res=mysqli_query($con,"SELECT * FROM patient WHERE idUser=".$usersession);
 
 if ($res===false) {
 	echo mysql_error();
@@ -54,27 +54,27 @@ $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="patient.php"><img alt="Brand" src="assets/img/logo.png" height="40px"></a>
+					<a class="navbar-brand" href="patient.php"><img alt="Brand" src="assets/img/logo2.png" height="30px"></a>
 				</div>
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
 						<ul class="nav navbar-nav">
 							<li><a href="patient.php">Home</a></li>
-							<!-- <li><a href="profile.php?patientId=<?php echo $userRow['icPatient']; ?>" >Profile</a></li> -->
-							<li><a href="patientapplist.php?patientId=<?php echo $userRow['icPatient']; ?>">Appointment</a></li>
+							<!-- <li><a href="profile.php?patientId=<?php echo $userRow['idUser']; ?>" >Profile</a></li> -->
+							<li><a href="patientapplist.php?patientId=<?php echo $userRow['idUser']; ?>">Appointment</a></li>
 						</ul>
 					</ul>
 					
 					<ul class="nav navbar-nav navbar-right">
 						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $userRow['patientFirstName']; ?> <?php echo $userRow['patientLastName']; ?><b class="caret"></b></a>
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $userRow['userFirstName']; ?> <?php echo $userRow['userLastName']; ?><b class="caret"></b></a>
 							<ul class="dropdown-menu">
 								<li>
-									<a href="profile.php?patientId=<?php echo $userRow['icPatient']; ?>"><i class="fa fa-fw fa-user"></i> Profile</a>
+									<a href="profile.php?patientId=<?php echo $userRow['idUser']; ?>"><i class="fa fa-fw fa-user"></i> Profile</a>
 								</li>
 								<li>
-									<a href="patientapplist.php?patientId=<?php echo $userRow['icPatient']; ?>"><i class="glyphicon glyphicon-file"></i> Appointment</a>
+									<a href="patientapplist.php?patientId=<?php echo $userRow['idUser']; ?>"><i class="glyphicon glyphicon-file"></i> Appointment</a>
 								</li>
 								<li class="divider"></li>
 								<li>
@@ -93,24 +93,8 @@ $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
 			<div class="container">
 				<div class="row">
 					<div class="col-xs-12 col-md-8">
-						
-						
-						<?php if ($userRow['patientMaritialStatus']=="") {
-						// <!-- / notification start -->
-						echo "<div class='row'>";
-							echo "<div class='col-lg-12'>";
-								echo "<div class='alert alert-danger alert-dismissable'>";
-									echo "<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>";
-									echo " <i class='fa fa-info-circle'></i>  <strong>Please complete your profile.</strong>" ;
-								echo "  </div>";
-							echo "</div>";
-							// <!-- notification end -->
-							
-							} else {
-							}
-							?>
 							<!-- notification end -->
-							<h2>Hai <?php echo $userRow['patientFirstName']; ?> <?php echo $userRow['patientLastName']; ?>. Make appointment today!</h2>
+							<h2>Hello <?php echo $userRow['userFirstName']; ?> <?php echo $userRow['userLastName']; ?>, Schedule Your Cleaning Service!</h2>
 							<div class="input-group" style="margin-bottom:10px;">
 								<div class="input-group-addon">
 									<i class="fa fa-calendar">

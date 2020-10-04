@@ -9,7 +9,7 @@ if(!isset($_SESSION['patientSession']))
 header("Location: ../index.php");
 }
 $usersession = $_SESSION['patientSession'];
-$res=mysql_query("SELECT * FROM patient WHERE icPatient=".$usersession);
+$res=mysql_query("SELECT * FROM patient WHERE idUser=".$usersession);
 $userRow=mysql_fetch_array($res);
 echo mysql_error();
 ?>
@@ -79,7 +79,7 @@ echo mysql_error();
                         </ul>
                     </li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $userRow['patientFirstName']; ?> <?php echo $userRow['patientLastName']; ?><b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $userRow['userFirstName']; ?> <?php echo $userRow['userLastName']; ?><b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>
                                 <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
@@ -164,23 +164,6 @@ echo mysql_error();
                         </div>
                     </div>
                      <!-- page heading end -->
-
-                    <?php if ($userRow['patientMaritialStatus']=="") {
-                        //<!-- / notification start -->
-                        echo "<div class='row'>";
-                            echo "<div class='col-lg-12'>";
-                                echo "<div class='alert alert-info alert-dismissable'>";
-                                echo "<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>";
-                                echo " <i class='fa fa-info-circle'></i>  <strong>Please complete your profile." ;
-                            echo "  </div>";
-                        echo "</div>";
-                        //<!-- notification end -->
-                 
-                    } else {
-
-                    }
-                     ?>
-
                     <!-- 4 panels start -->
                     <!-- <div class="row">
                         <div class="col-lg-3 col-md-6">

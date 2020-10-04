@@ -4,7 +4,7 @@ include_once '../assets/conn/dbconnect.php';
 $session=$_SESSION[ 'patientSession'];
 $res=mysqli_query($con, "SELECT a.*, b.*,c.* FROM patient a
 	JOIN appointment b
-		On a.icPatient = b.patientIc
+		On a.idUser = b.patientIc
 	JOIN doctorschedule c
 		On b.scheduleId=c.scheduleId
 	WHERE b.patientIc ='$session'");
@@ -48,20 +48,20 @@ $res=mysqli_query($con, "SELECT a.*, b.*,c.* FROM patient a
 					<ul class="nav navbar-nav">
 						<ul class="nav navbar-nav">
 							<li><a href="patient.php">Home</a></li>
-							<!-- <li><a href="profile.php?patientId=<?php echo $userRow['icPatient']; ?>" >Profile</a></li> -->
-							<li><a href="patientapplist.php?patientId=<?php echo $userRow['icPatient']; ?>">Appointment</a></li>
+							<!-- <li><a href="profile.php?patientId=<?php echo $userRow['idUser']; ?>" >Profile</a></li> -->
+							<li><a href="patientapplist.php?patientId=<?php echo $userRow['idUser']; ?>">Appointment</a></li>
 						</ul>
 					</ul>
 					
 					<ul class="nav navbar-nav navbar-right">
 						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $userRow['patientFirstName']; ?> <?php echo $userRow['patientLastName']; ?><b class="caret"></b></a>
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $userRow['userFirstName']; ?> <?php echo $userRow['userLastName']; ?><b class="caret"></b></a>
 							<ul class="dropdown-menu">
 								<li>
-									<a href="profile.php?patientId=<?php echo $userRow['icPatient']; ?>"><i class="fa fa-fw fa-user"></i> Profile</a>
+									<a href="profile.php?patientId=<?php echo $userRow['idUser']; ?>"><i class="fa fa-fw fa-user"></i> Profile</a>
 								</li>
 								<li>
-									<a href="patientapplist.php?patientId=<?php echo $userRow['icPatient']; ?>"><i class="glyphicon glyphicon-file"></i> Appointment</a>
+									<a href="patientapplist.php?patientId=<?php echo $userRow['idUser']; ?>"><i class="glyphicon glyphicon-file"></i> Appointment</a>
 								</li>
 								<li class="divider"></li>
 								<li>
@@ -91,7 +91,7 @@ echo "<thead>";
 echo "<tr>";
 echo "<th>App Id</th>";
 echo "<th>patientIc </th>";
-echo "<th>patientLastName </th>";
+echo "<th>userLastName </th>";
 echo "<th>scheduleDay </th>";
 echo "<th>scheduleDate </th>";
 echo "<th>startTime </th>";
@@ -102,7 +102,7 @@ echo "</thead>";
 $res = mysqli_query($con, "SELECT a.*, b.*,c.*
 		FROM patient a
 		JOIN appointment b
-		On a.icPatient = b.patientIc
+		On a.idUser = b.patientIc
 		JOIN doctorschedule c
 		On b.scheduleId=c.scheduleId
 		WHERE b.patientIc ='$session'");
@@ -117,7 +117,7 @@ echo "<tbody>";
 echo "<tr>";
 echo "<td>" . $userRow['appId'] . "</td>";
 echo "<td>" . $userRow['patientIc'] . "</td>";
-echo "<td>" . $userRow['patientLastName'] . "</td>";
+echo "<td>" . $userRow['userLastName'] . "</td>";
 echo "<td>" . $userRow['scheduleDay'] . "</td>";
 echo "<td>" . $userRow['scheduleDate'] . "</td>";
 echo "<td>" . $userRow['startTime'] . "</td>";

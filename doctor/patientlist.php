@@ -149,17 +149,16 @@ $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
                               
                                 echo "<tbody>";
                                 echo "<tr>";
-                                    echo "<td>" . $patientRow['icPatient'] . "</td>";
-                                    echo "<td>" . $patientRow['patientLastName'] . "</td>";
+                                    echo "<td>" . $patientRow['idUser'] . "</td>";
+                                    echo "<td>" . $patientRow['userLastName'] . "</td>";
                                     echo "<td>" . $patientRow['password'] . "</td>";
                                     echo "<td>" . $patientRow['patientPhone'] . "</td>";
                                     // echo "<td>" . $patientRow['patientEmail'] . "</td>";
                                     echo "<td>" . $patientRow['patientGender'] . "</td>";
-                                    echo "<td>" . $patientRow['patientMaritialStatus'] . "</td>";
                                     echo "<td>" . $patientRow['patientDOB'] . "</td>";
                                     echo "<td>" . $patientRow['patientAddress'] . "</td>";
                                     echo "<form method='POST'>";
-                                    echo "<td class='text-center'><a href='#' id='".$patientRow['icPatient']."' class='delete'><span class='glyphicon glyphicon-trash' aria-hidden='true'></span></a>
+                                    echo "<td class='text-center'><a href='#' id='".$patientRow['idUser']."' class='delete'><span class='glyphicon glyphicon-trash' aria-hidden='true'></span></a>
                             </td>";
                                
                             } 

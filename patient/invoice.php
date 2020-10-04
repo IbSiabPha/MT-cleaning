@@ -6,7 +6,7 @@ $appid=$_GET['appid'];
 }
 $res=mysqli_query($con, "SELECT a.*, b.*,c.* FROM patient a
 JOIN appointment b
-On a.icPatient = b.patientIc
+On a.idUser = b.patientIc
 JOIN doctorschedule c
 On b.scheduleId=c.scheduleId
 WHERE b.appId  =".$appid);
@@ -50,7 +50,7 @@ $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
                                 </td>
                                 
                                 <td><?php echo $userRow['patientIc'];?><br>
-                                    <?php echo $userRow['patientFirstName'];?> <?php echo $userRow['patientLastName'];?><br>
+                                    <?php echo $userRow['userFirstName'];?> <?php echo $userRow['userLastName'];?><br>
                                     <?php echo $userRow['patientEmail'];?>
                                 </td>
                             </tr>

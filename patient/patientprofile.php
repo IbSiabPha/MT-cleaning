@@ -8,7 +8,7 @@ if(!isset($_SESSION['patientSession']))
 {
  header("Location: ../fail.php");
 }
-$res=mysqli_query($con,"SELECT * FROM patient WHERE icPatient=".$_SESSION['patientSession']);
+$res=mysqli_query($con,"SELECT * FROM patient WHERE idUser=".$_SESSION['patientSession']);
 $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
 ?>
 <!DOCTYPE html>
@@ -62,7 +62,7 @@ $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
                                         </span>
                                         <div class="media-body">
                                             <h5 class="media-heading">
-                                            <strong><?php echo $userRow['patientFirstName']; ?> <?php echo $userRow['patientLastName']; ?></strong>
+                                            <strong><?php echo $userRow['userFirstName']; ?> <?php echo $userRow['userLastName']; ?></strong>
                                             </h5>
                                             <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
                                             <p>Lorem ipsum dolor sit amet, consectetur...</p>
@@ -78,7 +78,7 @@ $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
                                         </span>
                                         <div class="media-body">
                                             <h5 class="media-heading">
-                                            <strong><?php echo $userRow['patientFirstName']; ?> <?php echo $userRow['patientLastName']; ?></strong>
+                                            <strong><?php echo $userRow['userFirstName']; ?> <?php echo $userRow['userLastName']; ?></strong>
                                             </h5>
                                             <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
                                             <p>Lorem ipsum dolor sit amet, consectetur...</p>
@@ -94,7 +94,7 @@ $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
                                         </span>
                                         <div class="media-body">
                                             <h5 class="media-heading">
-                                            <strong><?php echo $userRow['patientFirstName']; ?> <?php echo $userRow['patientLastName']; ?></strong>
+                                            <strong><?php echo $userRow['userFirstName']; ?> <?php echo $userRow['userLastName']; ?></strong>
                                             </h5>
                                             <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
                                             <p>Lorem ipsum dolor sit amet, consectetur...</p>
@@ -135,10 +135,10 @@ $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
                         </ul>
                     </li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $userRow['patientFirstName']; ?> <?php echo $userRow['patientLastName']; ?> <b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $userRow['userFirstName']; ?> <?php echo $userRow['userLastName']; ?> <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a href="patientupdateprofile.php?patientId=<?php echo $userRow['icPatient']; ?>"><i class="fa fa-fw fa-user"></i> Update Profile</a>
+                                <a href="patientupdateprofile.php?patientId=<?php echo $userRow['idUser']; ?>"><i class="fa fa-fw fa-user"></i> Update Profile</a>
                             </li>
                             <li>
                                 <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
@@ -219,7 +219,7 @@ $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
                                 
                                 <div class="panel panel-info">
                                     <div class="panel-heading">
-                                        <h3 class="panel-title"><?php echo $userRow['patientFirstName']; ?> <?php echo $userRow['patientLastName']; ?></h3>
+                                        <h3 class="panel-title"><?php echo $userRow['userFirstName']; ?> <?php echo $userRow['userLastName']; ?></h3>
                                     </div>
                                     <div class="panel-body">
                                         <div class="row">
@@ -234,18 +234,12 @@ $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
                                                                 <td><?php echo $userRow['patientId']; ?></td>
                                                             </tr>
                                                             <tr>
-                                                                <td>PatientFirstName:</td>
-                                                                <td><?php echo $userRow['patientFirstName']; ?></td>
+                                                                <td>userFirstName:</td>
+                                                                <td><?php echo $userRow['userFirstName']; ?></td>
                                                             </tr>
                                                             <tr>
-                                                                <td>PatientLastName</td>
-                                                                <td><?php echo $userRow['patientLastName']; ?></td>
-                                                            </tr>
-                                                            
-                                                            
-                                                            <tr>
-                                                                <td>PatientMaritialStatus</td>
-                                                                <td><?php echo $userRow['patientMaritialStatus']; ?></td>
+                                                                <td>userLastName</td>
+                                                                <td><?php echo $userRow['userLastName']; ?></td>
                                                             </tr>
                                                             <tr>
                                                                 <td>PatientDOB</td>

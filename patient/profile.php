@@ -6,16 +6,15 @@ if(!isset($_SESSION['patientSession']))
 {
 header("Location: ../index.php");
 }
-$res=mysqli_query($con,"SELECT * FROM patient WHERE icPatient=".$_SESSION['patientSession']);
+$res=mysqli_query($con,"SELECT * FROM patient WHERE idUser=".$_SESSION['patientSession']);
 $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
 ?>
 <!-- update -->
 <?php
 if (isset($_POST['submit'])) {
 //variables
-$patientFirstName = $_POST['patientFirstName'];
-$patientLastName = $_POST['patientLastName'];
-$patientMaritialStatus = $_POST['patientMaritialStatus'];
+$userFirstName = $_POST['userFirstName'];
+$userLastName = $_POST['userLastName'];
 $patientDOB = $_POST['patientDOB'];
 $patientGender = $_POST['patientGender'];
 $patientAddress = $_POST['patientAddress'];
@@ -23,7 +22,7 @@ $patientPhone = $_POST['patientPhone'];
 $patientEmail = $_POST['patientEmail'];
 $patientId = $_POST['patientId'];
 // mysqli_query("UPDATE blogEntry SET content = $udcontent, title = $udtitle WHERE id = $id");
-$res=mysqli_query($con,"UPDATE patient SET patientFirstName='$patientFirstName', patientLastName='$patientLastName', patientMaritialStatus='$patientMaritialStatus', patientDOB='$patientDOB', patientGender='$patientGender', patientAddress='$patientAddress', patientPhone=$patientPhone, patientEmail='$patientEmail' WHERE icPatient=".$_SESSION['patientSession']);
+$res=mysqli_query($con,"UPDATE patient SET userFirstName='$userFirstName', userLastName='$userLastName', patientDOB='$patientDOB', patientGender='$patientGender', patientAddress='$patientAddress', patientPhone=$patientPhone, patientEmail='$patientEmail' WHERE idUser=".$_SESSION['patientSession']);
 // $userRow=mysqli_fetch_array($res);
 header( 'Location: profile.php' ) ;
 }
@@ -35,22 +34,6 @@ if ($userRow['patientGender']=='male') {
 $male = "checked";
 }elseif ($userRow['patientGender']=='female') {
 $female = "checked";
-}
-$single="";
-$married="";
-$separated="";
-$divorced="";
-$widowed="";
-if ($userRow['patientMaritialStatus']=='single') {
-$single = "checked";
-}elseif ($userRow['patientMaritialStatus']=='married') {
-$married = "checked";
-}elseif ($userRow['patientMaritialStatus']=='separated') {
-$separated = "checked";
-}elseif ($userRow['patientMaritialStatus']=='divorced') {
-$divorced = "checked";
-}elseif ($userRow['patientMaritialStatus']=='widowed') {
-$widowed = "checked";
 }
 ?>
 <!DOCTYPE html>
@@ -94,20 +77,20 @@ $widowed = "checked";
 					<ul class="nav navbar-nav">
 						<ul class="nav navbar-nav">
 							<li><a href="patient.php">Home</a></li>
-							<!-- <li><a href="profile.php?patientId=<?php echo $userRow['icPatient']; ?>" >Profile</a></li> -->
-							<li><a href="patientapplist.php?patientId=<?php echo $userRow['icPatient']; ?>">Appointment</a></li>
+							<!-- <li><a href="profile.php?patientId=<?php echo $userRow['idUser']; ?>" >Profile</a></li> -->
+							<li><a href="patientapplist.php?patientId=<?php echo $userRow['idUser']; ?>">Appointment</a></li>
 						</ul>
 					</ul>
 					
 					<ul class="nav navbar-nav navbar-right">
 						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $userRow['patientFirstName']; ?> <?php echo $userRow['patientLastName']; ?><b class="caret"></b></a>
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $userRow['userFirstName']; ?> <?php echo $userRow['userLastName']; ?><b class="caret"></b></a>
 							<ul class="dropdown-menu">
 								<li>
-									<a href="profile.php?patientId=<?php echo $userRow['icPatient']; ?>"><i class="fa fa-fw fa-user"></i> Profile</a>
+									<a href="profile.php?patientId=<?php echo $userRow['idUser']; ?>"><i class="fa fa-fw fa-user"></i> Profile</a>
 								</li>
 								<li>
-									<a href="patientapplist.php?patientId=<?php echo $userRow['icPatient']; ?>"><i class="glyphicon glyphicon-file"></i> Appointment</a>
+									<a href="patientapplist.php?patientId=<?php echo $userRow['idUser']; ?>"><i class="glyphicon glyphicon-file"></i> Appointment</a>
 								</li>
 								<li class="divider"></li>
 								<li>
@@ -130,13 +113,10 @@ $widowed = "checked";
 						<div class="col-md-3 col-sm-3">
 							
 							<div class="user-wrapper">
-								<img src="assets/img/1.jpg" class="img-responsive" />
+								<img src="assets/img/person.png" class="img-responsive" />
 								<div class="description">
-									<h4><?php echo $userRow['patientFirstName']; ?> <?php echo $userRow['patientLastName']; ?></h4>
-									<h5> <strong> Website Designer </strong></h5>
-									<p>
-										Pellentesque elementum dapibus convallis.
-									</p>
+									<h4><?php echo $userRow['userFirstName']; ?> <?php echo $userRow['userLastName']; ?></h4>
+									<h5> <strong> MT Cleaning Member </strong></h5>
 									<hr />
 									<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Update Profile</button>
 								</div>
@@ -145,7 +125,7 @@ $widowed = "checked";
 						
 						<div class="col-md-9 col-sm-9  user-wrapper">
 							<div class="description">
-								<h3> <?php echo $userRow['patientFirstName']; ?> <?php echo $userRow['patientLastName']; ?> </h3>
+								<h3> <?php echo $userRow['userFirstName']; ?> <?php echo $userRow['userLastName']; ?> </h3>
 								<hr />
 								
 								<div class="panel panel-default">
@@ -154,32 +134,26 @@ $widowed = "checked";
 										
 										<table class="table table-user-information" align="center">
 											<tbody>
-												
-												
 												<tr>
-													<td>PatientMaritialStatus</td>
-													<td><?php echo $userRow['patientMaritialStatus']; ?></td>
-												</tr>
-												<tr>
-													<td>PatientDOB</td>
+													<td>User's Birthday</td>
 													<td><?php echo $userRow['patientDOB']; ?></td>
 												</tr>
 												<tr>
-													<td>PatientGender</td>
+													<td>Gender</td>
 													<td><?php echo $userRow['patientGender']; ?></td>
 												</tr>
 												<tr>
-													<td>PatientAddress</td>
+													<td>User's Address</td>
 													<td><?php echo $userRow['patientAddress']; ?>
 													</td>
 												</tr>
 												<tr>
-													<td>PatientPhone</td>
+													<td>User's Phone</td>
 													<td><?php echo $userRow['patientPhone']; ?>
 													</td>
 												</tr>
 												<tr>
-													<td>PatientEmail</td>
+													<td>User's Email</td>
 													<td><?php echo $userRow['patientEmail']; ?>
 													</td>
 												</tr>
@@ -213,38 +187,18 @@ $widowed = "checked";
 												<tbody>
 													<tr>
 														<td>IC Number:</td>
-														<td><?php echo $userRow['icPatient']; ?></td>
+														<td><?php echo $userRow['idUser']; ?></td>
 													</tr>
 													<tr>
 														<td>First Name:</td>
-														<td><input type="text" class="form-control" name="patientFirstName" value="<?php echo $userRow['patientFirstName']; ?>"  /></td>
+														<td><input type="text" class="form-control" name="userFirstName" value="<?php echo $userRow['userFirstName']; ?>"  /></td>
 													</tr>
 													<tr>
 														<td>Last Name</td>
-														<td><input type="text" class="form-control" name="patientLastName" value="<?php echo $userRow['patientLastName']; ?>"  /></td>
+														<td><input type="text" class="form-control" name="userLastName" value="<?php echo $userRow['userLastName']; ?>"  /></td>
 													</tr>
 													
 													<!-- radio button -->
-													<tr>
-														<td>Maritial Status:</td>
-														<td>
-															<div class="radio">
-																<label><input type="radio" name="patientMaritialStatus" value="single" <?php echo $single; ?>>Single</label>
-															</div>
-															<div class="radio">
-																<label><input type="radio" name="patientMaritialStatus" value="married" <?php echo $married; ?>>Married</label>
-															</div>
-															<div class="radio">
-																<label><input type="radio" name="patientMaritialStatus" value="separated" <?php echo $separated; ?>>Separated</label>
-															</div>
-															<div class="radio">
-																<label><input type="radio" name="patientMaritialStatus" value="divorced" <?php echo $divorced; ?>>Divorced</label>
-															</div>
-															<div class="radio">
-																<label><input type="radio" name="patientMaritialStatus" value="widowed" <?php echo $widowed; ?>>Widowed</label>
-															</div>
-														</td>
-													</tr>
 													<!-- radio button end -->
 													<tr>
 														<td>DOB</td>

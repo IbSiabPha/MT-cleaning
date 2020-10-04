@@ -578,7 +578,7 @@ Version: 1.0
 
 
 #header-3 .hero {
-	background: url('../img/cover2.jpg') no-repeat center center;
+	background: url('../img/cover.jpg') no-repeat center center;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
@@ -637,7 +637,7 @@ Version: 1.0
 /*----------------------------------------------------*/
 
 .promo-1 {
-	background: url("../img/cover2.jpg") center top no-repeat;
+	background: url('../img/cover.jpg') center top no-repeat;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;

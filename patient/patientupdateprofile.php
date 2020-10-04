@@ -15,14 +15,14 @@ if (isset($_POST['submit'])) {
 //variables
 $userFirstName = $_POST['userFirstName'];
 $userLastName = $_POST['userLastName'];
-$patientDOB = $_POST['patientDOB'];
-$patientGender = $_POST['patientGender'];
-$patientAddress = $_POST['patientAddress'];
-$patientPhone = $_POST['patientPhone'];
-$patientEmail = $_POST['patientEmail'];
+$userDOB = $_POST['userDOB'];
+$userGender = $_POST['userGender'];
+$userAddress = $_POST['userAddress'];
+$userPhone = $_POST['userPhone'];
+$userEmail = $_POST['userEmail'];
 $patientId = $_POST['patientId'];
 // mysqli_query("UPDATE blogEntry SET content = $udcontent, title = $udtitle WHERE id = $id");
-$res=mysqli_query($con,"UPDATE patient SET userFirstName='$userFirstName', userLastName='$userLastName', patientDOB='$patientDOB', patientGender='$patientGender', patientAddress='$patientAddress', patientPhone=$patientPhone, patientEmail='$patientEmail' WHERE idUser=".$_SESSION['patientSession']);
+$res=mysqli_query($con,"UPDATE patient SET userFirstName='$userFirstName', userLastName='$userLastName', userDOB='$userDOB', userGender='$userGender', userAddress='$userAddress', userPhone=$userPhone, userEmail='$userEmail' WHERE idUser=".$_SESSION['patientSession']);
 // $userRow=mysqli_fetch_array($res);
 header( 'Location: patientprofile.php' ) ;
 }
@@ -30,9 +30,9 @@ header( 'Location: patientprofile.php' ) ;
 <?php
 $male="";
 $female="";
-if ($userRow['patientGender']=='male') {
+if ($userRow['userGender']=='male') {
 $male = "checked";
-}elseif ($userRow['patientGender']=='female') {
+}elseif ($userRow['userGender']=='female') {
 $female = "checked";
 }
 ?>
@@ -262,8 +262,8 @@ $female = "checked";
                                                             <!-- radio button -->
                                                             <!-- radio button end -->
                                                             <tr>
-                                                                <td>PatientDOB</td>
-                                                                <!-- <td><input type="text" class="form-control" name="patientDOB" value="<?php echo $userRow['patientDOB']; ?>"  /></td> -->
+                                                                <td>userDOB</td>
+                                                                <!-- <td><input type="text" class="form-control" name="userDOB" value="<?php echo $userRow['userDOB']; ?>"  /></td> -->
                                                                 <td>
                                                                     <div class="form-group ">
                                                                         
@@ -272,7 +272,7 @@ $female = "checked";
                                                                                 <i class="fa fa-calendar">
                                                                                 </i>
                                                                             </div>
-                                                                            <input class="form-control" id="patientDOB" name="patientDOB" placeholder="MM/DD/YYYY" type="text" value="<?php echo $userRow['patientDOB']; ?>"/>
+                                                                            <input class="form-control" id="userDOB" name="userDOB" placeholder="MM/DD/YYYY" type="text" value="<?php echo $userRow['userDOB']; ?>"/>
                                                                         </div>
                                                                     </div>
                                                                 </td>
@@ -287,25 +287,25 @@ $female = "checked";
                                                                 <td>Gender:</td>
                                                                 <td>
                                                                     <div class="radio">
-                                                                        <label><input type="radio" name="patientGender" value="male" <?php echo $male; ?>>Male</label>
+                                                                        <label><input type="radio" name="userGender" value="male" <?php echo $male; ?>>Male</label>
                                                                     </div>
                                                                     <div class="radio">
-                                                                        <label><input type="radio" name="patientGender" value="female" <?php echo $female; ?>>Female</label>
+                                                                        <label><input type="radio" name="userGender" value="female" <?php echo $female; ?>>Female</label>
                                                                     </div>
                                                                 </td>
                                                             </tr>
                                                             <!-- radio button end -->
                                                             <tr>
-                                                                <td>PatientAddress</td>
-                                                                <td><input type="text" class="form-control" name="patientAddress" value="<?php echo $userRow['patientAddress']; ?>"  /></td>
+                                                                <td>userAddress</td>
+                                                                <td><input type="text" class="form-control" name="userAddress" value="<?php echo $userRow['userAddress']; ?>"  /></td>
                                                             </tr>
                                                             <tr>
-                                                                <td>PatientPhone</td>
-                                                                <td><input type="text" class="form-control" name="patientPhone" value="<?php echo $userRow['patientPhone']; ?>"  /></td>
+                                                                <td>userPhone</td>
+                                                                <td><input type="text" class="form-control" name="userPhone" value="<?php echo $userRow['userPhone']; ?>"  /></td>
                                                             </tr>
                                                             <tr>
-                                                                <td>PatientEmail</td>
-                                                                <td><input type="text" class="form-control" name="patientEmail" value="<?php echo $userRow['patientEmail']; ?>"  /></td>
+                                                                <td>userEmail</td>
+                                                                <td><input type="text" class="form-control" name="userEmail" value="<?php echo $userRow['userEmail']; ?>"  /></td>
                                                             </tr>
                                                             <tr>
                                                                 <td>
@@ -351,7 +351,7 @@ $female = "checked";
             <script src="assets/js/bootstrap.min.js"></script>
             <script>
             $(document).ready(function(){
-            var date_input=$('input[name="patientDOB"]'); //our date input has the name "date"
+            var date_input=$('input[name="userDOB"]'); //our date input has the name "date"
             var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
             date_input.datepicker({
             format: 'yyyy/mm/dd',

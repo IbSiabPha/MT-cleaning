@@ -46,12 +46,12 @@ $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
                         <table>
                             <tr>
                                 <td>
-                                    <?php echo $userRow['patientAddress'];?>
+                                    <?php echo $userRow['userAddress'];?>
                                 </td>
                                 
                                 <td><?php echo $userRow['patientIc'];?><br>
                                     <?php echo $userRow['userFirstName'];?> <?php echo $userRow['userLastName'];?><br>
-                                    <?php echo $userRow['patientEmail'];?>
+                                    <?php echo $userRow['userEmail'];?>
                                 </td>
                             </tr>
                         </table>

@@ -143,14 +143,14 @@ CREATE TABLE `patient`
 (20) NOT NULL,
   `userLastName` varchar
 (20) NOT NULL,
-  `patientDOB` date NOT NULL,
-  `patientGender` varchar
+  `userDOB` date NOT NULL,
+  `userGender` varchar
 (10) NOT NULL,
-  `patientAddress` varchar
+  `userAddress` varchar
 (100) NOT NULL,
-  `patientPhone` varchar
+  `userPhone` varchar
 (15) NOT NULL,
-  `patientEmail` varchar
+  `userEmail` varchar
 (100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -161,7 +161,7 @@ CREATE TABLE `patient`
 INSERT INTO `patient` (`
 idUser`,
 `password
-`, `userFirstName`, `userLastName`, `patientDOB`, `patientGender`, `patientAddress`, `patientPhone`, `patientEmail`) VALUES
+`, `userFirstName`, `userLastName`, `userDOB`, `userGender`, `userAddress`, `userPhone`, `userEmail`) VALUES
 (920517105553, '123', 'Mohd', 'Mazlan', 'single', '1992-05-17', 'male', 'NO 153 BLOK MURNI\r\nKOLEJ CANSELOR UNIVERSITI PUTRA MALAYSIA', '173567758', 'lan.psis@gmail.com');
 
 --

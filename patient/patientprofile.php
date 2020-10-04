@@ -242,26 +242,26 @@ $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
                                                                 <td><?php echo $userRow['userLastName']; ?></td>
                                                             </tr>
                                                             <tr>
-                                                                <td>PatientDOB</td>
-                                                                <td><?php echo $userRow['patientDOB']; ?></td>
+                                                                <td>userDOB</td>
+                                                                <td><?php echo $userRow['userDOB']; ?></td>
                                                             </tr>
                                                             <tr>
-                                                                <td>PatientGender</td>
-                                                                <td><?php echo $userRow['patientGender']; ?></td>
+                                                                <td>userGender</td>
+                                                                <td><?php echo $userRow['userGender']; ?></td>
                                                             </tr>
                                                             <tr>
-                                                                <td>PatientAddress</td>
-                                                                <td><?php echo $userRow['patientAddress']; ?>
+                                                                <td>userAddress</td>
+                                                                <td><?php echo $userRow['userAddress']; ?>
                                                                 </td>
                                                             </tr>
                                                             <tr>
-                                                                <td>PatientPhone</td>
-                                                                <td><?php echo $userRow['patientPhone']; ?>
+                                                                <td>userPhone</td>
+                                                                <td><?php echo $userRow['userPhone']; ?>
                                                                 </td>
                                                             </tr>
                                                             <tr>
-                                                                <td>PatientEmail</td>
-                                                                <td><?php echo $userRow['patientEmail']; ?>
+                                                                <td>userEmail</td>
+                                                                <td><?php echo $userRow['userEmail']; ?>
                                                                 </td>
                                                             </tr>
                                                         </tbody>

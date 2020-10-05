@@ -68,13 +68,16 @@ CREATE TABLE `doctor`
   `doctorFirstName` varchar
 (50) NOT NULL,
   `doctorEmail` varchar
-(20) NOT NULL,
+(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `doctor`
 --
-INSERT INTO `doctor` (`idAdmin`, `password`, `adminId`, `doctorFirstName`, `doctorEmail`) VALUES
+INSERT INTO `doctor` (`
+idAdmin`,
+`password
+`, `adminId`, `doctorFirstName`, `doctorEmail`) VALUES
 (123456789, '123', 123, 'Doctor','kuala lumpur', '0173567758', 'dsehgal@gmail.com', '1990-04-10');
 
 

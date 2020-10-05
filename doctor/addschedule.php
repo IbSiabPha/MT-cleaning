@@ -116,10 +116,10 @@ alert('Added fail. Please try again.');
                             <a href="doctordashboard.php"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
                         </li>
                         <li class="active">
-                            <a href="addschedule.php"><i class="fa fa-fw fa-table"></i> Doctor Schedule</a>
+                            <a href="addschedule.php"><i class="fa fa-fw fa-table"></i> Appointment Schedule</a>
                         </li>
                         <li>
-                            <a href="patientlist.php"><i class="fa fa-fw fa-edit"></i> Patient List</a>
+                            <a href="patientlist.php"><i class="fa fa-fw fa-edit"></i> Client List</a>
                         </li>
                     </ul>
                 </div>
@@ -134,7 +134,7 @@ alert('Added fail. Please try again.');
                     <div class="row">
                         <div class="col-lg-12">
                             <h2 class="page-header">
-                            Doctor Schedule
+                            Appointment Schedule
                             </h2>
                             <ol class="breadcrumb">
                                 <li class="active">
@@ -176,39 +176,6 @@ alert('Added fail. Please try again.');
                                     </div>
                                     <input class="form-control" id="date" name="date" type="text" required/>
                                    </div>
-                                  </div>
-                                 </div>
-                                 <div class="form-group form-group-lg">
-                                  <label class="control-label col-sm-2 requiredField" for="scheduleday">
-                                   Day
-                                   <span class="asteriskField">
-                                    *
-                                   </span>
-                                  </label>
-                                  <div class="col-sm-10">
-                                   <select class="select form-control" id="scheduleday" name="scheduleday" required>
-                                    <option value="Monday">
-                                     Monday
-                                    </option>
-                                    <option value="Tuesday">
-                                     Tuesday
-                                    </option>
-                                    <option value="Wednesday">
-                                     Wednesday
-                                    </option>
-                                    <option value="Thursday">
-                                     Thursday
-                                    </option>
-                                    <option value="Friday">
-                                     Friday
-                                    </option>
-                                    <option value="Saturday">
-                                     Saturday
-                                    </option>
-                                    <option value="Sunday">
-                                     Sunday
-                                    </option>
-                                   </select>
                                   </div>
                                  </div>
                                  <div class="form-group form-group-lg">

@@ -65,7 +65,7 @@ appId`,
 
 CREATE TABLE `doctor`
 (
-  `icDoctor` bigint
+  `idAdmin` bigint
 (12) NOT NULL,
   `password` varchar
 (20) NOT NULL,
@@ -73,12 +73,6 @@ CREATE TABLE `doctor`
 (3) NOT NULL,
   `doctorFirstName` varchar
 (50) NOT NULL,
-  `doctorLastName` varchar
-(50) NOT NULL,
-  `doctorAddress` varchar
-(100) NOT NULL,
-  `doctorPhone` varchar
-(15) NOT NULL,
   `doctorEmail` varchar
 (20) NOT NULL,
   `doctorDOB` date NOT NULL
@@ -87,12 +81,6 @@ CREATE TABLE `doctor`
 --
 -- Dumping data for table `doctor`
 --
-
-INSERT INTO `doctor` (`
-icDoctor`,
-`password
-`, `adminId`, `doctorFirstName`, `doctorLastName`, `doctorAddress`, `doctorPhone`, `doctorEmail`, `doctorDOB`) VALUES
-(123456789, '123', 123, 'Doctor', 'Sehgal', 'kuala lumpur', '0173567758', 'dsehgal@gmail.com', '1990-04-10');
 
 -- --------------------------------------------------------
 
@@ -186,7 +174,7 @@ ADD KEY `scheduleId`
 --
 ALTER TABLE `doctor`
 ADD PRIMARY KEY
-(`icDoctor`);
+(`idAdmin`);
 
 --
 -- Indexes for table `doctorschedule`

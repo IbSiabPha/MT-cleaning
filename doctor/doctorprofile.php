@@ -14,12 +14,9 @@ $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
 if (isset($_POST['submit'])) {
 //variables
 $doctorFirstName = $_POST['doctorFirstName'];
-$doctorLastName = $_POST['doctorLastName'];
-$doctorPhone = $_POST['doctorPhone'];
 $doctorEmail = $_POST['doctorEmail'];
-$doctorAddress = $_POST['doctorAddress'];
 
-$res=mysqli_query($con,"UPDATE doctor SET doctorFirstName='$doctorFirstName', doctorLastName='$doctorLastName', doctorPhone='$doctorPhone', doctorEmail='$doctorEmail', doctorAddress='$doctorAddress' WHERE adminId=".$_SESSION['doctorSession']);
+$res=mysqli_query($con,"UPDATE doctor SET doctorFirstName='$doctorFirstName', doctorEmail='$doctorEmail', WHERE adminId=".$_SESSION['doctorSession']);
 // $userRow=mysqli_fetch_array($res);
 
 header( 'Location: doctorprofile.php' ) ;
@@ -39,7 +36,7 @@ header( 'Location: doctorprofile.php' ) ;
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="author" content="">
-        <title>Welcome Dr <?php echo $userRow['doctorFirstName'];?> <?php echo $userRow['doctorLastName'];?></title>
+        <title>Welcome Dr <?php echo $userRow['doctorFirstName'];?></title>
         <!-- Bootstrap Core CSS -->
         <!-- <link href="assets/css/bootstrap.css" rel="stylesheet"> -->
         <link href="assets/css/material.css" rel="stylesheet">
@@ -64,14 +61,14 @@ header( 'Location: doctorprofile.php' ) ;
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="doctordashboard.php">Welcome Dr <?php echo $userRow['doctorFirstName'];?> <?php echo $userRow['doctorLastName'];?></a>
+                    <a class="navbar-brand" href="doctordashboard.php">Welcome <?php echo $userRow['doctorFirstName'];?></a>
                 </div>
                 <!-- Top Menu Items -->
                 <ul class="nav navbar-right top-nav">
                     
                     
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $userRow['doctorFirstName']; ?> <?php echo $userRow['doctorLastName']; ?><b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $userRow['doctorFirstName']; ?> <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>
                                 <a href="doctorprofile.php"><i class="fa fa-fw fa-user"></i> Profile</a>
@@ -142,8 +139,8 @@ header( 'Location: doctorprofile.php' ) ;
                             <div class="user-wrapper">
                                 <img src="assets/img/1.jpg" class="img-responsive" />
                                 <div class="description">
-                                    <h4><?php echo $userRow['doctorFirstName']; ?> <?php echo $userRow['doctorLastName']; ?></h4>
-                                    <h5> <strong> Doctor </strong></h5>
+                                    <h4><?php echo $userRow['doctorFirstName']; ?></h4>
+                                    <h5> <strong> Admin </strong></h5>
                                     
                                     <hr />
                                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Update Profile</button>
@@ -153,59 +150,30 @@ header( 'Location: doctorprofile.php' ) ;
                         
                         <div class="col-md-9 col-sm-9  user-wrapper">
                             <div class="description">
-                                <h3> <?php echo $userRow['doctorFirstName']; ?> <?php echo $userRow['doctorLastName']; ?> </h3>
+                                <h3> <?php echo $userRow['doctorFirstName']; ?></h3>
                                 <hr />
-                                
                                 <div class="panel panel-default">
                                     <div class="panel-body">
-                                        
-                                        
                                         <table class="table table-user-information" align="center">
                                             <tbody>
-                                                
-                                                
                                                 <tr>
-                                                    <td>Doctor ID</td>
+                                                    <td>Admin ID</td>
                                                     <td><?php echo $userRow['adminId']; ?></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>IC Number</td>
-                                                    <td><?php echo $userRow['icDoctor']; ?></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Address</td>
-                                                    <td><?php echo $userRow['doctorAddress']; ?></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Contact Number</td>
-                                                    <td><?php echo $userRow['doctorPhone']; ?>
-                                                    </td>
                                                 </tr>
                                                 <tr>
                                                     <td>Email</td>
                                                     <td><?php echo $userRow['doctorEmail']; ?>
                                                     </td>
                                                 </tr>
-                                                <tr>
-                                                    <td>Birthdate</td>
-                                                    <td><?php echo $userRow['doctorDOB']; ?>
-                                                    </td>
-                                                </tr>
                                             </tbody>
                                         </table>
                                     </div>
                                 </div>
-                                
                             </div>
-                            
                         </div>
                     </div>
                     <!-- USER PROFILE ROW END-->
                     <div class="col-md-4">
-                        
-                        <!-- Large modal -->
-                        
-                        <!-- Modal -->
                         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
@@ -219,33 +187,16 @@ header( 'Location: doctorprofile.php' ) ;
                                             <table class="table table-user-information">
                                                 <tbody>
                                                     <tr>
-                                                        <td>IC Number:</td>
-                                                        <td><?php echo $userRow['icDoctor']; ?></td>
+                                                        <td>ID Number:</td>
+                                                        <td><?php echo $userRow['idAdmin']; ?></td>
                                                     </tr>
                                                     <tr>
                                                         <td>First Name:</td>
                                                         <td><input type="text" class="form-control" name="doctorFirstName" value="<?php echo $userRow['doctorFirstName']; ?>"  /></td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Last Name</td>
-                                                        <td><input type="text" class="form-control" name="doctorLastName" value="<?php echo $userRow['doctorLastName']; ?>"  /></td>
-                                                    </tr>
-                                                    
-                                                    
-                                                    
-                                                    
-                                                    
-                                                    <tr>
-                                                        <td>Phone number</td>
-                                                        <td><input type="text" class="form-control" name="doctorPhone" value="<?php echo $userRow['doctorPhone']; ?>"  /></td>
-                                                    </tr>
-                                                    <tr>
                                                         <td>Email</td>
                                                         <td><input type="text" class="form-control" name="doctorEmail" value="<?php echo $userRow['doctorEmail']; ?>"  /></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Address</td>
-                                                        <td><textarea class="form-control" name="doctorAddress"  ><?php echo $userRow['doctorAddress']; ?></textarea></td>
                                                     </tr>
                                                     <tr>
                                                         <td>
@@ -254,31 +205,18 @@ header( 'Location: doctorprofile.php' ) ;
                                                     </tbody>
                                                     
                                                 </table>
-                                                
-                                                
-                                                
                                             </form>
-                                            <!-- form end -->
                                         </div>
-                                        
                                     </div>
                                 </div>
                             </div>
                             <br /><br/>
                         </div>
-                        
                     </div>
-                        <!-- panel content end -->
-                        <!-- panel end -->
                         </div>
                     </div>
-                    <!-- panel start -->
-
                 </div>
             </div>
-        <!-- /#wrapper -->
-
-
        
         <!-- jQuery -->
         <script src="../patient/assets/js/jquery.js"></script>

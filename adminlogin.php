@@ -7,16 +7,16 @@ header("Location: doctor/doctordashboard.php");
 }
 if (isset($_POST['login']))
 {
-$doctorId = mysqli_real_escape_string($con,$_POST['doctorId']);
+$adminId = mysqli_real_escape_string($con,$_POST['adminId']);
 $password  = mysqli_real_escape_string($con,$_POST['password']);
 
-$res = mysqli_query($con,"SELECT * FROM doctor WHERE doctorId = '$doctorId'");
+$res = mysqli_query($con,"SELECT * FROM doctor WHERE adminId = '$adminId'");
 
 $row=mysqli_fetch_array($res,MYSQLI_ASSOC);
 // echo $row['password'];
 if ($row['password'] == $password)
 {
-$_SESSION['doctorSession'] = $row['doctorId'];
+$_SESSION['doctorSession'] = $row['adminId'];
 ?>
 <script type="text/javascript">
 alert('Login Success');
@@ -52,7 +52,7 @@ header("Location: doctor/doctordashboard.php");
                     <div class="avatar"></div>
                     <div class="form-box">
                         <form class="form" role="form" method="POST" accept-charset="UTF-8">
-                            <input name="doctorId" type="text" placeholder="Doctor ID" required>
+                            <input name="adminId" type="text" placeholder="Admin ID" required>
                             <input name="password" type="password" placeholder="Password" required>
                             <button class="btn btn-info btn-block login" type="submit" name="login">Login</button>
                         </form>

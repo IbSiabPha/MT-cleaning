@@ -69,7 +69,7 @@ CREATE TABLE `doctor`
 (12) NOT NULL,
   `password` varchar
 (20) NOT NULL,
-  `doctorId` int
+  `adminId` int
 (3) NOT NULL,
   `doctorFirstName` varchar
 (50) NOT NULL,
@@ -91,7 +91,7 @@ CREATE TABLE `doctor`
 INSERT INTO `doctor` (`
 icDoctor`,
 `password
-`, `doctorId`, `doctorFirstName`, `doctorLastName`, `doctorAddress`, `doctorPhone`, `doctorEmail`, `doctorDOB`) VALUES
+`, `adminId`, `doctorFirstName`, `doctorLastName`, `doctorAddress`, `doctorPhone`, `doctorEmail`, `doctorDOB`) VALUES
 (123456789, '123', 123, 'Doctor', 'Sehgal', 'kuala lumpur', '0173567758', 'dsehgal@gmail.com', '1990-04-10');
 
 -- --------------------------------------------------------

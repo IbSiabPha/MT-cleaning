@@ -7,7 +7,7 @@ if(!isset($_SESSION['doctorSession']))
 header("Location: ../index.php");
 }
 $usersession = $_SESSION['doctorSession'];
-$res=mysqli_query($con,"SELECT * FROM doctor WHERE doctorId=".$usersession);
+$res=mysqli_query($con,"SELECT * FROM doctor WHERE adminId=".$usersession);
 $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
 
 
@@ -19,7 +19,7 @@ $doctorPhone = $_POST['doctorPhone'];
 $doctorEmail = $_POST['doctorEmail'];
 $doctorAddress = $_POST['doctorAddress'];
 
-$res=mysqli_query($con,"UPDATE doctor SET doctorFirstName='$doctorFirstName', doctorLastName='$doctorLastName', doctorPhone='$doctorPhone', doctorEmail='$doctorEmail', doctorAddress='$doctorAddress' WHERE doctorId=".$_SESSION['doctorSession']);
+$res=mysqli_query($con,"UPDATE doctor SET doctorFirstName='$doctorFirstName', doctorLastName='$doctorLastName', doctorPhone='$doctorPhone', doctorEmail='$doctorEmail', doctorAddress='$doctorAddress' WHERE adminId=".$_SESSION['doctorSession']);
 // $userRow=mysqli_fetch_array($res);
 
 header( 'Location: doctorprofile.php' ) ;
@@ -166,7 +166,7 @@ header( 'Location: doctorprofile.php' ) ;
                                                 
                                                 <tr>
                                                     <td>Doctor ID</td>
-                                                    <td><?php echo $userRow['doctorId']; ?></td>
+                                                    <td><?php echo $userRow['adminId']; ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td>IC Number</td>

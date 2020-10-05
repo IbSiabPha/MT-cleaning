@@ -88,7 +88,10 @@ CREATE TABLE `doctor`
 -- Dumping data for table `doctor`
 --
 
-INSERT INTO `doctor` (`icDoctor`, `password`, `doctorId`, `doctorFirstName`, `doctorLastName`, `doctorAddress`, `doctorPhone`, `doctorEmail`, `doctorDOB`) VALUES
+INSERT INTO `doctor` (`
+icDoctor`,
+`password
+`, `adminId`, `doctorFirstName`, `doctorLastName`, `doctorAddress`, `doctorPhone`, `doctorEmail`, `doctorDOB`) VALUES
 (123456789, '123', 123, 'Doctor', 'Sehgal', 'kuala lumpur', '0173567758', 'dsehgal@gmail.com', '1990-04-10');
 
 -- --------------------------------------------------------

@@ -48,7 +48,7 @@ $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="doctordashboard.php">Welcome Dr <?php echo $userRow['doctorFirstName'];?></a>
+                    <a class="navbar-brand" href="doctordashboard.php">Welcome <?php echo $userRow['doctorFirstName'];?></a>
                 </div>
                 <!-- Top Menu Items -->
                 <ul class="nav navbar-right top-nav">
@@ -80,10 +80,10 @@ $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
                             <a href="doctordashboard.php"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
                         </li>
                         <li>
-                            <a href="addschedule.php"><i class="fa fa-fw fa-table"></i> Doctor Schedule</a>
+                            <a href="addschedule.php"><i class="fa fa-fw fa-table"></i> Appointment Schedule</a>
                         </li>
                         <li class="active">
-                            <a href="patientlist.php"><i class="fa fa-fw fa-edit"></i> Patient List</a>
+                            <a href="patientlist.php"><i class="fa fa-fw fa-edit"></i> Client List</a>
                         </li>
                     </ul>
                 </div>
@@ -98,7 +98,7 @@ $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
                     <div class="row">
                         <div class="col-lg-12">
                             <h2 class="page-header">
-                            Patient List
+                            Appointment List
                             </h2>
                             <ol class="breadcrumb">
                                 <li class="active">
@@ -114,7 +114,7 @@ $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
 
                         <!-- panel heading starat -->
                         <div class="panel-heading">
-                            <h3 class="panel-title">List of Patients</h3>
+                            <h3 class="panel-title">List of Appointments</h3>
                             <div class="pull-right">
                             <button class="btn btn-default btn-xs btn-filter"><span class="fa fa-filter"></span> Filter</button>
                         </div>

@@ -37,7 +37,7 @@ else
 {
 ?>
 <script type="text/javascript">
-alert('Added fail. Please try again.');
+alert('Add fail. Please try again.');
 </script>
 <?php
 }

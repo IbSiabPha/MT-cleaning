@@ -102,7 +102,7 @@ $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
                             </h2>
                             <ol class="breadcrumb">
                                 <li class="active">
-                                    <i class="fa fa-calendar"></i> Patient List
+                                    <i class="fa fa-calendar"></i> Appointment List
                                 </li>
                             </ol>
                         </div>
@@ -127,11 +127,11 @@ $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
                         <table class="table table-hover table-bordered">
                             <thead>
                                 <tr class="filters">
-                                    <th><input type="text" class="form-control" placeholder="patient Ic" disabled></th>
+                                    <th><input type="text" class="form-control" placeholder="User ID" disabled></th>
                                     <th><input type="text" class="form-control" placeholder="Name" disabled></th>
                                     <th><input type="text" class="form-control" placeholder="Password" disabled></th>
-                                    <th><input type="text" class="form-control" placeholder="ContactNo." disabled></th>
-                                    <!-- <th><input type="text" class="form-control" placeholder="Email" disabled></th> -->
+                                    <th><input type="text" class="form-control" placeholder="Phone" disabled></th>
+                                    <th><input type="text" class="form-control" placeholder="Email" disabled></th>
                                     <th><input type="text" class="form-control" placeholder="Gender" disabled></th>
                                     <th><input type="text" class="form-control" placeholder="Status" disabled></th>
                                     <th><input type="text" class="form-control" placeholder="Birthdate" disabled></th>
@@ -153,7 +153,7 @@ $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
                                     echo "<td>" . $patientRow['userLastName'] . "</td>";
                                     echo "<td>" . $patientRow['password'] . "</td>";
                                     echo "<td>" . $patientRow['userPhone'] . "</td>";
-                                    // echo "<td>" . $patientRow['userEmail'] . "</td>";
+                                    echo "<td>" . $patientRow['userEmail'] . "</td>";
                                     echo "<td>" . $patientRow['userGender'] . "</td>";
                                     echo "<td>" . $patientRow['userDOB'] . "</td>";
                                     echo "<td>" . $patientRow['userAddress'] . "</td>";

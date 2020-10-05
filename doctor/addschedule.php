@@ -7,7 +7,7 @@ if(!isset($_SESSION['doctorSession']))
 header("Location: ../index.php");
 }
 $usersession = $_SESSION['doctorSession'];
-$res=mysqli_query($con,"SELECT * FROM doctor WHERE adminId=".$usersession);
+$res=mysqli_query($con,"SELECT * FROM doctor WHERE doctorId=".$usersession);
 $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
 // insert
 
@@ -56,7 +56,7 @@ alert('Added fail. Please try again.');
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="author" content="">
-        <title>Welcome Dr <?php echo $userRow['doctorFirstName'];?> <?php echo $userRow['doctorLastName'];?></title>
+        <title>Welcome <?php echo $userRow['doctorFirstName'];?></title>
         <!-- Bootstrap Core CSS -->
         <!-- <link href="assets/css/bootstrap.css" rel="stylesheet"> -->
         <link href="assets/css/material.css" rel="stylesheet">
@@ -89,14 +89,14 @@ alert('Added fail. Please try again.');
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="doctordashboard.php">Welcome Dr <?php echo $userRow['doctorFirstName'];?> <?php echo $userRow['doctorLastName'];?></a>
+                    <a class="navbar-brand" href="doctordashboard.php">Welcome <?php echo $userRow['doctorFirstName'];?></a>
                 </div>
                 <!-- Top Menu Items -->
                 <ul class="nav navbar-right top-nav">
                     
                     
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $userRow['doctorFirstName']; ?> <?php echo $userRow['doctorLastName']; ?><b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $userRow['doctorFirstName']; ?> <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>
                                 <a href="doctorprofile.php"><i class="fa fa-fw fa-user"></i> Profile</a>

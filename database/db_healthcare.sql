@@ -57,12 +57,6 @@ appId`,
 `, `scheduleId`, `appSymptom`, `appComment`, `status`) VALUES
 (86, 920517105553, 40, 'Pening Kepala', 'Bila doktor free?', 'done');
 
--- --------------------------------------------------------
-
---
--- Table structure for table `doctor`
---
-
 CREATE TABLE `doctor`
 (
   `idAdmin` bigint
@@ -75,12 +69,14 @@ CREATE TABLE `doctor`
 (50) NOT NULL,
   `doctorEmail` varchar
 (20) NOT NULL,
-  `doctorDOB` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `doctor`
 --
+INSERT INTO `doctor` (`idAdmin`, `password`, `adminId`, `doctorFirstName`, `doctorEmail`) VALUES
+(123456789, '123', 123, 'Doctor','kuala lumpur', '0173567758', 'dsehgal@gmail.com', '1990-04-10');
+
 
 -- --------------------------------------------------------
 

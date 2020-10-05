@@ -27,7 +27,7 @@ die("Error running $sql: " . mysqli_error());
 
         if (mysqli_num_rows($res)==0) {
 
-            echo "<div class='alert alert-danger' role='alert'>Doctor is not available at the moment. Please try again later.</div>";
+            echo "<div class='alert alert-danger' role='alert'> No available dates. Please call us.</div>";
                 
             } else {
              echo "   <table class='table table-hover'>";

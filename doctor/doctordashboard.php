@@ -54,7 +54,7 @@ $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $userRow['doctorFirstName']; ?><b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a href="doctorprofile.php"><i class="fa fa-fw fa-user"></i> Profile</a>
+                                <a href="adminprofile.php"><i class="fa fa-fw fa-user"></i> Profile</a>
                             </li>
                            
                             <li class="divider"></li>

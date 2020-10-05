@@ -19,14 +19,9 @@ $doctorEmail = $_POST['doctorEmail'];
 $res=mysqli_query($con,"UPDATE doctor SET doctorFirstName='$doctorFirstName', doctorEmail='$doctorEmail', WHERE adminId=".$_SESSION['doctorSession']);
 // $userRow=mysqli_fetch_array($res);
 
-header( 'Location: doctorprofile.php' ) ;
+header( 'Location: adminprofile.php' ) ;
 
 }
-
-
-
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -36,7 +31,7 @@ header( 'Location: doctorprofile.php' ) ;
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="author" content="">
-        <title>Welcome Dr <?php echo $userRow['doctorFirstName'];?></title>
+        <title>Admin Portal</title>
         <!-- Bootstrap Core CSS -->
         <!-- <link href="assets/css/bootstrap.css" rel="stylesheet"> -->
         <link href="assets/css/material.css" rel="stylesheet">
@@ -71,7 +66,7 @@ header( 'Location: doctorprofile.php' ) ;
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $userRow['doctorFirstName']; ?> <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a href="doctorprofile.php"><i class="fa fa-fw fa-user"></i> Profile</a>
+                                <a href="adminprofile.php"><i class="fa fa-fw fa-user"></i> Profile</a>
                             </li>
                            
                             <li class="divider"></li>
@@ -106,7 +101,7 @@ header( 'Location: doctorprofile.php' ) ;
                     <div class="row">
                         <div class="col-lg-12">
                             <h2 class="page-header">
-                            Doctor Profile
+                            Admin Profile
                             </h2>
                             <ol class="breadcrumb">
                                 <li class="active">
@@ -137,11 +132,10 @@ header( 'Location: doctorprofile.php' ) ;
                         <div class="col-md-3 col-sm-3">
                             
                             <div class="user-wrapper">
-                                <img src="assets/img/1.jpg" class="img-responsive" />
+                                <img src="assets/img/sysadmin.jpg" class="img-responsive" />
                                 <div class="description">
                                     <h4><?php echo $userRow['doctorFirstName']; ?></h4>
-                                    <h5> <strong> Admin </strong></h5>
-                                    
+                                    <h5> <strong> System Administrator </strong></h5>
                                     <hr />
                                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Update Profile</button>
                                 </div>
@@ -187,8 +181,8 @@ header( 'Location: doctorprofile.php' ) ;
                                             <table class="table table-user-information">
                                                 <tbody>
                                                     <tr>
-                                                        <td>ID Number:</td>
-                                                        <td><?php echo $userRow['idAdmin']; ?></td>
+                                                        <td>Admin ID</td>
+                                                        <td><?php echo $userRow['adminId']; ?></td>
                                                     </tr>
                                                     <tr>
                                                         <td>First Name:</td>

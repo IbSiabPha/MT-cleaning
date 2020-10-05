@@ -7,7 +7,7 @@ if(!isset($_SESSION['doctorSession']))
 header("Location: ../index.php");
 }
 $usersession = $_SESSION['doctorSession'];
-$res=mysqli_query($con,"SELECT * FROM doctor WHERE doctorId=".$usersession);
+$res=mysqli_query($con,"SELECT * FROM doctor WHERE adminId=".$usersession);
 $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
 
 

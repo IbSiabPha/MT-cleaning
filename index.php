@@ -168,7 +168,7 @@ alert('User already registered. Please try again');
                                 <div class="col-md-6">
                                     
                                     <form action="<?php $_PHP_SELF ?>" method="POST" accept-charset="utf-8" class="form" role="form">
-                                        <h4>It's free and always will be.</h4>
+                                        <h4>Give your home the love it needs today!</h4>
                                         <div class="row">
                                             <div class="col-xs-6 col-md-6">
                                                 <input type="text" name="userFirstName" value="" class="form-control input-lg" placeholder="First Name" required />

@@ -83,7 +83,7 @@ header( 'Location: adminprofile.php' ) ;
                             <a href="doctordashboard.php"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
                         </li>
                         <li>
-                            <a href="addschedule.php"><i class="fa fa-fw fa-table"></i> Doctor Schedule</a>
+                            <a href="addschedule.php"><i class="fa fa-fw fa-table"></i> Appointment Schedule</a>
                         </li>
                         <li>
                             <a href="patientlist.php"><i class="fa fa-fw fa-edit"></i> Patient List</a>
@@ -105,7 +105,7 @@ header( 'Location: adminprofile.php' ) ;
                             </h2>
                             <ol class="breadcrumb">
                                 <li class="active">
-                                    <i class="fa fa-calendar"></i> Doctor Profile
+                                    <i class="fa fa-calendar"></i> Admin Profile
                                 </li>
                             </ol>
                         </div>
@@ -117,7 +117,7 @@ header( 'Location: adminprofile.php' ) ;
 
                         <!-- panel heading starat -->
                         <div class="panel-heading">
-                            <h3 class="panel-title">Doctor Details</h3>
+                            <h3 class="panel-title">Admin Details</h3>
                         </div>
                         <!-- panel heading end -->
 

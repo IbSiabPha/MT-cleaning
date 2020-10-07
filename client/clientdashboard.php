@@ -21,7 +21,7 @@ echo mysql_error();
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="author" content="">
-        <title>Patient Dashboard</title>
+        <title>Client Dashboard</title>
         <!-- Bootstrap Core CSS -->
         <!-- <link href="assets/css/bootstrap.min.css" rel="stylesheet"> -->
         <link href="assets/css/material.css" rel="stylesheet">
@@ -47,7 +47,7 @@ echo mysql_error();
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="patientdashboard.html">Patient Dashboard</a>
+                    <a class="navbar-brand" href="patientdashboard.html">Client Dashboard</a>
                 </div>
                 <!-- Top Menu Items -->
                 <ul class="nav navbar-right top-nav">

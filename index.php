@@ -10,7 +10,7 @@ include_once 'assets/conn/dbconnect.php';
 session_start();
 // session_destroy();
 if (isset($_SESSION['patientSession']) != "") {
-header("Location: patient/client.php");
+header("Location: client/client.php");
 }
 if (isset($_POST['login']))
 {
@@ -27,7 +27,7 @@ $_SESSION['patientSession'] = $row['idUser'];
 alert('Login Success');
 </script>
 <?php
-header("Location: patient/client.php");
+header("Location: client/client.php");
 } else {
 ?>
 <script>

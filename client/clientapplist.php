@@ -2,12 +2,12 @@
 session_start();
 include_once '../assets/conn/dbconnect.php';
 $session=$_SESSION[ 'patientSession'];
-$res=mysqli_query($con, "SELECT a.*, b.*,c.* FROM patient a
+$res=mysqli_query($con, "SELECT a.*, b.*,c.* FROM client1 a
 	JOIN appointment b
-		On a.idUser = b.patientIc
-	JOIN doctorschedule c
+		On a.idUser = b.userId
+	JOIN adminschedule c
 		On b.scheduleId=c.scheduleId
-	WHERE b.patientIc ='$session'");
+	WHERE b.userId ='$session'");
 	if (!$res) {
 		die( "Error running $sql: " . mysqli_error());
 	}
@@ -90,7 +90,7 @@ echo "<table class='table table-hover'>";
 echo "<thead>";
 echo "<tr>";
 echo "<th>App Id</th>";
-echo "<th>patientIc </th>";
+echo "<th>userId </th>";
 echo "<th>userLastName </th>";
 echo "<th>scheduleDay </th>";
 echo "<th>scheduleDate </th>";
@@ -100,12 +100,12 @@ echo "<th>Print </th>";
 echo "</tr>";
 echo "</thead>";
 $res = mysqli_query($con, "SELECT a.*, b.*,c.*
-		FROM patient a
+		FROM client1 a
 		JOIN appointment b
-		On a.idUser = b.patientIc
-		JOIN doctorschedule c
+		On a.idUser = b.userId
+		JOIN adminschedule c
 		On b.scheduleId=c.scheduleId
-		WHERE b.patientIc ='$session'");
+		WHERE b.userId ='$session'");
 
 if (!$res) {
 die("Error running $sql: " . mysqli_error());
@@ -116,7 +116,7 @@ while ($userRow = mysqli_fetch_array($res)) {
 echo "<tbody>";
 echo "<tr>";
 echo "<td>" . $userRow['appId'] . "</td>";
-echo "<td>" . $userRow['patientIc'] . "</td>";
+echo "<td>" . $userRow['userId'] . "</td>";
 echo "<td>" . $userRow['userLastName'] . "</td>";
 echo "<td>" . $userRow['scheduleDay'] . "</td>";
 echo "<td>" . $userRow['scheduleDate'] . "</td>";

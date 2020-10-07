@@ -7,16 +7,16 @@ if(!isset($_SESSION['doctorSession']))
 header("Location: ../index.php");
 }
 $usersession = $_SESSION['doctorSession'];
-$res=mysqli_query($con,"SELECT * FROM doctor WHERE adminId=".$usersession);
+$res=mysqli_query($con,"SELECT * FROM admin1 WHERE adminId=".$usersession);
 $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
 
 
 if (isset($_POST['submit'])) {
 //variables
-$doctorFirstName = $_POST['doctorFirstName'];
-$doctorEmail = $_POST['doctorEmail'];
+$adminFirstName = $_POST['adminFirstName'];
+$adminEmail = $_POST['adminEmail'];
 
-$res=mysqli_query($con,"UPDATE doctor SET doctorFirstName='$doctorFirstName', doctorEmail='$doctorEmail', WHERE adminId=".$_SESSION['doctorSession']);
+$res=mysqli_query($con,"UPDATE admin1 SET adminFirstName='$adminFirstName', adminEmail='$adminEmail', WHERE adminId=".$_SESSION['doctorSession']);
 // $userRow=mysqli_fetch_array($res);
 
 header( 'Location: adminprofile.php' ) ;
@@ -56,14 +56,14 @@ header( 'Location: adminprofile.php' ) ;
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="admindashboard.php">Welcome <?php echo $userRow['doctorFirstName'];?></a>
+                    <a class="navbar-brand" href="admindashboard.php">Welcome <?php echo $userRow['adminFirstName'];?></a>
                 </div>
                 <!-- Top Menu Items -->
                 <ul class="nav navbar-right top-nav">
                     
                     
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $userRow['doctorFirstName']; ?> <b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $userRow['adminFirstName']; ?> <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>
                                 <a href="adminprofile.php"><i class="fa fa-fw fa-user"></i> Profile</a>
@@ -86,7 +86,7 @@ header( 'Location: adminprofile.php' ) ;
                             <a href="addschedule.php"><i class="fa fa-fw fa-table"></i> Appointment Schedule</a>
                         </li>
                         <li>
-                            <a href="clientlist.php"><i class="fa fa-fw fa-edit"></i> Patient List</a>
+                            <a href="clientlist.php"><i class="fa fa-fw fa-edit"></i> Client List</a>
                         </li>
                     </ul>
                 </div>
@@ -134,7 +134,7 @@ header( 'Location: adminprofile.php' ) ;
                             <div class="user-wrapper">
                                 <img src="assets/img/sysadmin.jpg" class="img-responsive" />
                                 <div class="description">
-                                    <h4><?php echo $userRow['doctorFirstName']; ?></h4>
+                                    <h4><?php echo $userRow['adminFirstName']; ?></h4>
                                     <h5> <strong> System Administrator </strong></h5>
                                     <hr />
                                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Update Profile</button>
@@ -144,7 +144,7 @@ header( 'Location: adminprofile.php' ) ;
                         
                         <div class="col-md-9 col-sm-9  user-wrapper">
                             <div class="description">
-                                <h3> <?php echo $userRow['doctorFirstName']; ?></h3>
+                                <h3> <?php echo $userRow['adminFirstName']; ?></h3>
                                 <hr />
                                 <div class="panel panel-default">
                                     <div class="panel-body">
@@ -156,7 +156,7 @@ header( 'Location: adminprofile.php' ) ;
                                                 </tr>
                                                 <tr>
                                                     <td>Email</td>
-                                                    <td><?php echo $userRow['doctorEmail']; ?>
+                                                    <td><?php echo $userRow['adminEmail']; ?>
                                                     </td>
                                                 </tr>
                                             </tbody>
@@ -186,11 +186,11 @@ header( 'Location: adminprofile.php' ) ;
                                                     </tr>
                                                     <tr>
                                                         <td>First Name:</td>
-                                                        <td><input type="text" class="form-control" name="doctorFirstName" value="<?php echo $userRow['doctorFirstName']; ?>"  /></td>
+                                                        <td><input type="text" class="form-control" name="adminFirstName" value="<?php echo $userRow['adminFirstName']; ?>"  /></td>
                                                     </tr>
                                                     <tr>
                                                         <td>Email</td>
-                                                        <td><input type="text" class="form-control" name="doctorEmail" value="<?php echo $userRow['doctorEmail']; ?>"  /></td>
+                                                        <td><input type="text" class="form-control" name="adminEmail" value="<?php echo $userRow['adminEmail']; ?>"  /></td>
                                                     </tr>
                                                     <tr>
                                                         <td>

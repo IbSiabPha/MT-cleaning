@@ -7,7 +7,7 @@ if(!isset($_SESSION['patientSession']))
 {
 header("Location: clientdashboard.php");
 }
-$res=mysqli_query($con,"SELECT * FROM patient WHERE idUser=".$_SESSION['patientSession']);
+$res=mysqli_query($con,"SELECT * FROM client1 WHERE idUser=".$_SESSION['patientSession']);
 $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
 ?>
 <?php
@@ -22,7 +22,7 @@ $userPhone = $_POST['userPhone'];
 $userEmail = $_POST['userEmail'];
 $patientId = $_POST['patientId'];
 // mysqli_query("UPDATE blogEntry SET content = $udcontent, title = $udtitle WHERE id = $id");
-$res=mysqli_query($con,"UPDATE patient SET userFirstName='$userFirstName', userLastName='$userLastName', userDOB='$userDOB', userGender='$userGender', userAddress='$userAddress', userPhone=$userPhone, userEmail='$userEmail' WHERE idUser=".$_SESSION['patientSession']);
+$res=mysqli_query($con,"UPDATE client1 SET userFirstName='$userFirstName', userLastName='$userLastName', userDOB='$userDOB', userGender='$userGender', userAddress='$userAddress', userPhone=$userPhone, userEmail='$userEmail' WHERE idUser=".$_SESSION['patientSession']);
 // $userRow=mysqli_fetch_array($res);
 header( 'Location: clientprofile.php' ) ;
 }
@@ -247,7 +247,7 @@ $female = "checked";
                                                     <table class="table table-user-information">
                                                         <tbody>
                                                             <tr>
-                                                                <td>PatientId:</td>
+                                                                <td>ClientId:</td>
                                                                 <td><?php echo $userRow['idUser']; ?></td>
                                                             </tr>
                                                             <tr>

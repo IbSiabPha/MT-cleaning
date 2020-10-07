@@ -9,7 +9,7 @@ header("Location: ../index.php");
 $usersession = $_SESSION['patientSession'];
 
 
-$res=mysqli_query($con,"SELECT * FROM patient WHERE idUser=".$usersession);
+$res=mysqli_query($con,"SELECT * FROM client1 WHERE idUser=".$usersession);
 
 if ($res===false) {
 	echo mysql_error();

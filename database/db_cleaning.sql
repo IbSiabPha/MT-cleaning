@@ -1,16 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 11, 2020 at 05:26 PM
--- Server version: 10.1.37-MariaDB
--- PHP Version: 5.6.40
+-- Generation Time: Oct 07, 2020 at 03:25 AM
+-- Server version: 10.4.14-MariaDB
+-- PHP Version: 7.4.9
 
 SET SQL_MODE
 = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT
-= 0;
 START TRANSACTION;
 SET time_zone
 = "+00:00";
@@ -22,7 +20,7 @@ SET time_zone
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `db_healthcare`
+-- Database: `db_cleaning`
 --
 
 -- --------------------------------------------------------
@@ -35,13 +33,13 @@ CREATE TABLE `appointment`
 (
   `appId` int
 (3) NOT NULL,
-  `patientIc` bigint
+  `userId` bigint
 (12) NOT NULL,
   `scheduleId` int
 (10) NOT NULL,
-  `appSymptom` varchar
+  `needService` varchar
 (100) NOT NULL,
-  `appComment` varchar
+  `serviceComment` varchar
 (100) NOT NULL,
   `status` varchar
 (10) NOT NULL DEFAULT 'process'
@@ -53,11 +51,18 @@ CREATE TABLE `appointment`
 
 INSERT INTO `appointment` (`
 appId`,
-`patientIc
-`, `scheduleId`, `appSymptom`, `appComment`, `status`) VALUES
-(86, 920517105553, 40, 'Pening Kepala', 'Bila doktor free?', 'done');
+`userId
+`, `scheduleId`, `needService`, `serviceComment`, `status`) VALUES
+(88, 1234, 47, 'Garage Cleaning', 'i want my garage cleaned', 'done'),
+(89, 1234, 48, 'home cleaning', 'clean my agarage', 'done');
 
-CREATE TABLE `doctor`
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `doctor`
+--
+
+CREATE TABLE `admin1`
 (
   `idAdmin` bigint
 (12) NOT NULL,
@@ -65,29 +70,29 @@ CREATE TABLE `doctor`
 (20) NOT NULL,
   `adminId` int
 (3) NOT NULL,
-  `doctorFirstName` varchar
+  `adminFirstName` varchar
 (50) NOT NULL,
-  `doctorEmail` varchar
+  `adminEmail` varchar
 (20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `doctor`
 --
-INSERT INTO `doctor` (`
+
+INSERT INTO `admin1` (`
 idAdmin`,
 `password
-`, `adminId`, `doctorFirstName`, `doctorEmail`) VALUES
-(123456789, '123', 123, 'Doctor','kuala lumpur', '0173567758', 'dsehgal@gmail.com', '1990-04-10');
-
+`, `adminId`, `adminFirstName`, `adminEmail`) VALUES
+(0, '123', 123, 'Admin', 'admin@mtcleaning.com');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `doctorschedule`
+-- Table structure for table `adminschedule`
 --
 
-CREATE TABLE `doctorschedule`
+CREATE TABLE `adminschedule`
 (
   `scheduleId` int
 (11) NOT NULL,
@@ -101,18 +106,16 @@ CREATE TABLE `doctorschedule`
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `doctorschedule`
+-- Dumping data for table `adminschedule`
 --
 
-INSERT INTO `doctorschedule` (`
+INSERT INTO `adminschedule` (`
 scheduleId`,
 `scheduleDate
 `, `scheduleDay`, `startTime`, `endTime`, `bookAvail`) VALUES
-(40, '2015-12-13', 'Sunday', '09:00:00', '10:00:00', 'notavail'),
-(41, '2015-12-13', 'Sunday', '10:00:00', '11:00:00', 'available'),
-(42, '2015-12-13', 'Sunday', '11:00:00', '12:00:00', 'available'),
-(43, '2015-12-14', 'Monday', '11:00:00', '12:00:00', 'available'),
-(44, '2015-12-13', 'Sunday', '01:00:00', '02:00:00', 'available');
+(47, '2020-10-06', '', '00:05:00', '03:10:00', 'notavail'),
+(48, '2020-10-14', '', '12:00:00', '01:05:00', 'notavail'),
+(49, '0000-00-00', '', '00:00:00', '00:00:00', '');
 
 -- --------------------------------------------------------
 
@@ -120,7 +123,7 @@ scheduleId`,
 -- Table structure for table `patient`
 --
 
-CREATE TABLE `patient`
+CREATE TABLE `client1`
 (
   `idUser` bigint
 (12) NOT NULL,
@@ -145,11 +148,13 @@ CREATE TABLE `patient`
 -- Dumping data for table `patient`
 --
 
-INSERT INTO `patient` (`
+INSERT INTO `client1` (`
 idUser`,
 `password
 `, `userFirstName`, `userLastName`, `userDOB`, `userGender`, `userAddress`, `userPhone`, `userEmail`) VALUES
-(920517105553, '123', 'Mohd', 'Mazlan', 'single', '1992-05-17', 'male', 'NO 153 BLOK MURNI\r\nKOLEJ CANSELOR UNIVERSITI PUTRA MALAYSIA', '173567758', 'lan.psis@gmail.com');
+(0, '1234', '', '', '2002-01-22', '', '', '', ''),
+(1234, '1', 'ib', 'pha', '1981-01-02', 'male', '', '', 'fake@gmail.com'),
+(123456, 'pha', 'ib ', 'pha', '2012-02-01', 'male', '', '', 'wahtever@gmail.com');
 
 --
 -- Indexes for dumped tables
@@ -163,29 +168,29 @@ ADD PRIMARY KEY
 (`appId`),
 ADD UNIQUE KEY `scheduleId_2`
 (`scheduleId`),
-ADD KEY `patientIc`
-(`patientIc`),
+ADD KEY `userId`
+(`userId`),
 ADD KEY `scheduleId`
 (`scheduleId`);
 
 --
 -- Indexes for table `doctor`
 --
-ALTER TABLE `doctor`
+ALTER TABLE `admin1`
 ADD PRIMARY KEY
 (`idAdmin`);
 
 --
--- Indexes for table `doctorschedule`
+-- Indexes for table `adminschedule`
 --
-ALTER TABLE `doctorschedule`
+ALTER TABLE `adminschedule`
 ADD PRIMARY KEY
 (`scheduleId`);
 
 --
 -- Indexes for table `patient`
 --
-ALTER TABLE `patient`
+ALTER TABLE `client1`
 ADD PRIMARY KEY
 (`idUser`);
 
@@ -198,14 +203,14 @@ ADD PRIMARY KEY
 --
 ALTER TABLE `appointment`
   MODIFY `appId` int
-(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=87;
+(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=90;
 
 --
--- AUTO_INCREMENT for table `doctorschedule`
+-- AUTO_INCREMENT for table `adminschedule`
 --
-ALTER TABLE `doctorschedule`
+ALTER TABLE `adminschedule`
   MODIFY `scheduleId` int
-(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- Constraints for dumped tables
@@ -216,10 +221,10 @@ ALTER TABLE `doctorschedule`
 --
 ALTER TABLE `appointment`
 ADD CONSTRAINT `appointment_ibfk_4` FOREIGN KEY
-(`patientIc`) REFERENCES `patient`
+(`userId`) REFERENCES `client1`
 (`idUser`),
 ADD CONSTRAINT `appointment_ibfk_5` FOREIGN KEY
-(`scheduleId`) REFERENCES `doctorschedule`
+(`scheduleId`) REFERENCES `adminschedule`
 (`scheduleId`);
 COMMIT;
 

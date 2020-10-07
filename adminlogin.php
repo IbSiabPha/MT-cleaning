@@ -10,7 +10,7 @@ if (isset($_POST['login']))
 $adminId = mysqli_real_escape_string($con,$_POST['adminId']);
 $password  = mysqli_real_escape_string($con,$_POST['password']);
 
-$res = mysqli_query($con,"SELECT * FROM doctor WHERE adminId = '$adminId'");
+$res = mysqli_query($con,"SELECT * FROM admin1 WHERE adminId = '$adminId'");
 
 $row=mysqli_fetch_array($res,MYSQLI_ASSOC);
 // echo $row['password'];

@@ -4,10 +4,10 @@ include_once '../assets/conn/dbconnect.php';
 if (isset($_GET['appid'])) {
 $appid=$_GET['appid'];
 }
-$res=mysqli_query($con, "SELECT a.*, b.*,c.* FROM patient a
+$res=mysqli_query($con, "SELECT a.*, b.*,c.* FROM client1 a
 JOIN appointment b
-On a.idUser = b.patientIc
-JOIN doctorschedule c
+On a.idUser = b.userId
+JOIN adminschedule c
 On b.scheduleId=c.scheduleId
 WHERE b.appId  =".$appid);
 
@@ -49,7 +49,7 @@ $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
                                     <?php echo $userRow['userAddress'];?>
                                 </td>
                                 
-                                <td><?php echo $userRow['patientIc'];?><br>
+                                <td><?php echo $userRow['userId'];?><br>
                                     <?php echo $userRow['userFirstName'];?> <?php echo $userRow['userLastName'];?><br>
                                     <?php echo $userRow['userEmail'];?>
                                 </td>
@@ -123,11 +123,11 @@ $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
 
                  <tr class="item">
                     <td>
-                        Patient Symptom
+                        Client Service
                     </td>
                     
                     <td>
-                        <?php echo $userRow['appSymptom'];?> 
+                        <?php echo $userRow['needService'];?> 
                     </td>
                 </tr>
                 

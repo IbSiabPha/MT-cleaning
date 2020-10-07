@@ -94,7 +94,7 @@ $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
 				<div class="row">
 					<div class="col-xs-12 col-md-8">
 							<!-- notification end -->
-							<h2>Hello <?php echo $userRow['userFirstName']; ?> <?php echo $userRow['userLastName']; ?>, Schedule Your Cleaning Service!</h2>
+							<h2 style="color:white"><b>Hello <?php echo $userRow['userFirstName']; ?> <?php echo $userRow['userLastName']; ?>, Schedule Your Cleaning Service!</b></h2>
 							<div class="input-group" style="margin-bottom:10px;">
 								<div class="input-group-addon">
 									<i class="fa fa-calendar">

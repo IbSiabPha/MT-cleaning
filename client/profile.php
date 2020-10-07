@@ -43,7 +43,7 @@ $female = "checked";
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-		<title>Patient Dashboard</title>
+		<title>Client Dashboard</title>
 		<!-- Bootstrap -->
 		<link href="assets/css/bootstrap.min.css" rel="stylesheet">
 		<link href="assets/css/default/style.css" rel="stylesheet">
@@ -70,15 +70,15 @@ $female = "checked";
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="patient.php"><img alt="Brand" src="assets/img/logo2.png" height="30px"></a>
+					<a class="navbar-brand" href="client.php"><img alt="Brand" src="assets/img/logo2.png" height="30px"></a>
 				</div>
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
 						<ul class="nav navbar-nav">
-							<li><a href="patient.php">Home</a></li>
+							<li><a href="client.php">Home</a></li>
 							<!-- <li><a href="profile.php?patientId=<?php echo $userRow['idUser']; ?>" >Profile</a></li> -->
-							<li><a href="patientapplist.php?patientId=<?php echo $userRow['idUser']; ?>">Appointment</a></li>
+							<li><a href="clientapplist.php?patientId=<?php echo $userRow['idUser']; ?>">Appointment</a></li>
 						</ul>
 					</ul>
 					
@@ -90,11 +90,11 @@ $female = "checked";
 									<a href="profile.php?patientId=<?php echo $userRow['idUser']; ?>"><i class="fa fa-fw fa-user"></i> Profile</a>
 								</li>
 								<li>
-									<a href="patientapplist.php?patientId=<?php echo $userRow['idUser']; ?>"><i class="glyphicon glyphicon-file"></i> Appointment</a>
+									<a href="clientapplist.php?patientId=<?php echo $userRow['idUser']; ?>"><i class="glyphicon glyphicon-file"></i> Appointment</a>
 								</li>
 								<li class="divider"></li>
 								<li>
-									<a href="patientlogout.php?logout"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+									<a href="clientlogout.php?logout"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
 								</li>
 							</ul>
 						</li>

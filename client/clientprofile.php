@@ -3,38 +3,13 @@ session_start();
 // include_once '../connection/server.php';
 
 include_once '../assets/conn/dbconnect.php';
+
 if(!isset($_SESSION['patientSession']))
 {
-header("Location: patientdashboard.php");
+ header("Location: ../fail.php");
 }
 $res=mysqli_query($con,"SELECT * FROM patient WHERE idUser=".$_SESSION['patientSession']);
 $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
-?>
-<?php
-if (isset($_POST['submit'])) {
-//variables
-$userFirstName = $_POST['userFirstName'];
-$userLastName = $_POST['userLastName'];
-$userDOB = $_POST['userDOB'];
-$userGender = $_POST['userGender'];
-$userAddress = $_POST['userAddress'];
-$userPhone = $_POST['userPhone'];
-$userEmail = $_POST['userEmail'];
-$patientId = $_POST['patientId'];
-// mysqli_query("UPDATE blogEntry SET content = $udcontent, title = $udtitle WHERE id = $id");
-$res=mysqli_query($con,"UPDATE patient SET userFirstName='$userFirstName', userLastName='$userLastName', userDOB='$userDOB', userGender='$userGender', userAddress='$userAddress', userPhone=$userPhone, userEmail='$userEmail' WHERE idUser=".$_SESSION['patientSession']);
-// $userRow=mysqli_fetch_array($res);
-header( 'Location: patientprofile.php' ) ;
-}
-?>
-<?php
-$male="";
-$female="";
-if ($userRow['userGender']=='male') {
-$male = "checked";
-}elseif ($userRow['userGender']=='female') {
-$female = "checked";
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -44,15 +19,13 @@ $female = "checked";
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="author" content="">
-        <title>Patient Dashboard</title>
+        <title>Client Dashboard</title>
         <!-- Bootstrap Core CSS -->
         <!-- <link href="assets/css/bootstrap.min.css" rel="stylesheet"> -->
         <link href="assets/css/style.css" rel="stylesheet">
         <link href="assets/css/material.css" rel="stylesheet">
         <!-- Custom CSS -->
         <link href="assets/css/sb-admin.css" rel="stylesheet">
-        <link href="assets/css/date/bootstrap-datepicker.css" rel="stylesheet">
-        <link href="assets/css/date/bootstrap-datepicker3.css" rel="stylesheet">
         <!-- Custom Fonts -->
         <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -74,7 +47,7 @@ $female = "checked";
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="patientdashboard.html">Patient Dashboard</a>
+                    <a class="navbar-brand" href="patientdashboard.html">Client Dashboard</a>
                 </div>
                 <!-- Top Menu Items -->
                 <ul class="nav navbar-right top-nav">
@@ -85,11 +58,27 @@ $female = "checked";
                                 <a href="#">
                                     <div class="media">
                                         <span class="pull-left">
-                                            <img class="media-object" src="http://placehold.it/50x50" alt="">
+                                            <img class="media-object" src="http://www.readingfc.co.uk/images/common/bg_player_profile_default_big.png" alt="">
                                         </span>
                                         <div class="media-body">
                                             <h5 class="media-heading">
-                                            <strong>John Smith</strong>
+                                            <strong><?php echo $userRow['userFirstName']; ?> <?php echo $userRow['userLastName']; ?></strong>
+                                            </h5>
+                                            <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+                                            <p>Lorem ipsum dolor sit amet, consectetur...</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="message-preview">
+                                <a href="#">
+                                    <div class="media">
+                                        <span class="pull-left">
+                                            <img class="media-object" src="http://www.readingfc.co.uk/images/common/bg_player_profile_default_big.png" alt="">
+                                        </span>
+                                        <div class="media-body">
+                                            <h5 class="media-heading">
+                                            <strong><?php echo $userRow['userFirstName']; ?> <?php echo $userRow['userLastName']; ?></strong>
                                             </h5>
                                             <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
                                             <p>Lorem ipsum dolor sit amet, consectetur...</p>
@@ -105,23 +94,7 @@ $female = "checked";
                                         </span>
                                         <div class="media-body">
                                             <h5 class="media-heading">
-                                            <strong>John Smith</strong>
-                                            </h5>
-                                            <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
-                                            <p>Lorem ipsum dolor sit amet, consectetur...</p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="message-preview">
-                                <a href="#">
-                                    <div class="media">
-                                        <span class="pull-left">
-                                            <img class="media-object" src="http://placehold.it/50x50" alt="">
-                                        </span>
-                                        <div class="media-body">
-                                            <h5 class="media-heading">
-                                            <strong>John Smith</strong>
+                                            <strong><?php echo $userRow['userFirstName']; ?> <?php echo $userRow['userLastName']; ?></strong>
                                             </h5>
                                             <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
                                             <p>Lorem ipsum dolor sit amet, consectetur...</p>
@@ -162,10 +135,10 @@ $female = "checked";
                         </ul>
                     </li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> John Smith <b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $userRow['userFirstName']; ?> <?php echo $userRow['userLastName']; ?> <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
+                                <a href="clientupdateprofile.php?patientId=<?php echo $userRow['idUser']; ?>"><i class="fa fa-fw fa-user"></i> Update Profile</a>
                             </li>
                             <li>
                                 <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
@@ -175,7 +148,7 @@ $female = "checked";
                             </li>
                             <li class="divider"></li>
                             <li>
-                                <a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                                <a href="clientlogout.php?logout"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
                             </li>
                         </ul>
                     </li>
@@ -184,10 +157,10 @@ $female = "checked";
                 <div class="collapse navbar-collapse navbar-ex1-collapse">
                     <ul class="nav navbar-nav side-nav">
                         <li>
-                            <a href="patientdashboard.php"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                            <a href="clientdashboard.php"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
                         </li>
                         <li class="active">
-                            <a href="patientprofile.php"><i class="fa fa-fw fa-bar-chart-o"></i> Profile</a>
+                            <a href="clientprofile.php"><i class="fa fa-fw fa-bar-chart-o"></i> Profile</a>
                         </li>
                         <li>
                             <a href="tables.html"><i class="fa fa-fw fa-table"></i> Tables</a>
@@ -224,104 +197,82 @@ $female = "checked";
             </nav>
             <div id="page-wrapper">
                 <div class="container-fluid">
-                    
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h1 class="page-header">
+                            Dashboard
+                            </h1>
+                            <ol class="breadcrumb">
+                                <li class="active">
+                                    <a href="clientdashboard.php"><i class="fa fa-file"> Dashboard</a></i> 
+                                </li>
+                                <li class="active"> Profile</li>
+                            </ol>
+                        </div>
+                    </div>
                     <!-- /.row -->
                     <!-- template start -->
                     <div class="container">
                         <div class="row">
-                            
                             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
                                 
                                 
                                 <div class="panel panel-info">
                                     <div class="panel-heading">
-                                        <h2 class="panel-title"><?php echo $userRow['userFirstName']; ?> <?php echo $userRow['userLastName']; ?></h2>
+                                        <h3 class="panel-title"><?php echo $userRow['userFirstName']; ?> <?php echo $userRow['userLastName']; ?></h3>
                                     </div>
                                     <div class="panel-body">
                                         <div class="row">
-                                            <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="http://placehold.it/250x250" class="img-circle img-responsive"> </div>
+                                            <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="http://www.readingfc.co.uk/images/common/bg_player_profile_default_big.png" class="img-circle img-responsive"> </div>
                                             
-                                            
-                                            <div class=" col-md-9 col-lg-9 ">
-                                                <form action="<?php $_PHP_SELF ?>" method="post" name="form1" id="form1">
-                                                    <table class="table table-user-information">
+                                            <form action="<?php echo $editFormAction; ?>" method="post" name="form1" id="form1">
+                                                <div class=" col-md-9 col-lg-9 ">
+                                                    <table class="table table-user-information" align="center">
                                                         <tbody>
                                                             <tr>
-                                                                <td>PatientId:</td>
-                                                                <td><?php echo $userRow['idUser']; ?></td>
+                                                                <td>ClientId:</td>
+                                                                <td><?php echo $userRow['patientId']; ?></td>
                                                             </tr>
                                                             <tr>
                                                                 <td>userFirstName:</td>
-                                                                <td><input type="text" class="form-control" name="userFirstName" value="<?php echo $userRow['userFirstName']; ?>"  /></td>
+                                                                <td><?php echo $userRow['userFirstName']; ?></td>
                                                             </tr>
                                                             <tr>
                                                                 <td>userLastName</td>
-                                                                <td><input type="text" class="form-control" name="userLastName" value="<?php echo $userRow['userLastName']; ?>"  /></td>
+                                                                <td><?php echo $userRow['userLastName']; ?></td>
                                                             </tr>
-                                                            
-                                                            <!-- radio button -->
-                                                            <!-- radio button end -->
                                                             <tr>
                                                                 <td>userDOB</td>
-                                                                <!-- <td><input type="text" class="form-control" name="userDOB" value="<?php echo $userRow['userDOB']; ?>"  /></td> -->
-                                                                <td>
-                                                                    <div class="form-group ">
-                                                                        
-                                                                        <div class="input-group">
-                                                                            <div class="input-group-addon">
-                                                                                <i class="fa fa-calendar">
-                                                                                </i>
-                                                                            </div>
-                                                                            <input class="form-control" id="userDOB" name="userDOB" placeholder="MM/DD/YYYY" type="text" value="<?php echo $userRow['userDOB']; ?>"/>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                                <script type="text/javascript">
-                                                                $(function () {
-                                                                $('#datetimepicker1').datetimepicker();
-                                                                });
-                                                                </script>
+                                                                <td><?php echo $userRow['userDOB']; ?></td>
                                                             </tr>
-                                                            <!-- radio button -->
                                                             <tr>
-                                                                <td>Gender:</td>
-                                                                <td>
-                                                                    <div class="radio">
-                                                                        <label><input type="radio" name="userGender" value="male" <?php echo $male; ?>>Male</label>
-                                                                    </div>
-                                                                    <div class="radio">
-                                                                        <label><input type="radio" name="userGender" value="female" <?php echo $female; ?>>Female</label>
-                                                                    </div>
-                                                                </td>
+                                                                <td>userGender</td>
+                                                                <td><?php echo $userRow['userGender']; ?></td>
                                                             </tr>
-                                                            <!-- radio button end -->
                                                             <tr>
                                                                 <td>userAddress</td>
-                                                                <td><input type="text" class="form-control" name="userAddress" value="<?php echo $userRow['userAddress']; ?>"  /></td>
+                                                                <td><?php echo $userRow['userAddress']; ?>
+                                                                </td>
                                                             </tr>
                                                             <tr>
                                                                 <td>userPhone</td>
-                                                                <td><input type="text" class="form-control" name="userPhone" value="<?php echo $userRow['userPhone']; ?>"  /></td>
+                                                                <td><?php echo $userRow['userPhone']; ?>
+                                                                </td>
                                                             </tr>
                                                             <tr>
                                                                 <td>userEmail</td>
-                                                                <td><input type="text" class="form-control" name="userEmail" value="<?php echo $userRow['userEmail']; ?>"  /></td>
+                                                                <td><?php echo $userRow['userEmail']; ?>
+                                                                </td>
                                                             </tr>
-                                                            <tr>
-                                                                <td>
-                                                                    <input type="submit" name="submit" class="btn btn-info" value="Update Info"></td>
-                                                                </tr>
-                                                            </tbody>
-                                                            
-                                                        </table>
-                                                        
-                                                        
-                                                        
-                                                    </form>
+                                                        </tbody>
+                                                    </table>
+                                                    <input type="hidden" name="MM_update" value="form1" />
+                                                    <input type="hidden" name="patientId" value="<?php echo $userRow['patientId']; ?>" />
                                                     
-                                                    
-                                                    
+                                                    <a href="#" class="btn btn-primary">My Sales Performance</a>
+                                                   
                                                 </div>
+                                            </form>
                                             </div>
                                         </div>
                                         <div class="panel-footer">
@@ -345,22 +296,8 @@ $female = "checked";
             <!-- /#wrapper -->
             <!-- jQuery -->
             <script src="assets/js/jquery.js"></script>
-            <script src="assets/js/date/bootstrap-datepicker.js"></script>
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
             <!-- Bootstrap Core JavaScript -->
             <script src="assets/js/bootstrap.min.js"></script>
-            <script>
-            $(document).ready(function(){
-            var date_input=$('input[name="userDOB"]'); //our date input has the name "date"
-            var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
-            date_input.datepicker({
-            format: 'yyyy/mm/dd',
-            container: container,
-            todayHighlight: true,
-            autoclose: true,
-            })
-            })
-            </script>
-            
+          
         </body>
     </html>

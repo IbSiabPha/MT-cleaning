@@ -44,7 +44,7 @@ if( $result )
 alert('Appointment made successfully.');
 </script>
 <?php
-header("Location: patientapplist.php");
+header("Location: clientapplist.php");
 }
 else
 {
@@ -54,9 +54,9 @@ else
 alert('Appointment booking fail. Please try again.');
 </script>
 <?php
-header("Location: patient/patient.php");
+header("Location: client/client.php");
 }
-//dapat dari generator end
+
 }
 ?>
 <!DOCTYPE html>
@@ -65,7 +65,7 @@ header("Location: patient/patient.php");
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
 		
 		<title>Make Appoinment</title>
 		<link href="assets/css/bootstrap.min.css" rel="stylesheet">
@@ -88,15 +88,15 @@ header("Location: patient/patient.php");
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="patient.php"><img alt="Brand" src="assets/img/logo2.png" height="30px"></a>
+					<a class="navbar-brand" href="client.php"><img alt="Brand" src="assets/img/logo2.png" height="30px"></a>
 				</div>
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
 						<ul class="nav navbar-nav">
-							<li><a href="patient.php">Home</a></li>
+							<li><a href="client.php">Home</a></li>
 							<!-- <li><a href="profile.php?patientId=<?php echo $userRow['idUser']; ?>" >Profile</a></li> -->
-							<li><a href="patientapplist.php?patientId=<?php echo $userRow['idUser']; ?>">Appointment</a></li>
+							<li><a href="clientapplist.php?patientId=<?php echo $userRow['idUser']; ?>">Appointment</a></li>
 						</ul>
 					</ul>
 					
@@ -108,11 +108,11 @@ header("Location: patient/patient.php");
 									<a href="profile.php?patientId=<?php echo $userRow['idUser']; ?>"><i class="fa fa-fw fa-user"></i> Profile</a>
 								</li>
 								<li>
-									<a href="patientapplist.php?patientId=<?php echo $userRow['idUser']; ?>"><i class="glyphicon glyphicon-file"></i> Appointment</a>
+									<a href="clientapplist.php?patientId=<?php echo $userRow['idUser']; ?>"><i class="glyphicon glyphicon-file"></i> Appointment</a>
 								</li>
 								<li class="divider"></li>
 								<li>
-									<a href="patientlogout.php?logout"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+									<a href="clientlogout.php?logout"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
 								</li>
 							</ul>
 						</li>
@@ -133,7 +133,7 @@ header("Location: patient/patient.php");
 								<img src="assets/img/1.jpg" class="img-responsive" />
 								<div class="description">
 									<h4><?php echo $userRow['userFirstName']; ?> <?php echo $userRow['userLastName']; ?></h4>
-									<h5> <strong> Website Designer </strong></h5>
+									<h5> <strong> Customer </strong></h5>
 									<p>
 										Pellentesque elementum dapibus convallis.
 									</p>
@@ -153,10 +153,10 @@ header("Location: patient/patient.php");
 										
 										<form class="form" role="form" method="POST" accept-charset="UTF-8">
 											<div class="panel panel-default">
-												<div class="panel-heading">Patient Information</div>
+												<div class="panel-heading">Client Information</div>
 												<div class="panel-body">
 													
-													Patient Name: <?php echo $userRow['userFirstName'] ?> <?php echo $userRow['userLastName'] ?><br>
+													Client Name: <?php echo $userRow['userFirstName'] ?> <?php echo $userRow['userLastName'] ?><br>
 													User ID: <?php echo $userRow['idUser'] ?><br>
 													Contact Number: <?php echo $userRow['userPhone'] ?><br>
 													Address: <?php echo $userRow['userAddress'] ?>
@@ -172,7 +172,7 @@ header("Location: patient/patient.php");
 											</div>
 											
 											<div class="form-group">
-												<label for="recipient-name" class="control-label">Symptom:</label>
+												<label for="recipient-name" class="control-label">What Service:</label>
 												<input type="text" class="form-control" name="symptom" required>
 											</div>
 											<div class="form-group">

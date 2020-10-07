@@ -21,7 +21,7 @@ echo mysql_error();
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="author" content="">
-        <title>Patient Dashboard</title>
+        <title>Client Dashboard</title>
         <!-- Bootstrap Core CSS -->
         <!-- <link href="assets/css/bootstrap.min.css" rel="stylesheet"> -->
         <link href="assets/css/material.css" rel="stylesheet">
@@ -47,7 +47,7 @@ echo mysql_error();
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="patientdashboard.html">Patient Dashboard</a>
+                    <a class="navbar-brand" href="patientdashboard.html">Client Dashboard</a>
                 </div>
                 <!-- Top Menu Items -->
                 <ul class="nav navbar-right top-nav">
@@ -92,7 +92,7 @@ echo mysql_error();
                             </li>
                             <li class="divider"></li>
                             <li>
-                                <a href="patientlogout.php?logout"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                                <a href="clientlogout.php?logout"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
                             </li>
                         </ul>
                     </li>
@@ -101,10 +101,10 @@ echo mysql_error();
                 <div class="collapse navbar-collapse navbar-ex1-collapse">
                     <ul class="nav navbar-nav side-nav">
                         <li class="active">
-                            <a href="patientdashboard.php"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                            <a href="clientdashboard.php"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
                         </li>
                         <li>
-                            <a href="patientprofile.php?userEmail=<?php echo $userRow['userEmail']; ?>"><i class="fa fa-fw fa-bar-chart-o"></i> Profile</a>
+                            <a href="clientprofile.php?userEmail=<?php echo $userRow['userEmail']; ?>"><i class="fa fa-fw fa-bar-chart-o"></i> Profile</a>
                         </li>
                         <li>
                             <a href="tables.html"><i class="fa fa-fw fa-table"></i> Tables</a>

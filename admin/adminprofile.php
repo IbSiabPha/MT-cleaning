@@ -56,7 +56,7 @@ header( 'Location: adminprofile.php' ) ;
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="doctordashboard.php">Welcome <?php echo $userRow['doctorFirstName'];?></a>
+                    <a class="navbar-brand" href="admindashboard.php">Welcome <?php echo $userRow['doctorFirstName'];?></a>
                 </div>
                 <!-- Top Menu Items -->
                 <ul class="nav navbar-right top-nav">
@@ -80,13 +80,13 @@ header( 'Location: adminprofile.php' ) ;
                 <div class="collapse navbar-collapse navbar-ex1-collapse">
                     <ul class="nav navbar-nav side-nav">
                          <li>
-                            <a href="doctordashboard.php"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                            <a href="admindashboard.php"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
                         </li>
                         <li>
                             <a href="addschedule.php"><i class="fa fa-fw fa-table"></i> Appointment Schedule</a>
                         </li>
                         <li>
-                            <a href="patientlist.php"><i class="fa fa-fw fa-edit"></i> Patient List</a>
+                            <a href="clientlist.php"><i class="fa fa-fw fa-edit"></i> Patient List</a>
                         </li>
                     </ul>
                 </div>
@@ -213,10 +213,10 @@ header( 'Location: adminprofile.php' ) ;
             </div>
        
         <!-- jQuery -->
-        <script src="../patient/assets/js/jquery.js"></script>
+        <script src="../client/assets/js/jquery.js"></script>
         
         <!-- Bootstrap Core JavaScript -->
-        <script src="../patient/assets/js/bootstrap.min.js"></script>
+        <script src="../client/assets/js/bootstrap.min.js"></script>
         <script src="assets/js/bootstrap-clockpicker.js"></script>
         <!-- Latest compiled and minified JavaScript -->
          <!-- script for jquery datatable start-->

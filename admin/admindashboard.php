@@ -44,7 +44,7 @@ $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="doctordashboard.php">Welcome <?php echo $userRow['doctorFirstName'];?></a>
+                    <a class="navbar-brand" href="admindashboard.php">Welcome <?php echo $userRow['doctorFirstName'];?></a>
                 </div>
                 <!-- Top Menu Items -->
                 <ul class="nav navbar-right top-nav">
@@ -68,13 +68,13 @@ $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
                 <div class="collapse navbar-collapse navbar-ex1-collapse">
                     <ul class="nav navbar-nav side-nav">
                         <li class="active">
-                            <a href="doctordashboard.php"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                            <a href="admindashboard.php"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
                         </li>
                         <li>
                             <a href="addschedule.php"><i class="fa fa-fw fa-table"></i> Appointment Schedule</a>
                         </li>
                         <li>
-                            <a href="patientlist.php"><i class="fa fa-fw fa-edit"></i> Client List</a>
+                            <a href="clientlist.php"><i class="fa fa-fw fa-edit"></i> Client List</a>
                         </li>
                     </ul>
                 </div>
@@ -217,7 +217,7 @@ function chkit(uid, chk) {
 
        
         <!-- jQuery -->
-        <script src="../patient/assets/js/jquery.js"></script>
+        <script src="../client/assets/js/jquery.js"></script>
         <script type="text/javascript">
 $(function() {
 $(".delete").click(function(){
@@ -240,7 +240,7 @@ return false;
 });
 </script>
         <!-- Bootstrap Core JavaScript -->
-        <script src="../patient/assets/js/bootstrap.min.js"></script>
+        <script src="../client/assets/js/bootstrap.min.js"></script>
         <!-- Latest compiled and minified JavaScript -->
          <!-- script for jquery datatable start-->
         <script type="text/javascript">

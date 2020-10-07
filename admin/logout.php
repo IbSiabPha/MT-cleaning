@@ -3,7 +3,7 @@ session_start();
 
 if(!isset($_SESSION['doctorSession']))
 {
- header("Location: doctordashboard.php");
+ header("Location: admindashboard.php");
 }
 else if(isset($_SESSION['doctorSession'])!="")
 {

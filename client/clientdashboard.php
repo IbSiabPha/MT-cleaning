@@ -9,7 +9,7 @@ if(!isset($_SESSION['patientSession']))
 header("Location: ../index.php");
 }
 $usersession = $_SESSION['patientSession'];
-$res=mysql_query("SELECT * FROM patient WHERE idUser=".$usersession);
+$res=mysql_query("SELECT * FROM client1 WHERE idUser=".$usersession);
 $userRow=mysql_fetch_array($res);
 echo mysql_error();
 ?>
@@ -302,7 +302,7 @@ echo mysql_error();
                                 <!-- script for ajax call end-->
                      
                                 <!-- table to display doctor schedule start -->
-                                <div id="txtHint"><b> Doctor schedule will be list here</b></div>
+                                <div id="txtHint"><b> Admin schedule will be list here</b></div>
                                 <!-- table to display doctor schedule end -->
                                 
                                 <!-- table start -->

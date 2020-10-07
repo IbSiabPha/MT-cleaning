@@ -7,20 +7,20 @@ if(!isset($_SESSION['doctorSession']))
 header("Location: ../index.php");
 }
 $usersession = $_SESSION['doctorSession'];
-$res=mysqli_query($con,"SELECT * FROM doctor WHERE doctorId=".$usersession);
+$res=mysqli_query($con,"SELECT * FROM admin1 WHERE adminId=".$usersession);
 $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
 // insert
 
 
 if (isset($_POST['submit'])) {
-$date = mysqli_real_escape_string($con,$_POST['date']);
-$scheduleday  = mysqli_real_escape_string($con,$_POST['scheduleday']);
-$starttime     = mysqli_real_escape_string($con,$_POST['starttime']);
-$endtime     = mysqli_real_escape_string($con,$_POST['endtime']);
-$bookavail         = mysqli_real_escape_string($con,$_POST['bookavail']);
+$date=mysqli_real_escape_string($con,$_POST['date']);
+$scheduleday=mysqli_real_escape_string($con,$_POST['scheduleday']);
+$starttime=mysqli_real_escape_string($con,$_POST['starttime']);
+$endtime=mysqli_real_escape_string($con,$_POST['endtime']);
+$bookavail=mysqli_real_escape_string($con,$_POST['bookavail']);
 
 //INSERT
-$query = " INSERT INTO doctorschedule (  scheduleDate, scheduleDay, startTime, endTime,  bookAvail)
+$query = " INSERT INTO adminschedule (  scheduleDate, scheduleDay, startTime, endTime,  bookAvail)
 VALUES ( '$date', '$scheduleday', '$starttime', '$endtime', '$bookavail' ) ";
 
 $result = mysqli_query($con, $query);
@@ -56,7 +56,7 @@ alert('Add fail. Please try again.');
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="author" content="">
-        <title>Welcome <?php echo $userRow['doctorFirstName'];?></title>
+        <title>Welcome <?php echo $userRow['adminFirstName'];?></title>
         <!-- Bootstrap Core CSS -->
         <!-- <link href="assets/css/bootstrap.css" rel="stylesheet"> -->
         <link href="assets/css/material.css" rel="stylesheet">
@@ -89,14 +89,14 @@ alert('Add fail. Please try again.');
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="admindashboard.php">Welcome <?php echo $userRow['doctorFirstName'];?></a>
+                    <a class="navbar-brand" href="admindashboard.php">Welcome <?php echo $userRow['adminFirstName'];?></a>
                 </div>
                 <!-- Top Menu Items -->
                 <ul class="nav navbar-right top-nav">
                     
                     
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $userRow['doctorFirstName']; ?> <b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $userRow['adminFirstName']; ?> <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>
                                 <a href="adminprofile.php"><i class="fa fa-fw fa-user"></i> Profile</a>
@@ -277,23 +277,23 @@ alert('Add fail. Please try again.');
                             </thead>
                             
                             <?php 
-                            $result=mysqli_query($con,"SELECT * FROM doctorschedule");
+                            $result=mysqli_query($con,"SELECT * FROM adminschedule");
                             
 
                                   
-                            while ($doctorschedule=mysqli_fetch_array($result)) {
+                            while ($adminschedule=mysqli_fetch_array($result)) {
                                 
                               
                                 echo "<tbody>";
                                 echo "<tr>";
-                                    echo "<td>" . $doctorschedule['scheduleId'] . "</td>";
-                                    echo "<td>" . $doctorschedule['scheduleDate'] . "</td>";
-                                    echo "<td>" . $doctorschedule['scheduleDay'] . "</td>";
-                                    echo "<td>" . $doctorschedule['startTime'] . "</td>";
-                                    echo "<td>" . $doctorschedule['endTime'] . "</td>";
-                                    echo "<td>" . $doctorschedule['bookAvail'] . "</td>";
+                                    echo "<td>" . $adminschedule['scheduleId'] . "</td>";
+                                    echo "<td>" . $adminschedule['scheduleDate'] . "</td>";
+                                    echo "<td>" . $adminschedule['scheduleDay'] . "</td>";
+                                    echo "<td>" . $adminschedule['startTime'] . "</td>";
+                                    echo "<td>" . $adminschedule['endTime'] . "</td>";
+                                    echo "<td>" . $adminschedule['bookAvail'] . "</td>";
                                     echo "<form method='POST'>";
-                                    echo "<td class='text-center'><a href='#' id='".$doctorschedule['scheduleId']."' class='delete'><span class='glyphicon glyphicon-trash' aria-hidden='true'></span></a>
+                                    echo "<td class='text-center'><a href='#' id='".$adminschedule['scheduleId']."' class='delete'><span class='glyphicon glyphicon-trash' aria-hidden='true'></span></a>
                             </td>";
                                
                             } 

@@ -6,7 +6,7 @@ if(!isset($_SESSION['patientSession']))
 {
 header("Location: ../index.php");
 }
-$res=mysqli_query($con,"SELECT * FROM patient WHERE idUser=".$_SESSION['patientSession']);
+$res=mysqli_query($con,"SELECT * FROM client1 WHERE idUser=".$_SESSION['patientSession']);
 $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
 ?>
 <!-- update -->
@@ -22,7 +22,7 @@ $userPhone = $_POST['userPhone'];
 $userEmail = $_POST['userEmail'];
 $patientId = $_POST['patientId'];
 // mysqli_query("UPDATE blogEntry SET content = $udcontent, title = $udtitle WHERE id = $id");
-$res=mysqli_query($con,"UPDATE patient SET userFirstName='$userFirstName', userLastName='$userLastName', userDOB='$userDOB', userGender='$userGender', userAddress='$userAddress', userPhone=$userPhone, userEmail='$userEmail' WHERE idUser=".$_SESSION['patientSession']);
+$res=mysqli_query($con,"UPDATE client1 SET userFirstName='$userFirstName', userLastName='$userLastName', userDOB='$userDOB', userGender='$userGender', userAddress='$userAddress', userPhone=$userPhone, userEmail='$userEmail' WHERE idUser=".$_SESSION['patientSession']);
 // $userRow=mysqli_fetch_array($res);
 header( 'Location: profile.php' ) ;
 }

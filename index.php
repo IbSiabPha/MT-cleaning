@@ -17,7 +17,7 @@ if (isset($_POST['login']))
 $idUser = mysqli_real_escape_string($con,$_POST['idUser']);
 $password  = mysqli_real_escape_string($con,$_POST['password']);
 
-$res = mysqli_query($con,"SELECT * FROM patient WHERE idUser = '$idUser'");
+$res = mysqli_query($con,"SELECT * FROM client1 WHERE idUser = '$idUser'");
 $row=mysqli_fetch_array($res,MYSQLI_ASSOC);
 if ($row['password'] == $password)
 {
@@ -51,7 +51,7 @@ $year             = mysqli_real_escape_string($con,$_POST['year']);
 $userDOB       = $year . "-" . $month . "-" . $day;
 $userGender = mysqli_real_escape_string($con,$_POST['userGender']);
 //INSERT
-$query = " INSERT INTO patient (  idUser, password, userFirstName, userLastName,  userDOB, userGender,   userEmail )
+$query = " INSERT INTO client1 (  idUser, password, userFirstName, userLastName,  userDOB, userGender,   userEmail )
 VALUES ( '$idUser', '$password', '$userFirstName', '$userLastName', '$userDOB', '$userGender', '$userEmail' ) ";
 $result = mysqli_query($con, $query);
 // echo $result;

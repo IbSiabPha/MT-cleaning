@@ -9,7 +9,7 @@ if (isset($_GET['scheduleDate']) && isset($_GET['appid'])) {
 	$appid = $_GET['appid'];
 }
 // on b.idUser = a.idUser
-$res = mysqli_query($con,"SELECT a.*, b.* FROM doctorschedule a INNER JOIN patient b
+$res = mysqli_query($con,"SELECT a.*, b.* FROM adminschedule a INNER JOIN client1 b
 WHERE a.scheduleDate='$appdate' AND scheduleId=$appid AND b.idUser=$session");
 $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
 
@@ -17,18 +17,18 @@ $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
 	
 //INSERT
 if (isset($_POST['appointment'])) {
-$patientIc = mysqli_real_escape_string($con,$userRow['idUser']);
+$userId = mysqli_real_escape_string($con,$userRow['idUser']);
 $scheduleid = mysqli_real_escape_string($con,$appid);
 $symptom = mysqli_real_escape_string($con,$_POST['symptom']);
 $comment = mysqli_real_escape_string($con,$_POST['comment']);
 $avail = "notavail";
 
 
-$query = "INSERT INTO appointment (  patientIc , scheduleId , appSymptom , appComment  )
-VALUES ( '$patientIc', '$scheduleid', '$symptom', '$comment') ";
+$query = "INSERT INTO appointment (  userId , scheduleId , needService , serviceComment  )
+VALUES ( '$userId', '$scheduleid', '$symptom', '$comment') ";
 
 //update table appointment schedule
-$sql = "UPDATE doctorschedule SET bookAvail = '$avail' WHERE scheduleId = $scheduleid" ;
+$sql = "UPDATE adminschedule SET bookAvail = '$avail' WHERE scheduleId = $scheduleid" ;
 $scheduleres=mysqli_query($con,$sql);
 if ($scheduleres) {
 	$btn= "disable";

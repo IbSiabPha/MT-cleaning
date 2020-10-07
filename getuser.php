@@ -3,7 +3,7 @@
 include_once 'assets/conn/dbconnect.php';
 $q = $_GET['q'];
 // echo $q;
-$res = mysqli_query($con,"SELECT * FROM doctorschedule WHERE scheduleDate='$q'");
+$res = mysqli_query($con,"SELECT * FROM adminschedule WHERE scheduleDate='$q'");
 
 
 

@@ -5,7 +5,7 @@ session_start();
 include_once '../assets/conn/dbconnect.php';
 if(!isset($_SESSION['patientSession']))
 {
-header("Location: patientdashboard.php");
+header("Location: clientdashboard.php");
 }
 $res=mysqli_query($con,"SELECT * FROM patient WHERE idUser=".$_SESSION['patientSession']);
 $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
@@ -24,7 +24,7 @@ $patientId = $_POST['patientId'];
 // mysqli_query("UPDATE blogEntry SET content = $udcontent, title = $udtitle WHERE id = $id");
 $res=mysqli_query($con,"UPDATE patient SET userFirstName='$userFirstName', userLastName='$userLastName', userDOB='$userDOB', userGender='$userGender', userAddress='$userAddress', userPhone=$userPhone, userEmail='$userEmail' WHERE idUser=".$_SESSION['patientSession']);
 // $userRow=mysqli_fetch_array($res);
-header( 'Location: patientprofile.php' ) ;
+header( 'Location: clientprofile.php' ) ;
 }
 ?>
 <?php
@@ -184,10 +184,10 @@ $female = "checked";
                 <div class="collapse navbar-collapse navbar-ex1-collapse">
                     <ul class="nav navbar-nav side-nav">
                         <li>
-                            <a href="patientdashboard.php"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                            <a href="clientdashboard.php"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
                         </li>
                         <li class="active">
-                            <a href="patientprofile.php"><i class="fa fa-fw fa-bar-chart-o"></i> Profile</a>
+                            <a href="clientprofile.php"><i class="fa fa-fw fa-bar-chart-o"></i> Profile</a>
                         </li>
                         <li>
                             <a href="tables.html"><i class="fa fa-fw fa-table"></i> Tables</a>

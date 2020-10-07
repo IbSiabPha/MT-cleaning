@@ -92,7 +92,7 @@ echo mysql_error();
                             </li>
                             <li class="divider"></li>
                             <li>
-                                <a href="patientlogout.php?logout"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                                <a href="clientlogout.php?logout"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
                             </li>
                         </ul>
                     </li>
@@ -101,10 +101,10 @@ echo mysql_error();
                 <div class="collapse navbar-collapse navbar-ex1-collapse">
                     <ul class="nav navbar-nav side-nav">
                         <li class="active">
-                            <a href="patientdashboard.php"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                            <a href="clientdashboard.php"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
                         </li>
                         <li>
-                            <a href="patientprofile.php?userEmail=<?php echo $userRow['userEmail']; ?>"><i class="fa fa-fw fa-bar-chart-o"></i> Profile</a>
+                            <a href="clientprofile.php?userEmail=<?php echo $userRow['userEmail']; ?>"><i class="fa fa-fw fa-bar-chart-o"></i> Profile</a>
                         </li>
                         <li>
                             <a href="tables.html"><i class="fa fa-fw fa-table"></i> Tables</a>

@@ -44,7 +44,7 @@ if( $result )
 alert('Appointment made successfully.');
 </script>
 <?php
-header("Location: patientapplist.php");
+header("Location: clientapplist.php");
 }
 else
 {
@@ -54,7 +54,7 @@ else
 alert('Appointment booking fail. Please try again.');
 </script>
 <?php
-header("Location: patient/patient.php");
+header("Location: patient/client.php");
 }
 //dapat dari generator end
 }
@@ -88,15 +88,15 @@ header("Location: patient/patient.php");
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="patient.php"><img alt="Brand" src="assets/img/logo2.png" height="30px"></a>
+					<a class="navbar-brand" href="client.php"><img alt="Brand" src="assets/img/logo2.png" height="30px"></a>
 				</div>
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
 						<ul class="nav navbar-nav">
-							<li><a href="patient.php">Home</a></li>
+							<li><a href="client.php">Home</a></li>
 							<!-- <li><a href="profile.php?patientId=<?php echo $userRow['idUser']; ?>" >Profile</a></li> -->
-							<li><a href="patientapplist.php?patientId=<?php echo $userRow['idUser']; ?>">Appointment</a></li>
+							<li><a href="clientapplist.php?patientId=<?php echo $userRow['idUser']; ?>">Appointment</a></li>
 						</ul>
 					</ul>
 					
@@ -108,11 +108,11 @@ header("Location: patient/patient.php");
 									<a href="profile.php?patientId=<?php echo $userRow['idUser']; ?>"><i class="fa fa-fw fa-user"></i> Profile</a>
 								</li>
 								<li>
-									<a href="patientapplist.php?patientId=<?php echo $userRow['idUser']; ?>"><i class="glyphicon glyphicon-file"></i> Appointment</a>
+									<a href="clientapplist.php?patientId=<?php echo $userRow['idUser']; ?>"><i class="glyphicon glyphicon-file"></i> Appointment</a>
 								</li>
 								<li class="divider"></li>
 								<li>
-									<a href="patientlogout.php?logout"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+									<a href="clientlogout.php?logout"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
 								</li>
 							</ul>
 						</li>

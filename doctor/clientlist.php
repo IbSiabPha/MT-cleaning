@@ -48,7 +48,7 @@ $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="doctordashboard.php">Welcome <?php echo $userRow['doctorFirstName'];?></a>
+                    <a class="navbar-brand" href="admindashboard.php">Welcome <?php echo $userRow['doctorFirstName'];?></a>
                 </div>
                 <!-- Top Menu Items -->
                 <ul class="nav navbar-right top-nav">
@@ -77,13 +77,13 @@ $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
                 <div class="collapse navbar-collapse navbar-ex1-collapse">
                     <ul class="nav navbar-nav side-nav">
                          <li>
-                            <a href="doctordashboard.php"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                            <a href="admindashboard.php"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
                         </li>
                         <li>
                             <a href="addschedule.php"><i class="fa fa-fw fa-table"></i> Appointment Schedule</a>
                         </li>
                         <li class="active">
-                            <a href="patientlist.php"><i class="fa fa-fw fa-edit"></i> Client List</a>
+                            <a href="clientlist.php"><i class="fa fa-fw fa-edit"></i> Client List</a>
                         </li>
                     </ul>
                 </div>
@@ -194,7 +194,7 @@ if(confirm("Are you sure you want to delete this?"))
 {
  $.ajax({
    type: "POST",
-   url: "deletepatient.php",
+   url: "deleteclient.php",
    data: info,
    success: function(){
  }

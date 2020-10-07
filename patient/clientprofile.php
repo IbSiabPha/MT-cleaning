@@ -138,7 +138,7 @@ $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $userRow['userFirstName']; ?> <?php echo $userRow['userLastName']; ?> <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a href="patientupdateprofile.php?patientId=<?php echo $userRow['idUser']; ?>"><i class="fa fa-fw fa-user"></i> Update Profile</a>
+                                <a href="clientupdateprofile.php?patientId=<?php echo $userRow['idUser']; ?>"><i class="fa fa-fw fa-user"></i> Update Profile</a>
                             </li>
                             <li>
                                 <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
@@ -148,7 +148,7 @@ $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
                             </li>
                             <li class="divider"></li>
                             <li>
-                                <a href="patientlogout.php?logout"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                                <a href="clientlogout.php?logout"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
                             </li>
                         </ul>
                     </li>
@@ -157,10 +157,10 @@ $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
                 <div class="collapse navbar-collapse navbar-ex1-collapse">
                     <ul class="nav navbar-nav side-nav">
                         <li>
-                            <a href="patientdashboard.php"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                            <a href="clientdashboard.php"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
                         </li>
                         <li class="active">
-                            <a href="patientprofile.php"><i class="fa fa-fw fa-bar-chart-o"></i> Profile</a>
+                            <a href="clientprofile.php"><i class="fa fa-fw fa-bar-chart-o"></i> Profile</a>
                         </li>
                         <li>
                             <a href="tables.html"><i class="fa fa-fw fa-table"></i> Tables</a>
@@ -204,7 +204,7 @@ $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
                             </h1>
                             <ol class="breadcrumb">
                                 <li class="active">
-                                    <a href="patientdashboard.php"><i class="fa fa-file"> Dashboard</a></i> 
+                                    <a href="clientdashboard.php"><i class="fa fa-file"> Dashboard</a></i> 
                                 </li>
                                 <li class="active"> Profile</li>
                             </ol>

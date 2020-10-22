@@ -9,11 +9,6 @@ header("Location: ../index.php");
 $usersession = $_SESSION['doctorSession'];
 $res=mysqli_query($con,"SELECT * FROM admin1 WHERE adminId=".$usersession);
 $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
-
-
-
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -52,19 +47,11 @@ $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
                 </div>
                 <!-- Top Menu Items -->
                 <ul class="nav navbar-right top-nav">
-                    
-                    
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $userRow['adminFirstName']; ?><b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
+                                <a href="adminprofile.php"><i class="fa fa-fw fa-user"></i> Profile</a>
                             </li>
                             <li class="divider"></li>
                             <li>
@@ -143,21 +130,21 @@ $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
                             
 
                                   
-                            while ($patientRow=mysqli_fetch_array($result)) {
+                            while ($userRow=mysqli_fetch_array($result)) {
                                 
                               
                                 echo "<tbody>";
                                 echo "<tr>";
-                                    echo "<td>" . $patientRow['idUser'] . "</td>";
-                                    echo "<td>" . $patientRow['userLastName'] . "</td>";
-                                    echo "<td>" . $patientRow['password'] . "</td>";
-                                    echo "<td>" . $patientRow['userPhone'] . "</td>";
-                                    echo "<td>" . $patientRow['userEmail'] . "</td>";
-                                    echo "<td>" . $patientRow['userGender'] . "</td>";
-                                    echo "<td>" . $patientRow['userDOB'] . "</td>";
-                                    echo "<td>" . $patientRow['userAddress'] . "</td>";
+                                    echo "<td>" . $userRow['idUser'] . "</td>";
+                                    echo "<td>" . $userRow['userLastName'] . "</td>";
+                                    echo "<td>" . $userRow['password'] . "</td>";
+                                    echo "<td>" . $userRow['userPhone'] . "</td>";
+                                    echo "<td>" . $userRow['userEmail'] . "</td>";
+                                    echo "<td>" . $userRow['userGender'] . "</td>";
+                                    echo "<td>" . $userRow['userDOB'] . "</td>";
+                                    echo "<td>" . $userRow['userAddress'] . "</td>";
                                     echo "<form method='POST'>";
-                                    echo "<td class='text-center'><a href='#' id='".$patientRow['idUser']."' class='delete'><span class='glyphicon glyphicon-trash' aria-hidden='true'></span></a>
+                                    echo "<td class='text-center'><a href='#' id='".$userRow['idUser']."' class='delete'><span class='glyphicon glyphicon-trash' aria-hidden='true'></span></a>
                             </td>";
                                
                             } 

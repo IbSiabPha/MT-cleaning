@@ -20,7 +20,7 @@ $endtime=mysqli_real_escape_string($con,$_POST['endtime']);
 $bookavail=mysqli_real_escape_string($con,$_POST['bookavail']);
 
 //INSERT
-$query = " INSERT INTO adminschedule (  scheduleDate, scheduleDay, startTime, endTime,  bookAvail)
+$query = " INSERT INTO adminschedule (scheduleDate, scheduleDay, startTime, endTime,  bookAvail)
 VALUES ( '$date', '$scheduleday', '$starttime', '$endtime', '$bookavail' ) ";
 
 $result = mysqli_query($con, $query);
@@ -43,10 +43,6 @@ alert('Add fail. Please try again.');
 }
 
 }
-?>
-
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -93,15 +89,12 @@ alert('Add fail. Please try again.');
                 </div>
                 <!-- Top Menu Items -->
                 <ul class="nav navbar-right top-nav">
-                    
-                    
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $userRow['adminFirstName']; ?> <b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $userRow['adminFirstName']; ?><b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>
                                 <a href="adminprofile.php"><i class="fa fa-fw fa-user"></i> Profile</a>
                             </li>
-                            
                             <li class="divider"></li>
                             <li>
                                 <a href="logout.php?logout"><i class="fa fa-fw fa-power-off"></i> Log Out</a>

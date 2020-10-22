@@ -1,7 +1,7 @@
 <?php
 session_start();
 include_once '../assets/conn/dbconnect.php';
-$session=$_SESSION[ 'patientSession'];
+$session=$_SESSION['patientSession'];
 $res=mysqli_query($con, "SELECT a.*, b.*,c.* FROM client1 a
 	JOIN appointment b
 		On a.idUser = b.userId

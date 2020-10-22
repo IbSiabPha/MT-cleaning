@@ -48,8 +48,6 @@ $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
                 </div>
                 <!-- Top Menu Items -->
                 <ul class="nav navbar-right top-nav">
-                    
-                    
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $userRow['adminFirstName']; ?><b class="caret"></b></a>
                         <ul class="dropdown-menu">

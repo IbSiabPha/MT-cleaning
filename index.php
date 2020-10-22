@@ -51,8 +51,8 @@ $year             = mysqli_real_escape_string($con,$_POST['year']);
 $userDOB       = $year . "-" . $month . "-" . $day;
 $userGender = mysqli_real_escape_string($con,$_POST['userGender']);
 //INSERT
-$query = " INSERT INTO client1 (  idUser, password, userFirstName, userLastName,  userDOB, userGender,   userEmail )
-VALUES ( '$idUser', '$password', '$userFirstName', '$userLastName', '$userDOB', '$userGender', '$userEmail' ) ";
+$query = " INSERT INTO client1 (idUser, password, userFirstName, userLastName,  userDOB, userGender, userEmail)
+VALUES ( '$idUser', '$password', '$userFirstName', '$userLastName', '$userDOB', '$userGender', '$userEmail') ";
 $result = mysqli_query($con, $query);
 // echo $result;
 if( $result )
@@ -185,6 +185,8 @@ alert('User already registered. Please try again');
                                         <input type="password" name="password" value="" class="form-control input-lg" placeholder="Password"  required/>
                                         
                                         <input type="password" name="confirm_password" value="" class="form-control input-lg" placeholder="Confirm Password"  required/>
+
+                                        <input type="phoneNumber" name="phoneNumber" value="" class="form-control input-lg" placeholder="Phone Number" required/>
                                         <label>Birth Date</label>
                                         <div class="row">
                                             

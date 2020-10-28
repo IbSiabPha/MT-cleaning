@@ -173,7 +173,16 @@ header("Location: client/client.php");
 											
 											<div class="form-group">
 												<label for="recipient-name" class="control-label">What Service:</label>
-												<input type="text" class="form-control" name="symptom" required>
+												<select id="Services" name="Services">
+												
+												<option value="Furniture Cleaning">Furniture Cleaning</option>
+												<option value="Window Cleaning">Window Cleaning</option>
+												<option value="Carpet Cleaning">Carpet Cleaning</option>
+												<option value="Garage Cleaning">Garage Cleaning</option>
+												<option value="Bathroom Cleaning">Bathroom Cleaning</option>
+												<option value="Yard/Driveway Cleaning">Yard/Driveway Cleaning</option>
+												
+												</select>
 											</div>
 											<div class="form-group">
 												<label for="message-text" class="control-label">Comment:</label>

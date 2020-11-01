@@ -49,7 +49,7 @@ header("Location: admin/admindashboard.php");
                     <div class="avatar"></div>
                     <div class="form-box">
                         <form class="form" role="form" method="POST" accept-charset="UTF-8">
-                            <input name="adminId" type="text" placeholder="Admin ID" required>
+                            <input name="adminId" type="text" placeholder="Employee ID" required>
                             <input name="password" type="password" placeholder="Password" required>
                             <button class="btn btn-info btn-block login" type="submit" name="login">Login</button>
                         </form>

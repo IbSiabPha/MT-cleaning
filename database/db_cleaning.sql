@@ -54,14 +54,14 @@ INSERT INTO `appointment` (`appId`, `userId`, `scheduleId`, `needService`, `serv
 -- --------------------------------------------------------
 
 --
--- Table structure for table `doctor`
+-- Table structure for table `admin`
 --
 
 CREATE TABLE `admin1`
 (`idAdmin` bigint(12) NOT NULL, `password` varchar(20) NOT NULL, `adminId` int(3) NOT NULL, `adminFirstName` varchar(50) NOT NULL, `adminEmail` varchar(20) NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `doctor`
+-- Dumping data for table `admin`
 --
 
 INSERT INTO `admin1` (`idAdmin`,`password`, `adminId`, `adminFirstName`, `adminEmail`) VALUES(0, '123', 123, 'Admin', 'admin@mtcleaning.com');

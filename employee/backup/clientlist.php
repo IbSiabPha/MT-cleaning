@@ -1,7 +1,7 @@
 <?php
 session_start();
 include_once '../assets/conn/dbconnect.php';
-
+// include_once 'connection/server.php';
 if(!isset($_SESSION['employeeSession']))
 {
 header("Location: ../index.php");
@@ -19,14 +19,23 @@ $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
         <meta name="description" content="">
         <meta name="author" content="">
         <title>Welcome <?php echo $userRow['employeeFirstName'];?></title>
+        <!-- Bootstrap Core CSS -->
+        <!-- <link href="assets/css/bootstrap.css" rel="stylesheet"> -->
         <link href="assets/css/material.css" rel="stylesheet">
+        <!-- Custom CSS -->
         <link href="assets/css/sb-admin.css" rel="stylesheet">
+        <link href="assets/css/time/bootstrap-clockpicker.css" rel="stylesheet">
         <link href="assets/css/style.css" rel="stylesheet">
         <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet">
+        <!-- Special version of Bootstrap that only affects content wrapped in .bootstrap-iso -->
+        <!-- Custom Fonts -->
     </head>
     <body>
         <div id="wrapper">
+
+            <!-- Navigation -->
             <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+                <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                     <span class="sr-only">Toggle navigation</span>
@@ -34,16 +43,16 @@ $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="employeeDashboard.php">Welcome <?php echo $userRow['employeeFirstName'];?></a>
+                    <a class="navbar-brand" href="employeedashboard.php">Welcome <?php echo $userRow['employeeFirstName'];?></a>
                 </div>
+                <!-- Top Menu Items -->
                 <ul class="nav navbar-right top-nav">
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $userRow['employeeFirstName']; ?><b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a href="adminprofile.php"><i class="fa fa-fw fa-user"></i> Profile</a>
+                                <a href="employeeprofile.php"><i class="fa fa-fw fa-user"></i> Profile</a>
                             </li>
-                           
                             <li class="divider"></li>
                             <li>
                                 <a href="logout.php?logout"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
@@ -54,13 +63,13 @@ $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
                 <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
                 <div class="collapse navbar-collapse navbar-ex1-collapse">
                     <ul class="nav navbar-nav side-nav">
-                        <li class="active">
-                            <a href="employeeDashboard.php"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                         <li>
+                            <a href="employeedashboard.php"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
                         </li>
                         <li>
                             <a href="custschedule.php"><i class="fa fa-fw fa-table"></i> Appointment Schedule</a>
                         </li>
-                        <li>
+                        <li class="active">
                             <a href="clientlist.php"><i class="fa fa-fw fa-edit"></i> Client List</a>
                         </li>
                     </ul>
@@ -68,17 +77,19 @@ $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
                 <!-- /.navbar-collapse -->
             </nav>
             <!-- navigation end -->
+
             <div id="page-wrapper">
                 <div class="container-fluid">
+                    
                     <!-- Page Heading -->
                     <div class="row">
                         <div class="col-lg-12">
                             <h2 class="page-header">
-                            Dashboard
+                            Appointment List
                             </h2>
                             <ol class="breadcrumb">
                                 <li class="active">
-                                    <i class="fa fa-file"></i> Blank Page
+                                    <i class="fa fa-calendar"></i> Appointment List
                                 </li>
                             </ol>
                         </div>
@@ -87,79 +98,53 @@ $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
 
                     <!-- panel start -->
                     <div class="panel panel-primary filterable">
-                        <!-- Default panel contents -->
-                       <div class="panel-heading">
-                        <h3 class="panel-title">Appointment List</h3>
-                        <div class="pull-right">
+
+                        <!-- panel heading starat -->
+                        <div class="panel-heading">
+                            <h3 class="panel-title">List of Appointments</h3>
+                            <div class="pull-right">
                             <button class="btn btn-default btn-xs btn-filter"><span class="fa fa-filter"></span> Filter</button>
                         </div>
                         </div>
+                        <!-- panel heading end -->
+
                         <div class="panel-body">
-                        <!-- Table -->
+                        <!-- panel content start -->
+                           <!-- Table -->
                         <table class="table table-hover table-bordered">
                             <thead>
                                 <tr class="filters">
-                                    <th><input type="text" class="form-control" placeholder="User Id" disabled></th>
+                                    <th><input type="text" class="form-control" placeholder="User ID" disabled></th>
                                     <th><input type="text" class="form-control" placeholder="Name" disabled></th>
-                                    <th><input type="text" class="form-control" placeholder="Contact No." disabled></th>
+                                    <th><input type="text" class="form-control" placeholder="Password" disabled></th>
+                                    <th><input type="text" class="form-control" placeholder="Phone" disabled></th>
                                     <th><input type="text" class="form-control" placeholder="Email" disabled></th>
-                                    <th><input type="text" class="form-control" placeholder="Day" disabled></th>
-                                    <th><input type="text" class="form-control" placeholder="Date" disabled></th>
-                                    <th><input type="text" class="form-control" placeholder="Start" disabled></th>
-                                    <th><input type="text" class="form-control" placeholder="End" disabled></th>
-                                    <th><input type="text" class="form-control" placeholder="Status" disabled></th>
-                                    <th><input type="text" class="form-control" placeholder="Complete" disabled></th>
-                                    <th><input type="text" class="form-control" placeholder="Delete" disabled></th>
+                                    <th><input type="text" class="form-control" placeholder="Gender" disabled></th>
+                                    <th><input type="text" class="form-control" placeholder="Birthdate" disabled></th>
+                                    <th><input type="text" class="form-control" placeholder="Address" disabled></th>
                                 </tr>
                             </thead>
                             
                             <?php 
-                            $res=mysqli_query($con,"SELECT a.*, b.*,c.*
-                                                    FROM client1 a
-                                                    JOIN appointment b
-                                                    On a.idUser = b.userId
-                                                    JOIN adminschedule c
-                                                    On b.scheduleId=c.scheduleId
-                                                    Order By appId desc");
-                                  if (!$res) {
-                                    printf("Error: %s\n", mysqli_error($con));
-                                    exit();
-                                }
-                            while ($appointment=mysqli_fetch_array($res)) {
-                                
-                                if ($appointment['status']=='process') {
-                                    $status="danger";
-                                    $icon='remove';
-                                    $checked='';
+                            $result=mysqli_query($con,"SELECT * FROM client1");
+                            
 
-                                } else {
-                                    $status="success";
-                                    $icon='ok';
-                                    $checked = 'disabled';
-                                }
-
+                                  
+                            while ($userRow=mysqli_fetch_array($result)) {
                                 
                               
-                                
-                             
-                                
-
-                                
-
                                 echo "<tbody>";
-                                echo "<tr class='$status'>";
-                                    echo "<td>" . $appointment['userId'] . "</td>";
-                                    echo "<td>" . $appointment['userLastName'] . "</td>";
-                                    echo "<td>" . $appointment['userPhone'] . "</td>";
-                                    echo "<td>" . $appointment['userEmail'] . "</td>";
-                                    echo "<td>" . $appointment['scheduleDay'] . "</td>";
-                                    echo "<td>" . $appointment['scheduleDate'] . "</td>";
-                                    echo "<td>" . $appointment['startTime'] . "</td>";
-                                    echo "<td>" . $appointment['endTime'] . "</td>";
-                                    echo "<td><span class='glyphicon glyphicon-'".$icon."' aria-hidden='true'></span>".' '."". $appointment['status'] . "</td>";
+                                echo "<tr>";
+                                    echo "<td>" . $userRow['idUser'] . "</td>";
+                                    echo "<td>" . $userRow['userLastName'] . "</td>";
+                                    echo "<td>" . $userRow['password'] . "</td>";
+                                    echo "<td>" . $userRow['userPhone'] . "</td>";
+                                    echo "<td>" . $userRow['userEmail'] . "</td>";
+                                    echo "<td>" . $userRow['userGender'] . "</td>";
+                                    echo "<td>" . $userRow['userDOB'] . "</td>";
+                                    echo "<td>" . $userRow['userAddress'] . "</td>";
                                     echo "<form method='POST'>";
-                                    echo "<td class='text-center'><input type='checkbox' name='enable' id='enable' value='".$appointment['appId']."' onclick='chkit(".$appointment['appId'].",this.checked);' ".$checked."></td>";
-                                    echo "<td class='text-center'><a href='#' id='".$appointment['appId']."' class='delete'><span class='fa fa-trash' aria-hidden='true'></span></a>
+                                    echo "<td class='text-center'><a href='#' id='".$userRow['idUser']."' class='delete'><span class='glyphicon glyphicon-trash' aria-hidden='true'></span></a>
                             </td>";
                                
                             } 
@@ -172,31 +157,14 @@ $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
                         echo "</div>";
                         echo "</div>";
                         ?>
+                        <!-- panel content end -->
+                        <!-- panel end -->
+                        </div>
                     </div>
-                </div>
-                    <!-- panel end -->
-<script type="text/javascript">
-function chkit(uid, chk) {
-   chk = (chk==true ? "1" : "0");
-   var url = "checkdb.php?userid="+uid+"&chkYesNo="+chk;
-   if(window.XMLHttpRequest) {
-      req = new XMLHttpRequest();
-   } else if(window.ActiveXObject) {
-      req = new ActiveXObject("Microsoft.XMLHTTP");
-   }
-   // Use get instead of post.
-   req.open("GET", url, true);
-   req.send(null);
-}
-</script>
+                    <!-- panel start -->
 
-
- 
                 </div>
-                <!-- /.container-fluid -->
             </div>
-            <!-- /#page-wrapper -->
-        </div>
         <!-- /#wrapper -->
 
 
@@ -207,13 +175,13 @@ function chkit(uid, chk) {
 $(function() {
 $(".delete").click(function(){
 var element = $(this);
-var appid = element.attr("id");
-var info = 'id=' + appid;
+var ic = element.attr("id");
+var info = 'ic=' + ic;
 if(confirm("Are you sure you want to delete this?"))
 {
  $.ajax({
    type: "POST",
-   url: "deleteappointment.php",
+   url: "deleteclient.php",
    data: info,
    success: function(){
  }
@@ -224,11 +192,7 @@ return false;
 });
 });
 </script>
-        <!-- Bootstrap Core JavaScript -->
-        <script src="../client/assets/js/bootstrap.min.js"></script>
-        <!-- Latest compiled and minified JavaScript -->
-         <!-- script for jquery datatable start-->
-        <script type="text/javascript">
+ <script type="text/javascript">
             /*
             Please consider that the JS part isn't production ready at all, I just code it to show the concept of merging filters and titles together !
             */
@@ -275,7 +239,12 @@ return false;
                 });
             });
         </script>
-        <!-- script for jquery datatable end-->
-
+        
+        <!-- Bootstrap Core JavaScript -->
+        <script src="../client/assets/js/bootstrap.min.js"></script>
+        <script src="assets/js/bootstrap-clockpicker.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+         <!-- script for jquery datatable start-->
+        <!-- Include Date Range Picker -->
     </body>
 </html>

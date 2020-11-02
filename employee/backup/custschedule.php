@@ -2,26 +2,26 @@
 session_start();
 include_once '../assets/conn/dbconnect.php';
 // include_once 'connection/server.php';
-if(!isset($_SESSION['doctorSession']))
+if(!isset($_SESSION['employeeSession']))
 {
 header("Location: ../index.php");
 }
-$usersession = $_SESSION['doctorSession'];
-$res=mysqli_query($con,"SELECT * FROM admin1 WHERE adminId=".$usersession);
+$usersession = $_SESSION['employeeSession'];
+$res=mysqli_query($con,"SELECT * FROM employee WHERE employeeId=".$usersession);
 $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
 // insert
 
 
 if (isset($_POST['submit'])) {
 $date=mysqli_real_escape_string($con,$_POST['date']);
-// $scheduleday=mysqli_real_escape_string($con,$_POST['scheduleday']);
+$scheduleday=mysqli_real_escape_string($con,$_POST['scheduleday']);
 $starttime=mysqli_real_escape_string($con,$_POST['starttime']);
 $endtime=mysqli_real_escape_string($con,$_POST['endtime']);
 $bookavail=mysqli_real_escape_string($con,$_POST['bookavail']);
 
 //INSERT
-$query = " INSERT INTO adminschedule (scheduleDate, startTime, endTime,  bookAvail)
-VALUES ( '$date', '$starttime', '$endtime', '$bookavail' ) ";
+$query = " INSERT INTO adminschedule (scheduleDate, scheduleDay, startTime, endTime,  bookAvail)
+VALUES ( '$date', '$scheduleday', '$starttime', '$endtime', '$bookavail' ) ";
 
 $result = mysqli_query($con, $query);
 // echo $result;
@@ -52,7 +52,7 @@ alert('Add fail. Please try again.');
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="author" content="">
-        <title>Welcome <?php echo $userRow['adminFirstName'];?></title>
+        <title>Welcome <?php echo $userRow['employeeFirstName'];?></title>
         <!-- Bootstrap Core CSS -->
         <!-- <link href="assets/css/bootstrap.css" rel="stylesheet"> -->
         <link href="assets/css/material.css" rel="stylesheet">
@@ -85,15 +85,15 @@ alert('Add fail. Please try again.');
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="admindashboard.php">Welcome <?php echo $userRow['adminFirstName'];?></a>
+                    <a class="navbar-brand" href="employeedashboard.php">Welcome <?php echo $userRow['employeeFirstName'];?></a>
                 </div>
                 <!-- Top Menu Items -->
                 <ul class="nav navbar-right top-nav">
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $userRow['adminFirstName']; ?><b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $userRow['employeeFirstName']; ?><b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a href="adminprofile.php"><i class="fa fa-fw fa-user"></i> Profile</a>
+                                <a href="employeeprofile.php"><i class="fa fa-fw fa-user"></i> Profile</a>
                             </li>
                             <li class="divider"></li>
                             <li>
@@ -106,7 +106,7 @@ alert('Add fail. Please try again.');
                 <div class="collapse navbar-collapse navbar-ex1-collapse">
                     <ul class="nav navbar-nav side-nav">
                         <li>
-                            <a href="admindashboard.php"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                            <a href="employeedashboard.php"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
                         </li>
                         <li class="active">
                             <a href="addschedule.php"><i class="fa fa-fw fa-table"></i> Appointment Schedule</a>
@@ -262,11 +262,10 @@ alert('Add fail. Please try again.');
                                 <tr class="filters">
                                     <th><input type="text" class="form-control" placeholder="scheduleId" disabled></th>
                                     <th><input type="text" class="form-control" placeholder="scheduleDate" disabled></th>
-                                    <!-- <th><input type="text" class="form-control" placeholder="scheduleDay" disabled></th> -->
+                                    <th><input type="text" class="form-control" placeholder="scheduleDay" disabled></th>
                                     <th><input type="text" class="form-control" placeholder="startTime." disabled></th>
                                     <th><input type="text" class="form-control" placeholder="endTime" disabled></th>
                                     <th><input type="text" class="form-control" placeholder="bookAvail" disabled></th>
-                                    <th><input type="text" class="form-control" placeholder="Delete" disabled></th>
                                 </tr>
                             </thead>
                             
@@ -282,12 +281,12 @@ alert('Add fail. Please try again.');
                                 echo "<tr>";
                                     echo "<td>" . $adminschedule['scheduleId'] . "</td>";
                                     echo "<td>" . $adminschedule['scheduleDate'] . "</td>";
-                                    // echo "<td>" . $adminschedule['scheduleDay'] . "</td>";
+                                    echo "<td>" . $adminschedule['scheduleDay'] . "</td>";
                                     echo "<td>" . $adminschedule['startTime'] . "</td>";
                                     echo "<td>" . $adminschedule['endTime'] . "</td>";
                                     echo "<td>" . $adminschedule['bookAvail'] . "</td>";
                                     echo "<form method='POST'>";
-                                    echo "<td class='text-center'><a href='#' id='".$adminschedule['scheduleId']."' class='delete'><span class='fa fa-trash' aria-hidden='true'></span></a>
+                                    echo "<td class='text-center'><a href='#' id='".$adminschedule['scheduleId']."' class='delete'><span class='glyphicon glyphicon-trash' aria-hidden='true'></span></a>
                             </td>";
                                
                             } 
@@ -312,9 +311,10 @@ alert('Add fail. Please try again.');
 
        
         <!-- jQuery -->
-        <script src="../add/assets/js/jquery.js"></script>
+        <script src="../employee/assets/js/jquery.js"></script>
+        
         <!-- Bootstrap Core JavaScript -->
-        <script src="../add/assets/js/bootstrap.min.js"></script>
+        <script src="../employee/assets/js/bootstrap.min.js"></script>
         <script src="assets/js/bootstrap-clockpicker.js"></script>
         <!-- Latest compiled and minified JavaScript -->
          <!-- script for jquery datatable start-->

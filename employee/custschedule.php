@@ -14,14 +14,14 @@ $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
 
 if (isset($_POST['submit'])) {
 $date=mysqli_real_escape_string($con,$_POST['date']);
-$scheduleday=mysqli_real_escape_string($con,$_POST['scheduleday']);
+// $scheduleday=mysqli_real_escape_string($con,$_POST['scheduleday']);
 $starttime=mysqli_real_escape_string($con,$_POST['starttime']);
 $endtime=mysqli_real_escape_string($con,$_POST['endtime']);
 $bookavail=mysqli_real_escape_string($con,$_POST['bookavail']);
 
 //INSERT
-$query = " INSERT INTO adminschedule (scheduleDate, scheduleDay, startTime, endTime,  bookAvail)
-VALUES ( '$date', '$scheduleday', '$starttime', '$endtime', '$bookavail' ) ";
+$query = " INSERT INTO adminschedule (scheduleDate, startTime, endTime,  bookAvail)
+VALUES ( '$date', '$starttime', '$endtime', '$bookavail' ) ";
 
 $result = mysqli_query($con, $query);
 // echo $result;
@@ -262,10 +262,11 @@ alert('Add fail. Please try again.');
                                 <tr class="filters">
                                     <th><input type="text" class="form-control" placeholder="scheduleId" disabled></th>
                                     <th><input type="text" class="form-control" placeholder="scheduleDate" disabled></th>
-                                    <th><input type="text" class="form-control" placeholder="scheduleDay" disabled></th>
+                                    <!-- <th><input type="text" class="form-control" placeholder="scheduleDay" disabled></th> -->
                                     <th><input type="text" class="form-control" placeholder="startTime." disabled></th>
                                     <th><input type="text" class="form-control" placeholder="endTime" disabled></th>
                                     <th><input type="text" class="form-control" placeholder="bookAvail" disabled></th>
+                                    <th><input type="text" class="form-control" placeholder="delete" disabled></th>
                                 </tr>
                             </thead>
                             
@@ -281,12 +282,12 @@ alert('Add fail. Please try again.');
                                 echo "<tr>";
                                     echo "<td>" . $adminschedule['scheduleId'] . "</td>";
                                     echo "<td>" . $adminschedule['scheduleDate'] . "</td>";
-                                    echo "<td>" . $adminschedule['scheduleDay'] . "</td>";
+                                    // echo "<td>" . $adminschedule['scheduleDay'] . "</td>";
                                     echo "<td>" . $adminschedule['startTime'] . "</td>";
                                     echo "<td>" . $adminschedule['endTime'] . "</td>";
                                     echo "<td>" . $adminschedule['bookAvail'] . "</td>";
                                     echo "<form method='POST'>";
-                                    echo "<td class='text-center'><a href='#' id='".$adminschedule['scheduleId']."' class='delete'><span class='glyphicon glyphicon-trash' aria-hidden='true'></span></a>
+                                    echo "<td class='text-center'><a href='#' id='".$adminschedule['scheduleId']."' class='delete'><span class='fa fa-trash' aria-hidden='true'></span></a>
                             </td>";
                                
                             } 
@@ -311,11 +312,11 @@ alert('Add fail. Please try again.');
 
        
         <!-- jQuery -->
-        <script src="../employee/assets/js/jquery.js"></script>
+        <script src="../assets/js/jquery.js"></script>
         
         <!-- Bootstrap Core JavaScript -->
-        <script src="../employee/assets/js/bootstrap.min.js"></script>
-        <script src="assets/js/bootstrap-clockpicker.js"></script>
+        <script src="../assets/js/bootstrap.min.js"></script>
+        <script src="../assets/js/bootstrap-clockpicker.js"></script>
         <!-- Latest compiled and minified JavaScript -->
          <!-- script for jquery datatable start-->
         <!-- Include Date Range Picker -->

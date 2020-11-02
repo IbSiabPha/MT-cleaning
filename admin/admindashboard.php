@@ -156,7 +156,7 @@ $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
                                     echo "<td>" . $appointment['scheduleDate'] . "</td>";
                                     echo "<td>" . $appointment['startTime'] . "</td>";
                                     echo "<td>" . $appointment['endTime'] . "</td>";
-                                    echo "<td><span class='glyphicon glyphicon-".$icon."' aria-hidden='true'></span>".' '."". $appointment['status'] . "</td>";
+                                    echo "<td><span class='glyphicon glyphicon-'".$icon."' aria-hidden='true'></span>".' '."". $appointment['status'] . "</td>";
                                     echo "<form method='POST'>";
                                     echo "<td class='text-center'><input type='checkbox' name='enable' id='enable' value='".$appointment['appId']."' onclick='chkit(".$appointment['appId'].",this.checked);' ".$checked."></td>";
                                     echo "<td class='text-center'><a href='#' id='".$appointment['appId']."' class='delete'><span class='fa fa-trash' aria-hidden='true'></span></a>

@@ -92,7 +92,7 @@ echo "<tr>";
 echo "<th>App Id</th>";
 echo "<th>userId </th>";
 echo "<th>userLastName </th>";
-echo "<th>scheduleDay </th>";
+// echo "<th>scheduleDay </th>";
 echo "<th>scheduleDate </th>";
 echo "<th>startTime </th>";
 echo "<th>endTime </th>";
@@ -118,11 +118,12 @@ echo "<tr>";
 echo "<td>" . $userRow['appId'] . "</td>";
 echo "<td>" . $userRow['userId'] . "</td>";
 echo "<td>" . $userRow['userLastName'] . "</td>";
-echo "<td>" . $userRow['scheduleDay'] . "</td>";
+// echo "<td>" . $userRow['scheduleDay'] . "</td>";
 echo "<td>" . $userRow['scheduleDate'] . "</td>";
 echo "<td>" . $userRow['startTime'] . "</td>";
 echo "<td>" . $userRow['endTime'] . "</td>";
-echo "<td><a href='invoice.php?appid=".$userRow['appId']."' target='_blank'><span class='glyphicon glyphicon-print' aria-hidden='true'></span></a> </td>";
+echo "<td><a href='invoice.php?appid=".$userRow['appId']."' target='_blank'>
+<span class='fa fa-print' aria-hidden='true'></span></a> </td>";
 }
 
 echo "</tr>";

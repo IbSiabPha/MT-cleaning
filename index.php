@@ -81,7 +81,7 @@ alert('User already registered. Please try again');
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-        <title>Clinic Appointment Application</title>
+        <title>MT Cleaning</title>
         <!-- Bootstrap -->
         <!-- <link href="assets/css/bootstrap.min.css" rel="stylesheet"> -->
         <link href="assets/css/style.css" rel="stylesheet">
@@ -443,8 +443,8 @@ alert('User already registered. Please try again');
         <!-- footer start -->
         <div class="copyright-bar bg-black">
             <div class="container">
-                <p class="pull-left small">© Copyright 2020.</p>
                 <p class="pull-right small"><a href="adminlogin.php">ADMIN LOGIN</a></p>
+                <p class="pull-left small"><a href="employeelogin.php">EMPLOYEE LOGIN</a></p>
             </div>
         </div>
         <!-- footer end -->

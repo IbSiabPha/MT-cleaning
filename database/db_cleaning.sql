@@ -49,25 +49,56 @@ CREATE TABLE `appointment`
 -- Dumping data for table `appointment`
 --
 
-INSERT INTO `appointment` (`appId`, `userId`, `scheduleId`, `needService`, `serviceComment`, `status`) VALUES (88, 1234, 47, 'Garage Cleaning', 'i want my garage cleaned', 'done'), (89, 1234, 48, 'home cleaning', 'clean my agarage', 'done');
+INSERT INTO `appointment` (`
+appId`,
+`userId
+`, `scheduleId`, `needService`, `serviceComment`, `status`) VALUES
+(88, 1234, 47, 'Garage Cleaning', 'i want my garage cleaned', 'done'),
+(89, 1234, 48, 'home cleaning', 'clean my agarage', 'done');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `doctor`
+-- Table structure for table `admin`
 --
 
 CREATE TABLE `admin1`
-(`idAdmin` bigint(12) NOT NULL, `password` varchar(20) NOT NULL, `adminId` int(3) NOT NULL, `adminFirstName` varchar(50) NOT NULL, `adminEmail` varchar(20) NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+(`idAdmin` bigint
+(12) NOT NULL, `password` varchar
+(20) NOT NULL, `adminId` int
+(3) NOT NULL, `adminFirstName` varchar
+(50) NOT NULL, `adminEmail` varchar
+(20) NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `doctor`
+-- Dumping data for table `admin`
 --
 
-INSERT INTO `admin1` (`idAdmin`,`password`, `adminId`, `adminFirstName`, `adminEmail`) VALUES(0, '123', 123, 'Admin', 'admin@mtcleaning.com');
+INSERT INTO `admin1` (`
+idAdmin`,`password
+`, `adminId`, `adminFirstName`, `adminEmail`) VALUES
+(0, '123', 123, 'Admin', 'admin@mtcleaning.com');
 
 -- --------------------------------------------------------
 
+--
+-- Table Structure for 'Employee'
+-- 
+
+CREATE TABLE `employee`
+(`idEmployee` bigint
+(12) NOT NULL, `password` varchar
+(20) NOT NULL, `employeeId` int
+(3) NOT NULL, `employeeFirstName` varchar
+(20) NOT NULL, `employeeLastName` varchar
+(20) NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping Data for 'Employee'
+-- 
+
+INSERT INTO `employee` (`idEmployee`, `password`, `employeeId`, `employeeFirstName`, `employeeLastName`) VALUES (1, '456', 456, 'Employee', 'Employee');
+-- --------------------------------------------------------
 --
 -- Table structure for table `adminschedule`
 --
@@ -89,7 +120,12 @@ CREATE TABLE `adminschedule`
 -- Dumping data for table `adminschedule`
 --
 
-INSERT INTO `adminschedule` (`scheduleId`,`scheduleDate`, `scheduleDay`, `startTime`, `endTime`, `bookAvail`) VALUES(47, '2020-10-06', '', '00:05:00', '03:10:00', 'notavail'), (48, '2020-10-14', '', '12:00:00', '01:05:00', 'notavail'), (49, '0000-00-00', '', '00:00:00', '00:00:00', '');
+INSERT INTO `adminschedule` (`
+scheduleId`,`scheduleDate
+`, `scheduleDay`, `startTime`, `endTime`, `bookAvail`) VALUES
+(47, '2020-10-06', '', '00:05:00', '03:10:00', 'notavail'),
+(48, '2020-10-14', '', '12:00:00', '01:05:00', 'notavail'),
+(49, '0000-00-00', '', '00:00:00', '00:00:00', '');
 
 -- --------------------------------------------------------
 
@@ -122,7 +158,10 @@ CREATE TABLE `client1`
 -- Dumping data for table `patient`
 --
 
-INSERT INTO `client1` (`idUser`, `password`, `userFirstName`, `userLastName`, `userDOB`, `userGender`, `userAddress`, `userPhone`, `userEmail`) VALUES
+INSERT INTO `client1` (`
+idUser`,
+`password
+`, `userFirstName`, `userLastName`, `userDOB`, `userGender`, `userAddress`, `userPhone`, `userEmail`) VALUES
 (0, '1234', '', '', '2002-01-22', '', '', '', ''),
 (1234, '1', 'ib', 'pha', '1981-01-02', 'male', '', '', 'fake@gmail.com'),
 (123456, 'pha', 'ib ', 'pha', '2012-02-01', 'male', '', '', 'wahtever@gmail.com');

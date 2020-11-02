@@ -2,12 +2,12 @@
 session_start();
 include_once '../assets/conn/dbconnect.php';
 
-if(!isset($_SESSION['doctorSession']))
+if(!isset($_SESSION['employeeSession']))
 {
 header("Location: ../index.php");
 }
-$usersession = $_SESSION['doctorSession'];
-$res=mysqli_query($con,"SELECT * FROM admin1 WHERE adminId=".$usersession);
+$usersession = $_SESSION['employeeSession'];
+$res=mysqli_query($con,"SELECT * FROM employee WHERE employeeId=".$usersession);
 $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
 ?>
 <!DOCTYPE html>
@@ -18,7 +18,7 @@ $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="author" content="">
-        <title>Welcome <?php echo $userRow['adminFirstName'];?></title>
+        <title>Welcome <?php echo $userRow['employeeFirstName'];?></title>
         <link href="assets/css/material.css" rel="stylesheet">
         <link href="assets/css/sb-admin.css" rel="stylesheet">
         <link href="assets/css/style.css" rel="stylesheet">
@@ -34,11 +34,11 @@ $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="admindashboard.php">Welcome <?php echo $userRow['adminFirstName'];?></a>
+                    <a class="navbar-brand" href="employeeDashboard.php">Welcome <?php echo $userRow['employeeFirstName'];?></a>
                 </div>
                 <ul class="nav navbar-right top-nav">
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $userRow['adminFirstName']; ?><b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $userRow['employeeFirstName']; ?><b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>
                                 <a href="adminprofile.php"><i class="fa fa-fw fa-user"></i> Profile</a>
@@ -55,10 +55,10 @@ $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
                 <div class="collapse navbar-collapse navbar-ex1-collapse">
                     <ul class="nav navbar-nav side-nav">
                         <li class="active">
-                            <a href="admindashboard.php"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                            <a href="employeeDashboard.php"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
                         </li>
                         <li>
-                            <a href="addschedule.php"><i class="fa fa-fw fa-table"></i> Appointment Schedule</a>
+                            <a href="custschedule.php"><i class="fa fa-fw fa-table"></i> Appointment Schedule</a>
                         </li>
                         <li>
                             <a href="clientlist.php"><i class="fa fa-fw fa-edit"></i> Client List</a>

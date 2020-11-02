@@ -31,7 +31,7 @@ job TINYTEXT NOT NULL,
 about TEXT NOT NULL, 
 image LONGTEXT NOT NULL
 );
-<-------------------------------------------------------------------------------->
+<--------------------------------499 below------------------------------------------------>
 for another project test......
 
 CREATE TABLE admin1(

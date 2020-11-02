@@ -40,7 +40,7 @@ header("Location: employee/employeedashboard.php");
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>MT Cleaning</title>
         <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-        <link href="assets/css/style.css" rel="stylesheet">
+        <link href="assets/css/style2.css" rel="stylesheet">
     </head>
     <body>
         <div class="container">

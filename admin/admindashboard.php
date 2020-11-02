@@ -1,7 +1,7 @@
 <?php
 session_start();
 include_once '../assets/conn/dbconnect.php';
-// include_once 'connection/server.php';
+
 if(!isset($_SESSION['doctorSession']))
 {
 header("Location: ../index.php");
@@ -9,9 +9,6 @@ header("Location: ../index.php");
 $usersession = $_SESSION['doctorSession'];
 $res=mysqli_query($con,"SELECT * FROM admin1 WHERE adminId=".$usersession);
 $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
-
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,21 +19,14 @@ $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
         <meta name="description" content="">
         <meta name="author" content="">
         <title>Welcome <?php echo $userRow['adminFirstName'];?></title>
-        <!-- Bootstrap Core CSS -->
-        <!-- <link href="assets/css/bootstrap.css" rel="stylesheet"> -->
         <link href="assets/css/material.css" rel="stylesheet">
-        <!-- Custom CSS -->
         <link href="assets/css/sb-admin.css" rel="stylesheet">
         <link href="assets/css/style.css" rel="stylesheet">
         <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet">
-        <!-- Custom Fonts -->
     </head>
     <body>
         <div id="wrapper">
-
-            <!-- Navigation -->
             <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-                <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                     <span class="sr-only">Toggle navigation</span>
@@ -46,7 +36,6 @@ $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
                     </button>
                     <a class="navbar-brand" href="admindashboard.php">Welcome <?php echo $userRow['adminFirstName'];?></a>
                 </div>
-                <!-- Top Menu Items -->
                 <ul class="nav navbar-right top-nav">
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $userRow['adminFirstName']; ?><b class="caret"></b></a>
@@ -79,10 +68,8 @@ $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
                 <!-- /.navbar-collapse -->
             </nav>
             <!-- navigation end -->
-
             <div id="page-wrapper">
                 <div class="container-fluid">
-                    
                     <!-- Page Heading -->
                     <div class="row">
                         <div class="col-lg-12">

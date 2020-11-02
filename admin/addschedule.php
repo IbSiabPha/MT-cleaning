@@ -311,10 +311,9 @@ alert('Add fail. Please try again.');
 
        
         <!-- jQuery -->
-        <script src="../patient/assets/js/jquery.js"></script>
-        
+        <script src="../add/assets/js/jquery.js"></script>
         <!-- Bootstrap Core JavaScript -->
-        <script src="../patient/assets/js/bootstrap.min.js"></script>
+        <script src="../add/assets/js/bootstrap.min.js"></script>
         <script src="assets/js/bootstrap-clockpicker.js"></script>
         <!-- Latest compiled and minified JavaScript -->
          <!-- script for jquery datatable start-->

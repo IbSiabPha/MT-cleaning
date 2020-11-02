@@ -122,6 +122,7 @@ $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
                                     <th><input type="text" class="form-control" placeholder="Gender" disabled></th>
                                     <th><input type="text" class="form-control" placeholder="Birthdate" disabled></th>
                                     <th><input type="text" class="form-control" placeholder="Address" disabled></th>
+                                    <th><input type="text" class="form-control" placeholder="Delete" disabled></th>
                                 </tr>
                             </thead>
                             
@@ -144,7 +145,8 @@ $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
                                     echo "<td>" . $userRow['userDOB'] . "</td>";
                                     echo "<td>" . $userRow['userAddress'] . "</td>";
                                     echo "<form method='POST'>";
-                                    echo "<td class='text-center'><a href='#' id='".$userRow['idUser']."' class='delete'><span class='glyphicon glyphicon-trash' aria-hidden='true'></span></a>
+                                    echo "<td class='text-center'><a href='#' id='".$userRow['idUser']."' class='delete'>
+                                    <span class='fa fa-trash' aria-hidden='true'></span></a>
                             </td>";
                                
                             } 
@@ -153,7 +155,8 @@ $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
                        echo "</table>";
                        echo "<div class='panel panel-default'>";
                        echo "<div class='col-md-offset-3 pull-right'>";
-                       echo "<button class='btn btn-primary' type='submit' value='Submit' name='submit'>Update</button>";
+                       echo "<button class='btn btn-primary' type='submit' 
+                       value='Submit' name='submit'>Update</button>";
                         echo "</div>";
                         echo "</div>";
                         ?>

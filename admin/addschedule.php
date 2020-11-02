@@ -266,6 +266,7 @@ alert('Add fail. Please try again.');
                                     <th><input type="text" class="form-control" placeholder="startTime." disabled></th>
                                     <th><input type="text" class="form-control" placeholder="endTime" disabled></th>
                                     <th><input type="text" class="form-control" placeholder="bookAvail" disabled></th>
+                                    <th><input type="text" class="form-control" placeholder="Delete" disabled></th>
                                 </tr>
                             </thead>
                             
@@ -286,7 +287,7 @@ alert('Add fail. Please try again.');
                                     echo "<td>" . $adminschedule['endTime'] . "</td>";
                                     echo "<td>" . $adminschedule['bookAvail'] . "</td>";
                                     echo "<form method='POST'>";
-                                    echo "<td class='text-center'><a href='#' id='".$adminschedule['scheduleId']."' class='delete'><span class='glyphicon glyphicon-trash' aria-hidden='true'></span></a>
+                                    echo "<td class='text-center'><a href='#' id='".$adminschedule['scheduleId']."' class='delete'><span class='fa fa-trash' aria-hidden='true'></span></a>
                             </td>";
                                
                             } 
@@ -312,7 +313,6 @@ alert('Add fail. Please try again.');
        
         <!-- jQuery -->
         <script src="../add/assets/js/jquery.js"></script>
-        
         <!-- Bootstrap Core JavaScript -->
         <script src="../add/assets/js/bootstrap.min.js"></script>
         <script src="assets/js/bootstrap-clockpicker.js"></script>

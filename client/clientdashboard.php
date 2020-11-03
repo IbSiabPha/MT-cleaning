@@ -4,11 +4,11 @@ session_destroy();
 session_unset();
 // include_once '../connection/server.php';
 include_once '../assets/conn/dbconnect.php';
-if(!isset($_SESSION['patientSession']))
+if(!isset($_SESSION['userSession']))
 {
 header("Location: ../index.php");
 }
-$usersession = $_SESSION['patientSession'];
+$usersession = $_SESSION['userSession'];
 $res=mysql_query("SELECT * FROM client1 WHERE idUser=".$usersession);
 $userRow=mysql_fetch_array($res);
 echo mysql_error();

@@ -97,7 +97,8 @@ CREATE TABLE `employee`
 -- Dumping Data for 'Employee'
 -- 
 
-INSERT INTO `employee` (`idEmployee`, `password`, `employeeId`, `employeeFirstName`, `employeeLastName`) VALUES (1, '456', 456, 'Employee', 'Employee');
+INSERT INTO `employee` (`idEmployee`, `password`, `employeeId`, `employeeFirstName`, `employeeLastName`) 
+VALUES (1, '456', 456, 'Employee', 'Employee');
 -- --------------------------------------------------------
 --
 -- Table structure for table `adminschedule`

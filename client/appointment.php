@@ -19,7 +19,7 @@ $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
 if (isset($_POST['appointment'])) {
 $userId = mysqli_real_escape_string($con,$userRow['idUser']);
 $scheduleid = mysqli_real_escape_string($con,$appid);
-$symptom = mysqli_real_escape_string($con,$_POST['symptom']);
+$symptom = mysqli_real_escape_string($con,$_POST['services']);
 $comment = mysqli_real_escape_string($con,$_POST['comment']);
 $avail = "notavail";
 
@@ -173,7 +173,7 @@ header("Location: client/client.php");
 											
 											<div class="form-group">
 												<label for="recipient-name" class="control-label">What Service:</label>
-												<select id="Services" name="Services">
+												<select id="Services" name="services">
 												
 												<option value="Furniture Cleaning">Furniture Cleaning</option>
 												<option value="Window Cleaning">Window Cleaning</option>

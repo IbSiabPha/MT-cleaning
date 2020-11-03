@@ -90,7 +90,7 @@ $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
                     </td>
                 </tr>
 
-                <tr class="item">
+                <!-- <tr class="item">
                     <td>
                         Appointment Day
                     </td>
@@ -99,7 +99,7 @@ $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
                         <?php echo $userRow['scheduleDay'];?>
                     </td>
                 </tr>
-                
+                 -->
 
                  <tr class="item">
                     <td>

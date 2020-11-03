@@ -2,24 +2,24 @@
 session_start();
 include_once '../assets/conn/dbconnect.php';
 // include_once 'connection/server.php';
-if(!isset($_SESSION['doctorSession']))
+if(!isset($_SESSION['employeeSession']))
 {
 header("Location: ../index.php");
 }
-$usersession = $_SESSION['doctorSession'];
-$res=mysqli_query($con,"SELECT * FROM admin1 WHERE adminId=".$usersession);
+$usersession = $_SESSION['employeeSession'];
+$res=mysqli_query($con,"SELECT * FROM employee WHERE employeeId=".$usersession);
 $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
 
 
 if (isset($_POST['submit'])) {
 //variables
-$adminFirstName = $_POST['adminFirstName'];
-$adminEmail = $_POST['adminEmail'];
+$employeeFirstName = $_POST['employeeFirstName'];
+$employeeEmail = $_POST['employeeEmail'];
 
-$res=mysqli_query($con,"UPDATE admin1 SET adminFirstName='$adminFirstName', adminEmail='$adminEmail', WHERE adminId=".$_SESSION['doctorSession']);
+$res=mysqli_query($con,"UPDATE employee SET employeeFirstName='$employeeFirstName', employeeEmail='$employeeEmail', WHERE employeeId=".$_SESSION['employeeSession']);
 // $userRow=mysqli_fetch_array($res);
 
-header( 'Location: adminprofile.php' ) ;
+header( 'Location: employeeprofile.php' ) ;
 
 }
 ?>
@@ -31,7 +31,7 @@ header( 'Location: adminprofile.php' ) ;
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="author" content="">
-        <title>Admin Portal</title>
+        <title>Employee Portal</title>
         <!-- Bootstrap Core CSS -->
         <!-- <link href="assets/css/bootstrap.css" rel="stylesheet"> -->
         <link href="assets/css/material.css" rel="stylesheet">
@@ -56,17 +56,17 @@ header( 'Location: adminprofile.php' ) ;
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="admindashboard.php">Welcome <?php echo $userRow['adminFirstName'];?></a>
+                    <a class="navbar-brand" href="employeedashboard.php">Welcome <?php echo $userRow['employeeFirstName'];?></a>
                 </div>
                 <!-- Top Menu Items -->
                 <ul class="nav navbar-right top-nav">
                     
                     
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $userRow['adminFirstName']; ?> <b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $userRow['employeeFirstName']; ?> <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a href="adminprofile.php"><i class="fa fa-fw fa-user"></i> Profile</a>
+                                <a href="employeeprofile.php"><i class="fa fa-fw fa-user"></i> Profile</a>
                             </li>
                            
                             <li class="divider"></li>
@@ -80,10 +80,10 @@ header( 'Location: adminprofile.php' ) ;
                 <div class="collapse navbar-collapse navbar-ex1-collapse">
                     <ul class="nav navbar-nav side-nav">
                          <li>
-                            <a href="admindashboard.php"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                            <a href="employeedashboard.php"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
                         </li>
                         <li>
-                            <a href="addschedule.php"><i class="fa fa-fw fa-table"></i> Appointment Schedule</a>
+                            <a href="custschedule.php"><i class="fa fa-fw fa-table"></i> Appointment Schedule</a>
                         </li>
                         <li>
                             <a href="clientlist.php"><i class="fa fa-fw fa-edit"></i> Client List</a>
@@ -101,11 +101,11 @@ header( 'Location: adminprofile.php' ) ;
                     <div class="row">
                         <div class="col-lg-12">
                             <h2 class="page-header">
-                            Admin Profile
+                            Employee Profile
                             </h2>
                             <ol class="breadcrumb">
                                 <li class="active">
-                                    <i class="fa fa-calendar"></i> Admin Profile
+                                    <i class="fa fa-calendar"></i> Employee Profile
                                 </li>
                             </ol>
                         </div>
@@ -117,7 +117,7 @@ header( 'Location: adminprofile.php' ) ;
 
                         <!-- panel heading starat -->
                         <div class="panel-heading">
-                            <h3 class="panel-title">Admin Details</h3>
+                            <h3 class="panel-title">Employee Details</h3>
                         </div>
                         <!-- panel heading end -->
 
@@ -132,10 +132,9 @@ header( 'Location: adminprofile.php' ) ;
                         <div class="col-md-3 col-sm-3">
                             
                             <div class="user-wrapper">
-                                <img src="assets/img/sysadmin.jpg" class="img-responsive" />
+                                <img src="assets/img/employee.jpg" class="img-responsive" />
                                 <div class="description">
-                                    <h4><?php echo $userRow['adminFirstName']; ?></h4>
-                                    <h5> <strong> System Administrator </strong></h5>
+                                    <h4><?php echo $userRow['employeeFirstName']; ?></h4>
                                     <hr />
                                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Update Profile</button>
                                 </div>
@@ -144,19 +143,19 @@ header( 'Location: adminprofile.php' ) ;
                         
                         <div class="col-md-9 col-sm-9  user-wrapper">
                             <div class="description">
-                                <h3> <?php echo $userRow['adminFirstName']; ?></h3>
+                                <h3> <?php echo $userRow['employeeFirstName']; ?></h3>
                                 <hr />
                                 <div class="panel panel-default">
                                     <div class="panel-body">
                                         <table class="table table-user-information" align="center">
                                             <tbody>
                                                 <tr>
-                                                    <td>Admin ID</td>
-                                                    <td><?php echo $userRow['adminId']; ?></td>
+                                                    <td>Employee ID</td>
+                                                    <td><?php echo $userRow['employeeId']; ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Email</td>
-                                                    <td><?php echo $userRow['adminEmail']; ?>
+                                                    <td><?php echo $userRow['employeeEmail']; ?>
                                                     </td>
                                                 </tr>
                                             </tbody>
@@ -182,15 +181,15 @@ header( 'Location: adminprofile.php' ) ;
                                                 <tbody>
                                                     <tr>
                                                         <td>Admin ID</td>
-                                                        <td><?php echo $userRow['adminId']; ?></td>
+                                                        <td><?php echo $userRow['employeeId']; ?></td>
                                                     </tr>
                                                     <tr>
                                                         <td>First Name:</td>
-                                                        <td><input type="text" class="form-control" name="adminFirstName" value="<?php echo $userRow['adminFirstName']; ?>"  /></td>
+                                                        <td><input type="text" class="form-control" name="employeeFirstName" value="<?php echo $userRow['employeeFirstName']; ?>"  /></td>
                                                     </tr>
                                                     <tr>
                                                         <td>Email</td>
-                                                        <td><input type="text" class="form-control" name="adminEmail" value="<?php echo $userRow['adminEmail']; ?>"  /></td>
+                                                        <td><input type="text" class="form-control" name="employeeEmail" value="<?php echo $userRow['employeeEmail']; ?>"  /></td>
                                                     </tr>
                                                     <tr>
                                                         <td>

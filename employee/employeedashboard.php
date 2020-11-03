@@ -41,9 +41,8 @@ $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $userRow['employeeFirstName']; ?><b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a href="adminprofile.php"><i class="fa fa-fw fa-user"></i> Profile</a>
+                                <a href="employeeprofile.php"><i class="fa fa-fw fa-user"></i> Profile</a>
                             </li>
-                           
                             <li class="divider"></li>
                             <li>
                                 <a href="logout.php?logout"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
@@ -109,10 +108,8 @@ $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
                                     <th><input type="text" class="form-control" placeholder="End" disabled></th>
                                     <th><input type="text" class="form-control" placeholder="Status" disabled></th>
                                     <th><input type="text" class="form-control" placeholder="Complete" disabled></th>
-                                    <th><input type="text" class="form-control" placeholder="Delete" disabled></th>
                                 </tr>
                             </thead>
-                            
                             <?php 
                             $res=mysqli_query($con,"SELECT a.*, b.*,c.*
                                                     FROM client1 a
@@ -131,21 +128,11 @@ $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
                                     $status="danger";
                                     $icon='remove';
                                     $checked='';
-
                                 } else {
                                     $status="success";
                                     $icon='ok';
                                     $checked = 'disabled';
                                 }
-
-                                
-                              
-                                
-                             
-                                
-
-                                
-
                                 echo "<tbody>";
                                 echo "<tr class='$status'>";
                                     echo "<td>" . $appointment['userId'] . "</td>";
@@ -159,9 +146,6 @@ $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
                                     echo "<td><span class='glyphicon glyphicon-'".$icon."' aria-hidden='true'></span>".' '."". $appointment['status'] . "</td>";
                                     echo "<form method='POST'>";
                                     echo "<td class='text-center'><input type='checkbox' name='enable' id='enable' value='".$appointment['appId']."' onclick='chkit(".$appointment['appId'].",this.checked);' ".$checked."></td>";
-                                    echo "<td class='text-center'><a href='#' id='".$appointment['appId']."' class='delete'><span class='fa fa-trash' aria-hidden='true'></span></a>
-                            </td>";
-                               
                             } 
                                 echo "</tr>";
                            echo "</tbody>";

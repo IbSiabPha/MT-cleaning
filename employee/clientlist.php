@@ -101,7 +101,7 @@ $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
 
                         <!-- panel heading starat -->
                         <div class="panel-heading">
-                            <h3 class="panel-title">List of Appointments</h3>
+                            <h3 class="panel-title">List of Confirmed Appointments</h3>
                             <div class="pull-right">
                             <button class="btn btn-default btn-xs btn-filter"><span class="fa fa-filter"></span> Filter</button>
                         </div>
@@ -122,7 +122,7 @@ $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
                                     <th><input type="text" class="form-control" placeholder="Gender" disabled></th>
                                     <th><input type="text" class="form-control" placeholder="Birthdate" disabled></th>
                                     <th><input type="text" class="form-control" placeholder="Address" disabled></th>
-                                    <th><input type="text" class="form-control" placeholder="delete" disabled></th>
+                                    <th><input type="text" class="form-control" placeholder="Mark as Complete" disabled></th>
                                 </tr>
                             </thead>
                             

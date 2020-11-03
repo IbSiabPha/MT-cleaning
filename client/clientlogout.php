@@ -1,11 +1,11 @@
 <?php
 session_start();
 
-if(!isset($_SESSION['patientSession']))
+if(!isset($_SESSION['userSession']))
 {
  header("Location: clientdashboard.php");
 }
-else if(isset($_SESSION['patientSession'])!="")
+else if(isset($_SESSION['userSession'])!="")
 {
  header("Location: ../index.php");
 }
@@ -13,7 +13,7 @@ else if(isset($_SESSION['patientSession'])!="")
 if(isset($_GET['logout']))
 {
  session_destroy();
- unset($_SESSION['patientSession']);
+ unset($_SESSION['userSession']);
  header("Location: ../index.php");
 }
 ?>

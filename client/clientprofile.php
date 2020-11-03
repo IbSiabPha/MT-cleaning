@@ -4,11 +4,11 @@ session_start();
 
 include_once '../assets/conn/dbconnect.php';
 
-if(!isset($_SESSION['patientSession']))
+if(!isset($_SESSION['userSession']))
 {
  header("Location: ../fail.php");
 }
-$res=mysqli_query($con,"SELECT * FROM client1 WHERE idUser=".$_SESSION['patientSession']);
+$res=mysqli_query($con,"SELECT * FROM client1 WHERE idUser=".$_SESSION['userSession']);
 $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
 ?>
 <!DOCTYPE html>

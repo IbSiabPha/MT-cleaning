@@ -1,15 +1,12 @@
 <?php
 include_once 'assets/conn/dbconnect.php';
-
 ?>
-
-
 <!-- login -->
 <!-- check session -->
 <?php
 session_start();
 // session_destroy();
-if (isset($_SESSION['patientSession']) != "") {
+if (isset($_SESSION['userSession']) != "") {
 header("Location: client/client.php");
 }
 if (isset($_POST['login']))
@@ -21,7 +18,7 @@ $res = mysqli_query($con,"SELECT * FROM client1 WHERE idUser = '$idUser'");
 $row=mysqli_fetch_array($res,MYSQLI_ASSOC);
 if ($row['password'] == $password)
 {
-$_SESSION['patientSession'] = $row['idUser'];
+$_SESSION['userSession'] = $row['idUser'];
 ?>
 <script type="text/javascript">
 alert('Login Success');

@@ -72,6 +72,9 @@ $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
                         <li class="active">
                             <a href="clientlist.php"><i class="fa fa-fw fa-edit"></i> Client List</a>
                         </li>
+                        <li>
+                            <a href="Employeelist.php"><i class="fa fa-fw fa-edit"></i> Employee's</a>
+                        </li>
                     </ul>
                 </div>
                 <!-- /.navbar-collapse -->

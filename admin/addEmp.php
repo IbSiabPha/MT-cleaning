@@ -12,30 +12,30 @@ if(isset($_POST['uSubmit'])){
 
     //check if filed are empty
  if(empty($first) || empty($last) || empty($userName) || empty($pwd )){
-     header("location: ../index.php?error=emptyfields&first=".$first."&mail=".$userName);
+     header("location: employeelist.php?error=emptyfields&first=".$first."&mail=".$userName);
      exit(); // stop code below execution if this fails 
  }// check for valid email and username
 elseif (!filter_var($email, FILTER_VALIDATE_EMAIL) && !preg_match("/^[a-zA-Z0-9]*$/", $userName)){
-    header("location: ../index.php?error=invalideu&sername");
+    header("location: employeelist.php?error=invalideu&sername");
     exit(); 
 }
  elseif(!filter_var($email, FILTER_VALIDATE_EMAIL)){ //check for valid email
-     header("location: ../index.php?error=invalidemail&first=".$first);
+     header("location: employeelist.php?error=invalidemail&first=".$first);
      exit(); 
  }
 elseif(!preg_match("/^[a-zA-Z0-9]*$/", $userName)){ //check for valid username
-    header("location: ../index.php?error=invalidusername&mail=".$email); //send back email so user don't have to type
+    header("location: employeelist.php?error=invalidusername&mail=".$email); //send back email so user don't have to type
     exit(); 
 }
 elseif($pwd !== $re_pwd){ //check if retype password match
-    header("location: ../index.php?error=passwordcheck&username=".$userName."&mail=".$email);
+    header("location: employeelist.php?error=passwordcheck&username=".$userName."&mail=".$email);
     exit(); 
 }
 else{ //check if username exist already
     $sql = "SELECT employeeId FROM employee WHERE employeeId=?"; //? is place holder
     $stmt = mysqli_stmt_init($con);
     if(!mysqli_stmt_prepare($stmt, $sql)){
-        header("location: ../index.php?error=sqlerror");
+        header("location: employeelist.php?error=sqlerror");
         exit(); 
     }
     else{//take info from user check and send to database
@@ -45,14 +45,14 @@ else{ //check if username exist already
         $check_result = mysqli_stmt_num_rows($stmt); //how many match return
         if($check_result > 0){
 
-            header("location: ../index.php?error=usertaken&email=" .$email);
+            header("location: employeelist.php?error=usertaken&email=" .$email);
             exit();
         }
         else{
             $sql = "INSERT INTO employee(password, employeeId, email, employeeFirstName, employeeLastName) values(?,?,?,?,?)";
             $stmt = mysqli_stmt_init($con);
             if (!mysqli_stmt_prepare($stmt, $sql)){ //if there is an error 
-                header("location: ../index.php?error=sqlerror");
+                header("location: employeelist.php?error=sqlerror");
                 exit(); 
             }
             else{
@@ -69,6 +69,6 @@ mysqli_stmt_close($stmt);
 mysqli_close($con);      
 }
 else{
-    header("location: ../signup.php");
+    header("location: ../index.php");
     exit(); 
 }

@@ -122,7 +122,7 @@ $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
                                         echo "<p class='errorMsg'>Invalid user name</p>";
                                     }
                                     elseif($_GET['error'] == 'passwordcheck'){
-                                        echo "<p class='errorMsg'>password not match</p>";
+                                        echo "<p class='errorMsg'>password mismatch</p>";
                                     }
                                     elseif($_GET['error'] == 'usertaken'){
                                         echo "<p class='errorMsg'>User name taken</p>";

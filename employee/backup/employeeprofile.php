@@ -66,7 +66,7 @@ header( 'Location: adminprofile.php' ) ;
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $userRow['adminFirstName']; ?> <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a href="adminprofile.php"><i class="fa fa-fw fa-user"></i> Profile</a>
+                                <a href="employeeprofile.php"><i class="fa fa-fw fa-user"></i> Profile</a>
                             </li>
                            
                             <li class="divider"></li>

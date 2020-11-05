@@ -1,7 +1,7 @@
 <?php
 session_start();
 include_once '../assets/conn/dbconnect.php';
-$session= $_SESSION['patientSession'];
+$session= $_SESSION['userSession'];
 // $appid=null;
 // $appdate=null;
 if (isset($_GET['scheduleDate']) && isset($_GET['appid'])) {

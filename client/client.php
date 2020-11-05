@@ -1,12 +1,12 @@
 <?php
 session_start();
 include_once '../assets/conn/dbconnect.php';
-if(!isset($_SESSION['patientSession']))
+if(!isset($_SESSION['userSession']))
 {
 header("Location: ../index.php");
 }
 
-$usersession = $_SESSION['patientSession'];
+$usersession = $_SESSION['userSession'];
 
 
 $res=mysqli_query($con,"SELECT * FROM client1 WHERE idUser=".$usersession);

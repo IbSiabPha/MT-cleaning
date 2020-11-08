@@ -8,7 +8,7 @@ require 'assets/conn/dbconnect.php';
         header("location: employeedashboard.php?error=emptyuser");
         exit(); 
     }else{
-        $res ="SELECT * FROM employee WHERE employeeId = '?' OR email=?;";
+        $res ="SELECT * FROM employee WHERE employeeId = '?' OR email = ?;";
         $stmt = mysqli_stmt_init($con);
         if (!mysqli_stmt_prepare($stmt, $res)){
             header("location: employeedashboard.php?error=sqlerror");
@@ -20,7 +20,7 @@ require 'assets/conn/dbconnect.php';
     
             if($row = mysqli_fetch_assoc($result)){  //NOTE: need to check if username is false and pass is true
                 $check_pwd = password_verify($uPwd, $row['password']);
-                $check_user = $row['employeeID']; //check user pass with database pass
+                $check_user = $row['employeeId']; //check user pass with database pass
                 if($check_pwd == false){ //if failed, redirect to home
                     header("location: ../index.php?error=wrongpassword");
                     exit(); 

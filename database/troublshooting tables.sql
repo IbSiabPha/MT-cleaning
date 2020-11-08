@@ -31,7 +31,7 @@ job TINYTEXT NOT NULL,
 about TEXT NOT NULL, 
 image LONGTEXT NOT NULL
 );
-<-------------------------------------------------------------------------------->
+<--------------------------------499 below------------------------------------------------>
 for another project test......
 
 CREATE TABLE admin1(
@@ -62,11 +62,12 @@ status varchar (10) NOT NULL DEFAULT 'process') ENGINE=InnoDB DEFAULT CHARSET=la
 
 CREATE TABLE employee(
 idEmployee int NOT NULL AUTO_INCREMENT PRIMARY KEY,
-password varchar (20) NOT NULL,
-employeeId int (3) NOT NULL, 
+password LONGTEXT NOT NULL,
+employeeId int (3) NOT NULL,
+email TINYTEXT NOT NULL, 
 employeeFirstName varchar (20) NOT NULL,
 employeeLastName varchar (20) NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-INSERT INTO employee(password, employeeId, employeeFirstName, employeeLastName) 
-VALUES ('456', '456', 'Employee', 'Employee');
+-- INSERT INTO employee(password, employeeId, employeeFirstName, employeeLastName) 
+-- VALUES ('456', '456', 'Employee', 'Employee');
 

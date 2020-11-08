@@ -258,6 +258,12 @@
         margin-top:15px;
         padding: 10px 20px;
     }
+      
+    .errorMsg p{
+        color: #e40000;
+        background-color: #a59b9b00;
+    }
+      
     
     .animated {
       -webkit-animation-duration: 1s;

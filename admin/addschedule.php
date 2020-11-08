@@ -114,6 +114,10 @@ alert('Add fail. Please try again.');
                         <li>
                             <a href="clientlist.php"><i class="fa fa-fw fa-edit"></i> Client List</a>
                         </li>
+                        <li>
+                            <a href="Employeelist.php"><i class="fa fa-fw fa-edit"></i> Employee's </a>
+                        </li>
+                        
                     </ul>
                 </div>
                 <!-- /.navbar-collapse -->

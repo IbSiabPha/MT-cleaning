@@ -16,4 +16,3 @@ if(isset($_GET['logout']))
  unset($_SESSION['doctorSession']);
  header("Location: ../index.php");
 }
-?>

@@ -87,8 +87,9 @@ idAdmin`,`password
 
 CREATE TABLE `employee`
 (`idEmployee` bigint
-(12) NOT NULL, `password` varchar
+(12) NOT NULL, `password` LONGTEXT
 (20) NOT NULL, `employeeId` int
+(50) NOT NULL, `email` TINYTEXT
 (3) NOT NULL, `employeeFirstName` varchar
 (20) NOT NULL, `employeeLastName` varchar
 (20) NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=latin1;

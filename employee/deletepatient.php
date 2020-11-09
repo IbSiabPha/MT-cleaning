@@ -10,8 +10,3 @@ $delete = mysqli_query($con,"DELETE FROM client1 WHERE idUser=$idUser");
 // } else {
 //    echo "NO";
 // }
-
-
-
-?>
-

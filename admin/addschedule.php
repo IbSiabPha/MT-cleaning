@@ -282,12 +282,12 @@ alert('Add fail. Please try again.');
                         <table class="table table-hover table-bordered">
                             <thead>
                                 <tr class="filters">
-                                    <th><input type="text" class="form-control" placeholder="scheduleId" disabled></th>
-                                    <th><input type="text" class="form-control" placeholder="scheduleDate" disabled>
+                                    <th><input type="text" class="form-control" placeholder="Schedule ID" disabled></th>
+                                    <th><input type="text" class="form-control" placeholder="Schedule Date" disabled>
                                     </th>
-                                    <th><input type="text" class="form-control" placeholder="startTime." disabled></th>
-                                    <th><input type="text" class="form-control" placeholder="endTime" disabled></th>
-                                    <th><input type="text" class="form-control" placeholder="bookAvail" disabled></th>
+                                    <th><input type="text" class="form-control" placeholder="Start Time." disabled></th>
+                                    <th><input type="text" class="form-control" placeholder="End Time" disabled></th>
+                                    <th><input type="text" class="form-control" placeholder="Available?" disabled></th>
                                     <th><input type="text" class="form-control" placeholder="Delete" disabled></th>
                                 </tr>
                             </thead>

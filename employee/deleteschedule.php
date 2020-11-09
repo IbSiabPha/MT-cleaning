@@ -10,8 +10,3 @@ $delete = mysqli_query($con,"DELETE FROM adminschedule WHERE scheduleId=$id");
 // } else {
 //    echo "NO";
 // }
-
-
-
-?>
-

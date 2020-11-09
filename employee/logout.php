@@ -16,4 +16,3 @@ if(isset($_GET['logout']))
  unset($_SESSION['employeeSession']);
  header("Location: ../index.php");
 }
-?>

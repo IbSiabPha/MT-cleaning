@@ -105,7 +105,7 @@ $userRow = mysqli_fetch_array($res, MYSQLI_ASSOC);
                         <table class="table table-hover table-bordered">
                             <thead>
                                 <tr class="filters">
-                                    <th><input type="text" class="form-control" placeholder="User Id" disabled></th>
+                                    <th><input type="text" class="form-control" placeholder="User ID" disabled></th>
                                     <th><input type="text" class="form-control" placeholder="Name" disabled></th>
                                     <th><input type="text" class="form-control" placeholder="Contact No." disabled></th>
                                     <th><input type="text" class="form-control" placeholder="Email" disabled></th>

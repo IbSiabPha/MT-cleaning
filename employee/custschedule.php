@@ -171,7 +171,7 @@ alert('Add fail. Please try again.');
                                         </th>
                                         <th><input type="text" class="form-control" placeholder="End Time" disabled>
                                         </th>
-                                        <th><input type="text" class="form-control" placeholder="bookAvail" disabled>
+                                        <th><input type="text" class="form-control" placeholder="Available?" disabled>
                                         </th>
                                     </tr>
                                 </thead>

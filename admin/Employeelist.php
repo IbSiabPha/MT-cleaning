@@ -154,11 +154,11 @@ $userRow = mysqli_fetch_array($res, MYSQLI_ASSOC);
                                 <thead>
                                     <tr class="filters">
                                         <!-- <th><input type="text" class="form-control" placeholder="PK" disabled></th> -->
-                                        <th><input type="text" class="form-control" placeholder="LastName" disabled>
+                                        <th><input type="text" class="form-control" placeholder="Last Name" disabled>
                                         </th>
-                                        <th><input type="text" class="form-control" placeholder="FirstName" disabled>
+                                        <th><input type="text" class="form-control" placeholder="First Name" disabled>
                                         </th>
-                                        <th><input type="text" class="form-control" placeholder="LoginID" disabled></th>
+                                        <th><input type="text" class="form-control" placeholder="Login ID" disabled></th>
                                         <th><input type="text" class="form-control" placeholder="Password" disabled>
                                         </th>
                                         <th><input type="text" class="form-control" placeholder="Email" disabled></th>

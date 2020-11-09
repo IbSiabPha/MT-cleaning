@@ -49,21 +49,13 @@ alert('Add fail. Please try again.');
     <meta name="description" content="">
     <meta name="author" content="">
     <title>Welcome <?php echo $userRow['adminFirstName']; ?></title>
-    <!-- Bootstrap Core CSS -->
-    <!-- <link href="assets/css/bootstrap.css" rel="stylesheet"> -->
     <link href="assets/css/material.css" rel="stylesheet">
-    <!-- Custom CSS -->
     <link href="assets/css/sb-admin.css" rel="stylesheet">
     <link href="assets/css/time/bootstrap-clockpicker.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
     <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet">
-    <!-- Special version of Bootstrap that only affects content wrapped in .bootstrap-iso -->
     <link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" />
-
-    <!--Font Awesome (added because you use icons in your prepend/append)-->
     <link rel="stylesheet" href="https://formden.com/static/cdn/font-awesome/4.4.0/css/font-awesome.min.css" />
-
-    <!-- Inline CSS based on choices in "Settings" tab -->
     <style>
     .bootstrap-iso .formden_header h2,
     .bootstrap-iso .formden_header p,
@@ -81,16 +73,13 @@ alert('Add fail. Please try again.');
         color: red;
     }
     </style>
-
     <!-- Custom Fonts -->
 </head>
 
 <body>
     <div id="wrapper">
-
         <!-- Navigation -->
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-            <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                     <span class="sr-only">Toggle navigation</span>
@@ -131,16 +120,13 @@ alert('Add fail. Please try again.');
                     <li>
                         <a href="Employeelist.php"><i class="fa fa-fw fa-edit"></i> Employee's </a>
                     </li>
-
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
         </nav>
         <!-- navigation end -->
-
         <div id="page-wrapper">
             <div class="container-fluid">
-
                 <!-- Page Heading -->
                 <div class="row">
                     <div class="col-lg-12">
@@ -194,7 +180,6 @@ alert('Add fail. Please try again.');
                                                         *
                                                     </span>
                                                 </label>
-
                                                 <div class="col-sm-10">
                                                     <div class="input-group clockpicker" data-align="top"
                                                         data-autoclose="true">
@@ -245,13 +230,31 @@ alert('Add fail. Please try again.');
                                                     </select>
                                                 </div>
                                             </div>
+                                            <div class="form-group form-group-lg">
+                                                <label class="control-label col-sm-2 requiredField" for="bookavail">
+                                                    Employee
+                                                    <span class="asteriskField">
+                                                        *
+                                                    </span>
+                                                </label>
+                                                <div class="col-sm-10">
+                                                    <select class="select form-control" id="employee" name="employee" required>
+                                                    <?php
+                                                    $result = mysqli_query($con, "SELECT * FROM employee");
+                                                    while ($userRow = mysqli_fetch_array($result)) {
+                                                        echo "<option value=\"employee\">" . $userRow['employeeFirstName'] . "</option>";
+                                                    }
+                                                    ?>
+                                                    </select>
+                                                </div>
+                                            </div>
                                             <div class="form-group">
                                                 <div class="col-sm-10 col-sm-offset-2">
                                                     <button class="btn btn-primary " name="submit" type="submit">
                                                         Submit
                                                     </button>
                                                 </div>
-                                            </div>
+                                                </ss=>
                                         </form>
                                     </div>
                                 </div>
@@ -262,10 +265,8 @@ alert('Add fail. Please try again.');
                     </div>
                 </div>
                 <!-- panel start -->
-
                 <!-- panel start -->
                 <div class="panel panel-primary filterable">
-
                     <!-- panel heading starat -->
                     <div class="panel-heading">
                         <h3 class="panel-title">List of Appointments</h3>
@@ -275,7 +276,6 @@ alert('Add fail. Please try again.');
                         </div>
                     </div>
                     <!-- panel heading end -->
-
                     <div class="panel-body">
                         <!-- panel content start -->
                         <!-- Table -->
@@ -291,15 +291,9 @@ alert('Add fail. Please try again.');
                                     <th><input type="text" class="form-control" placeholder="Delete" disabled></th>
                                 </tr>
                             </thead>
-
                             <?php
                             $result = mysqli_query($con, "SELECT * FROM adminschedule");
-
-
-
                             while ($adminschedule = mysqli_fetch_array($result)) {
-
-
                                 echo "<tbody>";
                                 echo "<tr>";
                                 echo "<td>" . $adminschedule['scheduleId'] . "</td>";
@@ -328,9 +322,6 @@ alert('Add fail. Please try again.');
             </div>
         </div>
         <!-- /#wrapper -->
-
-
-
         <!-- jQuery -->
         <script src="../add/assets/js/jquery.js"></script>
         <!-- Bootstrap Core JavaScript -->
@@ -344,7 +335,6 @@ alert('Add fail. Please try again.');
         </script>
         <link rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css" />
-
         <script>
         $(document).ready(function() {
             var date_input = $('input[name="date"]'); //our date input has the name "date"
@@ -399,7 +389,6 @@ alert('Add fail. Please try again.');
                     $tbody.find('tr').show();
                 }
             });
-
             $('.filterable .filters input').keyup(function(e) {
                 /* Ignore tab key */
                 var code = e.keyCode || e.which;
@@ -429,7 +418,6 @@ alert('Add fail. Please try again.');
             });
         });
         </script>
-
 </body>
 
 </html>

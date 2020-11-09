@@ -133,14 +133,11 @@ alert('Appointment booking fail. Please try again.');
                     <div class="col-md-3 col-sm-3">
 
                         <div class="user-wrapper">
-                            <img src="assets/img/1.jpg" class="img-responsive" />
+                            <img src="assets/img/person.png" class="img-responsive" />
                             <div class="description">
                                 <h4><?php echo $userRow['userFirstName']; ?> <?php echo $userRow['userLastName']; ?>
                                 </h4>
-                                <h5> <strong> Customer </strong></h5>
-                                <p>
-                                    Pellentesque elementum dapibus convallis.
-                                </p>
+                                <h5> <strong> MT Cleaning Member </strong></h5>
                                 <hr />
                                 <button type="button" class="btn btn-primary" data-toggle="modal"
                                     data-target="#myModal">Update Profile</button>

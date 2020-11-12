@@ -12,6 +12,7 @@ $userRow = mysqli_fetch_array($res, MYSQLI_ASSOC);
 
 
 if (isset($_POST['submit'])) {
+    $eUid = mysqli_real_escape_string($con, $_POST['employee']);
     $date = mysqli_real_escape_string($con, $_POST['date']);
     // $scheduleday=mysqli_real_escape_string($con,$_POST['scheduleday']);
     $starttime = mysqli_real_escape_string($con, $_POST['starttime']);
@@ -19,8 +20,8 @@ if (isset($_POST['submit'])) {
     $bookavail = mysqli_real_escape_string($con, $_POST['bookavail']);
 
     //INSERT
-    $query = " INSERT INTO adminschedule (scheduleDate, startTime, endTime,  bookAvail)
-VALUES ( '$date', '$starttime', '$endtime', '$bookavail' ) ";
+    $query = " INSERT INTO adminschedule (employeeId, scheduleDate, startTime, endTime,  bookAvail)
+    VALUES ( '$eUid', '$date', '$starttime', '$endtime', '$bookavail' ) ";
 
     $result = mysqli_query($con, $query);
     // echo $result;
@@ -242,7 +243,9 @@ alert('Add fail. Please try again.');
                                                     <?php
                                                     $result = mysqli_query($con, "SELECT * FROM employee");
                                                     while ($userRow = mysqli_fetch_array($result)) {
-                                                        echo "<option value=\"employee\">" . $userRow['employeeFirstName'] . "</option>";
+                                                        $name =  $userRow['employeeFirstName'];
+                                                        $uid = $userRow['employeeId'];
+                                                        echo "<option value= $uid >" . $name . "</option>";
                                                     }
                                                     ?>
                                                     </select>

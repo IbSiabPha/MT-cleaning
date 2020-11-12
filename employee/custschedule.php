@@ -171,12 +171,12 @@ alert('Add fail. Please try again.');
                                         </th>
                                         <th><input type="text" class="form-control" placeholder="End Time" disabled>
                                         </th>
-                                        <th><input type="text" class="form-control" placeholder="Available?" disabled>
+                                        <th><input type="text" class="form-control" placeholder="Available" disabled>
                                         </th>
                                     </tr>
                                 </thead>
                                 <?php
-                                $result = mysqli_query($con, "SELECT * FROM adminschedule");
+                                $result = mysqli_query($con, "SELECT * FROM adminschedule where employeeId ='$usersession' ");
                                 while ($adminschedule = mysqli_fetch_array($result)) {
                                     echo "<tbody>";
                                     echo "<tr>";

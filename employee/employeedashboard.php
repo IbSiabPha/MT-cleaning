@@ -106,7 +106,7 @@ $userRow = mysqli_fetch_array($res, MYSQLI_ASSOC);
                                     <th><input type="text" class="form-control" placeholder="Name" disabled></th>
                                     <th><input type="text" class="form-control" placeholder="Contact No." disabled></th>
                                     <th><input type="text" class="form-control" placeholder="Email" disabled></th>
-                                    <th><input type="text" class="form-control" placeholder="Day" disabled></th>
+                                    <!-- <th><input type="text" class="form-control" placeholder="Day" disabled></th> -->
                                     <th><input type="text" class="form-control" placeholder="Date" disabled></th>
                                     <th><input type="text" class="form-control" placeholder="Start" disabled></th>
                                     <th><input type="text" class="form-control" placeholder="End" disabled></th>
@@ -143,7 +143,7 @@ $userRow = mysqli_fetch_array($res, MYSQLI_ASSOC);
                                 echo "<td>" . $appointment['userLastName'] . "</td>";
                                 echo "<td>" . $appointment['userPhone'] . "</td>";
                                 echo "<td>" . $appointment['userEmail'] . "</td>";
-                                echo "<td>" . $appointment['scheduleDay'] . "</td>";
+                                // echo "<td>" . $appointment['scheduleDay'] . "</td>";
                                 echo "<td>" . $appointment['scheduleDate'] . "</td>";
                                 echo "<td>" . $appointment['startTime'] . "</td>";
                                 echo "<td>" . $appointment['endTime'] . "</td>";

@@ -119,7 +119,7 @@ $userRow = mysqli_fetch_array($res, MYSQLI_ASSOC);
                             } elseif ($_GET['error'] == 'passwordcheck') {
                                 echo "<p class='errorMsg'>password mismatch</p>";
                             } elseif ($_GET['error'] == 'usertaken') {
-                                echo "<p class='errorMsg'>User name taken</p>";
+                                echo "<p class='errorMsg'>Login ID Taken</p>";
                             }
                         }
                         if (isset($_GET['signup'])) {

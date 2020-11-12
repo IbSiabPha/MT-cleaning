@@ -44,13 +44,6 @@ adminEmail varchar(20) NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 INSERT INTO admin1(password, adminId, adminFirstName, adminEmail)
 VALUES('123', 123, 'Admin', 'admin@mtcleaning.com');
 
-CREATE TABLE adminschedule(
-scheduleId int NOT NULL AUTO_INCREMENT PRIMARY KEY,
-scheduleDate date NOT NULL,
-scheduleDay varchar(15) NOT NULL,
-startTime time NOT NULL,
-endTime time NOT NULL,
-bookAvail varchar(10) NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE appointment(
 appId int NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -68,6 +61,13 @@ email TINYTEXT NOT NULL,
 employeeFirstName varchar (20) NOT NULL,
 employeeLastName varchar (20) NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- INSERT INTO employee(password, employeeId, employeeFirstName, employeeLastName) 
--- VALUES ('456', '456', 'Employee', 'Employee');
+CREATE TABLE adminschedule(
+scheduleId int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+employeeId int (3) NOT NULL,
+scheduleDate date NOT NULL,
+startTime time NOT NULL,
+endTime time NOT NULL,
+bookAvail varchar(10) NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
 

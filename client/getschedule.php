@@ -55,7 +55,7 @@ if (!$res) {
                 // $btnstate="";
                 // }
                 echo "<td>" . $row['scheduleId'] . "</td>";
-                echo "<td>" . $row['scheduleDay'] . "</td>";
+                // echo "<td>" . $row['scheduleDay'] . "</td>";
                 echo "<td>" . $row['scheduleDate'] . "</td>";
                 echo "<td>" . $row['startTime'] . "</td>";
                 echo "<td>" . $row['endTime'] . "</td>";

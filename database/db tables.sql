@@ -1,39 +1,3 @@
-create table elevated(
-user_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, 
-user_name TINYTEXT NOT NULL, 
-pwd LONGTEXT NOT NULL
-);
-
-create table ratings(
-post_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, 	
-name TINYTEXT NOT NULL,
-subject TINYTEXT NOT NULL,
-comments TEXT NOT NULL,
-rateNumber INT NOT NULL,
-date DATE
-);
-
-create table user_login(
-users_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, 
-name TINYTEXT NOT NULL,
-subject TINYTEXT NOT NULL,
-comments TEXT NOT NULL,
-rateNumber INT NOT NULL,
-date date
-);
-
-
-CREATE table profile(
-pro_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, 
-users_id INT NOT NULL, FOREIGN KEY (users_id) REFERENCES user_login(users_id),
-age INT NOT NULL, 
-job TINYTEXT NOT NULL, 
-about TEXT NOT NULL, 
-image LONGTEXT NOT NULL
-);
-<--------------------------------499 below------------------------------------------------>
-for another project test......
-
 CREATE TABLE admin1(
 idAdmin bigint(12) NOT NULL AUTO_INCREMENT PRIMARY KEY, 
 password varchar(20) NOT NULL, 
@@ -70,4 +34,17 @@ endTime time NOT NULL,
 bookAvail varchar(10) NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
+CREATE TABLE client1 (
+    idUser BIGINT(12) NOT NULL,
+    password VARCHAR(20) NOT NULL,
+    userFirstName VARCHAR(20) NOT NULL,
+    userLastName VARCHAR(20) NOT NULL,
+    userDOB DATE NOT NULL,
+    userGender VARCHAR(10) NOT NULL,
+    userAddress VARCHAR(100) NOT NULL,
+    userPhone VARCHAR(15) NOT NULL,
+    userEmail VARCHAR(100) NOT NULL
+);
 
+INSERT INTO client1 (idUser, password, userFirstName, userLastName, userDOB, userGender, userAddress, userPhone, userEmail) 
+VALUES (0, '1234', 'Jack', 'Sparrow', '1980-01-24', 'male', '897 Pirates Ave', '651-900-6547', 'jsparrow@gmail.com');

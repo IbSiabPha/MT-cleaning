@@ -158,7 +158,7 @@ if (isset($_POST['submit'])) {
                                                                 </tr>
                                                                 <tr>
                                                                     <td>Email</td>
-                                                                    <td><?php echo $userRow['employeeEmail']; ?>
+                                                                    <td><?php echo $userRow['email']; ?>
                                                                     </td>
                                                                 </tr>
                                                             </tbody>

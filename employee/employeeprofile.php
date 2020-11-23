@@ -86,10 +86,13 @@ if (isset($_POST['submit'])) {
                     </li>
                     <li>
                         <a href="custschedule.php"><i class="fa fa-fw fa-table"></i> Appointment Schedule</a>
-                    </li>
+                    
+					</li>
+					<!--
                     <li>
                         <a href="clientlist.php"><i class="fa fa-fw fa-edit"></i> Client List</a>
                     </li>
+					-->
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

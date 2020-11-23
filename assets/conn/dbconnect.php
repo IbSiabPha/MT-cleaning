@@ -45,7 +45,7 @@
 //   }
 ?>
 <?php
-$con = mysqli_connect("localhost","root","","db_cleaning");
+$con = mysqli_connect("localhost","root","","db tables");
 
 // Check connection
 if (mysqli_connect_errno())

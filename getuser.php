@@ -34,7 +34,7 @@ if (!$res) {
         echo "   <table class='table table-hover'>";
         echo " <thead>";
         echo " <tr>";
-        echo " <th>Day</th>";
+        // echo " <th>Day</th>";
         echo " <th>Date</th>";
         echo "  <th>Start</th>";
         echo "  <th>End</th>";
@@ -56,7 +56,7 @@ if (!$res) {
                 } else {
                     $avail = "primary";
                 }
-                echo "<td>" . $row['scheduleDay'] . "</td>";
+                // echo "<td>" . $row['scheduleDay'] . "</td>";
                 echo "<td>" . $row['scheduleDate'] . "</td>";
                 echo "<td>" . $row['startTime'] . "</td>";
                 echo "<td>" . $row['endTime'] . "</td>";
